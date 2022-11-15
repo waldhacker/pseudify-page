@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="CQgiA7E" resname="Language navigation">
+        <source>Language navigation</source>
+        <target>Sprachnavigation</target>
+      </trans-unit>
+      <trans-unit id="CpmXIcU" resname="Pseudonymize your">
+        <source>Pseudonymize your</source>
+        <target>Pseudonymisiere Deine</target>
+      </trans-unit>
+      <trans-unit id="_n.mcST" resname="Database">
+        <source>Database</source>
+        <target>Datenbank</target>
+      </trans-unit>
+      <trans-unit id="ofWpZ3W" resname="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.">
+        <source>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</source>
+        <target>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</target>
+      </trans-unit>
+      <trans-unit id="Vpykn0q" resname="Install">
+        <source>Install</source>
+        <target>Installieren</target>
+      </trans-unit>
+      <trans-unit id="wgWSTeD" resname="Documentation">
+        <source>Documentation</source>
+        <target>Dokumentation</target>
+      </trans-unit>
+      <trans-unit id="3RTLvw5" resname="Lorem ipsum dolor sit amet.">
+        <source>Lorem ipsum dolor sit amet.</source>
+        <target>Lorem ipsum dolor sit amet.</target>
+      </trans-unit>
+      <trans-unit id="EX9HAA9" resname="Pseudonymize">
+        <source>Pseudonymize</source>
+        <target>Pseudonymisiere</target>
+      </trans-unit>
+      <trans-unit id="RNgdweM" resname="* Lorem ipsum dolor sit amet.">
+        <source>* Lorem ipsum dolor sit amet.</source>
+        <target>* Lorem ipsum dolor sit amet.</target>
+      </trans-unit>
+      <trans-unit id="G3_EZvC" resname="Lorem">
+        <source>Lorem</source>
+        <target>Lorem</target>
+      </trans-unit>
+      <trans-unit id="FqulOTr" resname="Lorem ipsum dolor sit amet">
+        <source>Lorem ipsum dolor sit amet</source>
+        <target>Lorem ipsum dolor sit amet</target>
+      </trans-unit>
+      <trans-unit id="j.Rnwuq" resname="consetetur sadipscing elitr">
+        <source>consetetur sadipscing elitr</source>
+        <target>consetetur sadipscing elitr</target>
+      </trans-unit>
+      <trans-unit id="WBb3zPF" resname="Ipsum">
+        <source>Ipsum</source>
+        <target>Ipsum</target>
+      </trans-unit>
+      <trans-unit id="MMlpSgq" resname="Dolor">
+        <source>Dolor</source>
+        <target>Dolor</target>
+      </trans-unit>
+      <trans-unit id="032YKUt" resname="Sit amet">
+        <source>Sit amet</source>
+        <target>Sit amet</target>
+      </trans-unit>
+      <trans-unit id="Wh4F3Vt" resname="All in one solution">
+        <source>All in one solution</source>
+        <target>Alles in einer Lösung</target>
+      </trans-unit>
+      <trans-unit id=".2QOPrL" resname="Lorem ipsum dolor sit amet, consetetur sadipscing elitr.">
+        <source>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</source>
+        <target>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</target>
+      </trans-unit>
+      <trans-unit id="qaZpePN" resname="Lorem ipsum">
+        <source>Lorem ipsum</source>
+        <target>Lorem ipsum</target>
+      </trans-unit>
+      <trans-unit id="gz6U_Y_" resname="Dolor sit amet">
+        <source>Dolor sit amet</source>
+        <target>Dolor sit amet</target>
+      </trans-unit>
+      <trans-unit id="aNzZcg4" resname="Consetetur">
+        <source>Consetetur</source>
+        <target>Consetetur</target>
+      </trans-unit>
+      <trans-unit id="L.JEBlJ" resname="Consetetur sadipscing">
+        <source>Consetetur sadipscing</source>
+        <target>Consetetur sadipscing</target>
+      </trans-unit>
+      <trans-unit id="Q4_8ta2" resname="Sponsored by">
+        <source>Sponsored by</source>
+        <target>Gefördert durch</target>
+      </trans-unit>
+      <trans-unit id="PWPJYzW" resname="Bundesministerium für Bildung und Forschung">
+        <source>Bundesministerium für Bildung und Forschung</source>
+        <target>Bundesministerium für Bildung und Forschung</target>
+      </trans-unit>
+      <trans-unit id="1ncZDgq" resname="Service">
+        <source>Service</source>
+        <target>Service</target>
+      </trans-unit>
+      <trans-unit id="ZmBn3Td" resname="Issues">
+        <source>Issues</source>
+        <target>Issues</target>
+      </trans-unit>
+      <trans-unit id="_RHkFM9" resname="GitHub">
+        <source>GitHub</source>
+        <target>GitHub</target>
+      </trans-unit>
+      <trans-unit id="R4fq98k" resname="Legal">
+        <source>Legal</source>
+        <target>Rechtliches</target>
+      </trans-unit>
+      <trans-unit id="0ZjtMNC" resname="Imprint">
+        <source>Imprint</source>
+        <target>Impressum</target>
+      </trans-unit>
+      <trans-unit id="ytW.Kcc" resname="Analyze">
+        <source>Analyze</source>
+        <target>Analysiere</target>
+      </trans-unit>
+      <trans-unit id="UwB3Lju" resname="Modeling">
+        <source>Modeling</source>
+        <target>Modelliere</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,56 @@
+site_name: pseudify.me
+site_url: https://www.pseudify.me/docs/0.1/
+repo_url: https://github.com/waldhacker/pseudify-page/
+repo_name: GitHub
+edit_uri: 'edit/main/src/documentation/docs/'
+site_description: pseudify
+site_author: waldhacker UG (haftungsbeschränkt)
+copyright: waldhacker UG (haftungsbeschränkt)
+site_dir: '../public/docs/0.1/'
+theme:
+    name: readthedocs
+    locale: en
+    #logo: '/assets/img/Logo.svg'
+    custom_dir: theme_overrides
+    current_version: 0.1
+markdown_extensions:
+    - attr_list
+plugins:
+    - search
+    - i18n:
+        default_language: en
+        languages:
+            en:
+                name: EN
+                build: false
+            de:
+                name: DE
+                build: true
+        nav_translations:
+          de:
+            'Introduction': 'Einführung'
+            'Overview': 'Überblick'
+            'Configuration': 'Konfiguration'
+            'Usage': 'Anwendung'
+            'Components': 'Komponenten'
+            'Analyze the database': 'Analysiere die Datenbank'
+            'Pseudonymize the database': 'Pseudonymisiere die Datenbank'
+            'Miscellaneous': 'Sonstiges'
+            'Versions': 'Versionen'
+            'License': 'Lizenz'
+            'About': 'Über'
+nav:
+    - 'Introduction':
+        - 'Overview': 'index.md'
+        - 'Concept': 'concept.md'
+    - 'Setup':
+        - 'Installation': 'setup/installation.md'
+        - 'Configuration': 'setup/configuration.md'
+    - 'Usage':
+        - 'Components': 'usage/components.md'
+        - 'Analyze the database': 'usage/analyze.md'
+        - 'Pseudonymize the database': 'usage/pseudonymize.md'
+    - 'Miscellaneous':
+        - 'Versions': 'versions.md'
+        - 'License': 'license.md'
+        - 'About': 'about.md'

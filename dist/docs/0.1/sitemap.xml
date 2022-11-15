@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/about/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/about/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/about/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/concept/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/concept/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/concept/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/license/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/license/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/license/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/versions/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/versions/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/versions/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/setup/configuration/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/setup/configuration/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/setup/configuration/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/setup/installation/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/setup/installation/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/setup/installation/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/usage/analyze/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/usage/analyze/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/usage/analyze/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/usage/components/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/usage/components/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/usage/components/"/>
+         
+    </url>
+    <url>
+         <loc>https://www.pseudify.me/docs/latest/usage/pseudonymize/</loc>
+         <lastmod>2022-11-18</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/latest/usage/pseudonymize/"/>
+         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/latest/de/usage/pseudonymize/"/>
+         
+    </url>
+</urlset>
