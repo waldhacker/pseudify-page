@@ -38,7 +38,7 @@ plugins:
             'Miscellaneous': 'Sonstiges'
             'Versions': 'Versionen'
             'License': 'Lizenz'
-            'About': 'Über'
+            'About the project': 'Über das Projekt'
 nav:
     - 'Introduction':
         - 'Overview': 'index.md'
@@ -53,4 +53,4 @@ nav:
     - 'Miscellaneous':
         - 'Versions': 'versions.md'
         - 'License': 'license.md'
-        - 'About': 'about.md'
+        - 'About the project': 'about.md'

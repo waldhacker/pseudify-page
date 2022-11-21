@@ -1,4 +1,4 @@
 # Versions
 
-* [latest](../../latest/)
-* [0.1](../../../0.1/de/)
+* [latest - Documentation](../../latest/)
+* [0.1 - Documentation](../../../0.1/de/)
