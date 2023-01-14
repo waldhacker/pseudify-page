@@ -1,0 +1,6 @@
+src/bin/*
+!src/bin/console
+src/public/assets/build/
+src/public/docs/
+!src/public/docs/index.html
+!src/public/docs/de/

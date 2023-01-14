@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{{ locale.two_letter }}">
+  <head>
+    <script async="async" defer="defer" data-domain="pseudify.me" src="https://anna.pseudify.me/js/plausible.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:locale" content="{{ locale.full }}" />
+    <meta property="og:site_name" content="Pseudify" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.pseudify.me/" />
+    <meta property="og:image" content="https://www.pseudify.me/assets/img/Logo.svg" />
+    <meta property="og:title" content="Pseudify" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="compatible" content="IE=edge" />
+    <meta http-equiv="last-modified" content="{{ last_modified }}">
+
+    {% block stylesheets %} {{ encore_entry_link_tags('app') }} {% endblock %}
+
+    <link rel="shortcut icon" href="/assets/icons/browser-icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon-48x48.ico" type="image/vnd.microsoft.icon">
+    <link rel="icon" href="/assets/icons/browser-icons/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/icons/browser-icons/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/icons/browser-icons/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="mask-icon" href="/assets/icons/browser-icons/safari-pinned-tab-933x933.svg" color="#ffffff">
+
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="canonical" href="https://www.pseudify.me/"/>
+
+    <script type="application/ld+json" id="ext-schema-jsonld">
+      {
+        "@context": "https://schema.org/",
+        "@type": "WebPage",
+        "@id": "https://www.pseudify.me/#webpage",
+        "author": {
+          "@type": "Person"
+        },
+        "dateModified": "{{ last_modified }}",
+        "inLanguage": "{{ locale.json_ld }}",
+        "mainContentOfPage": {
+          "@type": "WebPageElement",
+          "cssSelector": "#main"
+        },
+        "name": "{{ block('title') }}",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://www.pseudify.me/#organization",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Deutschland",
+            "addressLocality": "Jena",
+            "name": "waldhacker UG (haftungsbeschränkt)",
+            "postalCode":"07745",
+            "streetAddress":"Westbahnhofstr. 13"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "helloe@pseudify.me"
+          },
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.pseudify.me/img/Logo.svg"
+          },
+          "name": "Pseudify",
+          "sameAs": [
+            "https://github.com/waldhacker/pseudify/"
+          ],
+          "url": "https://www.pseudify.me/"
+        },
+        "url":"https://www.pseudify.me/"
+      }
+    </script>
+
+    <title>{{ block('title') }}</title>
+  </head>
+  <body class="bg-light">
+    {% block body %}{% endblock %}
+    {% block javascripts %} {{ encore_entry_script_tags('app') }} {% endblock %}
+  </body>
+</html>

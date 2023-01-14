@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="CQgiA7E" resname="Language navigation">
+        <source>Language navigation</source>
+        <target>Sprachnavigation</target>
+      </trans-unit>
+      <trans-unit id="CpmXIcU" resname="Pseudonymize your">
+        <source>Pseudonymize your</source>
+        <target>Pseudonymisiere Deine</target>
+      </trans-unit>
+      <trans-unit id="_n.mcST" resname="Database">
+        <source>Database</source>
+        <target>Datenbank</target>
+      </trans-unit>
+      <trans-unit id="Vpykn0q" resname="Install">
+        <source>Install</source>
+        <target>Installieren</target>
+      </trans-unit>
+      <trans-unit id="wgWSTeD" resname="Documentation">
+        <source>Documentation</source>
+        <target>Dokumentation</target>
+      </trans-unit>
+      <trans-unit id="EX9HAA9" resname="Pseudonymize">
+        <source>Pseudonymize</source>
+        <target>Pseudonymisiere</target>
+      </trans-unit>
+      <trans-unit id="Wh4F3Vt" resname="All in one solution">
+        <source>All in one solution</source>
+        <target>Alles in einer Lösung</target>
+      </trans-unit>
+      <trans-unit id="dXrvQII" resname="Your pseudonymization toolbox">
+        <source>Your pseudonymization toolbox</source>
+        <target>Dein Werkzeugkasten zur Pseudonymisierung</target>
+      </trans-unit>
+      <trans-unit id="Q4_8ta2" resname="Sponsored by">
+        <source>Sponsored by</source>
+        <target>Gefördert durch</target>
+      </trans-unit>
+      <trans-unit id="PWPJYzW" resname="Bundesministerium für Bildung und Forschung">
+        <source>Bundesministerium für Bildung und Forschung</source>
+        <target>Bundesministerium für Bildung und Forschung</target>
+      </trans-unit>
+      <trans-unit id="1ncZDgq" resname="Service">
+        <source>Service</source>
+        <target>Service</target>
+      </trans-unit>
+      <trans-unit id="ZmBn3Td" resname="Issues">
+        <source>Issues</source>
+        <target>Issues</target>
+      </trans-unit>
+      <trans-unit id="_RHkFM9" resname="GitHub">
+        <source>GitHub</source>
+        <target>GitHub</target>
+      </trans-unit>
+      <trans-unit id="R4fq98k" resname="Legal">
+        <source>Legal</source>
+        <target>Rechtliches</target>
+      </trans-unit>
+      <trans-unit id="0ZjtMNC" resname="Imprint">
+        <source>Imprint</source>
+        <target>Impressum</target>
+      </trans-unit>
+      <trans-unit id="ytW.Kcc" resname="Analyze">
+        <source>Analyze</source>
+        <target>Analysiere</target>
+      </trans-unit>
+      <trans-unit id="UwB3Lju" resname="Modeling">
+        <source>Modeling</source>
+        <target>Modelliere</target>
+      </trans-unit>
+      <trans-unit id="J0rCrRZ" resname="Pseudify logo">
+        <source>Pseudify logo</source>
+        <target>Pseudify logo</target>
+      </trans-unit>
+      <trans-unit id="bz2G.dh" resname="Protect your data and the data of others. Pseudonymize your databases before exporting them to other systems. Pseudify helps you with this task.">
+        <source>Protect your data and the data of others. Pseudonymize your databases before exporting them to other systems. Pseudify helps you with this task.</source>
+        <target>Schütze Deine Daten und die Daten anderer. Pseudonymisiere Deine Datenbanken, bevor Du sie in andere Systeme exportierst. Pseudify hilft Dir bei dieser Aufgabe.</target>
+      </trans-unit>
+      <trans-unit id="e2apQD1" resname="Supported by">
+        <source>Supported by</source>
+        <target>Gefördert durch</target>
+      </trans-unit>
+      <trans-unit id="uUwWBb7" resname="Prototype Fund">
+        <source>Prototype Fund</source>
+        <target>Prototype Fund</target>
+      </trans-unit>
+      <trans-unit id="5jojdI8" resname="Open Knowledge Foundation Deutschland e.V.">
+        <source>Open Knowledge Foundation Deutschland e.V.</source>
+        <target>Open Knowledge Foundation Deutschland e.V.</target>
+      </trans-unit>
+      <trans-unit id="vlwGw6U" resname="3 steps to more data privacy">
+        <source>3 steps to more data privacy</source>
+        <target>In 3 Schritten zu mehr Datenschutz</target>
+      </trans-unit>
+      <trans-unit id="sCwpobH" resname="Easy to use">
+        <source>Easy to use</source>
+        <target>Einfache Handhabung</target>
+      </trans-unit>
+      <trans-unit id="UYsQSgo" resname="Pseudify brings you to pseudonymized databases in 3 comfortable steps. Pseudify helps you to find and pseudonymize hidden personal data, even and especially in complex and encoded data structures.">
+        <source>Pseudify brings you to pseudonymized databases in 3 comfortable steps. Pseudify helps you to find and pseudonymize hidden personal data, even and especially in complex and encoded data structures.</source>
+        <target>Pseudify bringt Dich in 3 komfortablen Schritten zu pseudonymisierten Datenbanken. Pseudify hilft Dir, versteckte personenbezogene Daten zu finden und zu pseudonymisieren, auch und gerade in komplexen und enkodierten Datenstrukturen.</target>
+      </trans-unit>
+      <trans-unit id="dk9.AI5" resname="Model profiles for any application">
+        <source>Model profiles for any application</source>
+        <target>Modelliere Profile für beliebige Applikation</target>
+      </trans-unit>
+      <trans-unit id="nXn6DSE" resname="These profiles allow you to search your entire database for data you define. The profiles allow you to search in encoded database columns like hexadecimal encoded data and in complex data structures like JSON or serialized PHP data.">
+        <source>These profiles allow you to search your entire database for data you define. The profiles allow you to search in encoded database columns like hexadecimal encoded data and in complex data structures like JSON or serialized PHP data.</source>
+        <target>Mit diesen Profilen kannst Du Deine gesamte Datenbank nach von Dir definierten Daten durchsuchen. Die Profile ermöglichen Dir die Suche in kodierten Datenbankspalten, z.B. in hexadezimal kodierte Daten und in komplexen Datenstrukturen, z.B. in JSON oder serialisierten PHP-Daten.</target>
+      </trans-unit>
+      <trans-unit id="984CsoW" resname="The analysis and pseudonymization profiles can be modeled with a &quot;fluent interface&quot;. Define the encodings of the database columns and, in complex cases, your own logics to obtain the plaintext of the database columns to analyze or pseudonymize.">
+        <source>The analysis and pseudonymization profiles can be modeled with a "fluent interface". Define the encodings of the database columns and, in complex cases, your own logics to obtain the plaintext of the database columns to analyze or pseudonymize.</source>
+        <target>Die Analyse- und Pseudonymisierungsprofile können mit einer "sprechenden Schnittstelle" modelliert werden. Definiere die Kodierungen der Datenbankspalten und, in komplexen Fällen, Deine eigenen Logiken, um den Klartext der Datenbankspalten zu erhalten, um ihn zu analysieren oder zu pseudonymisieren.</target>
+      </trans-unit>
+      <trans-unit id="OnU43uA" resname="These profiles allow you to pseudonymize the data specifically. User names still look like user names after pseudonymization, e-mail addresses still look like e-mail addresses afterwards. Identical input data generates identical pseudonyms. Also pseudonymize data in complex data structures like JSON or serialized PHP data.">
+        <source>These profiles allow you to pseudonymize the data specifically. User names still look like user names after pseudonymization, e-mail addresses still look like e-mail addresses afterwards. Identical input data generates identical pseudonyms. Also pseudonymize data in complex data structures like JSON or serialized PHP data.</source>
+        <target>Diese Profile ermöglichen es Dir, die Daten gezielt zu pseudonymisieren. Benutzernamen sehen nach der Pseudonymisierung immer noch wie Benutzernamen aus, E-Mail-Adressen sehen danach immer noch wie E-Mail-Adressen aus. Gleiche Eingabedaten erzeugen gleiche Pseudonyme. Pseudonymisiere auch Daten in komplexen Datenstrukturen wie JSON oder serialisierte PHP-Daten.</target>
+      </trans-unit>
+      <trans-unit id="GoGmDLe" resname="The application must use a supported database.">
+        <source>The application must use a supported database.</source>
+        <target>Die Applikation muss eine unterstützte Datenbank verwenden.</target>
+      </trans-unit>
+      <trans-unit id="i28bUFq" resname="CI ready">
+        <source>CI ready</source>
+        <target>CI ready</target>
+      </trans-unit>
+      <trans-unit id="KR_gZB2" resname="From devops">
+        <source>From devops</source>
+        <target>Von DevOps</target>
+      </trans-unit>
+      <trans-unit id="3gRXa7x" resname="for devops">
+        <source>for devops</source>
+        <target>für DevOps</target>
+      </trans-unit>
+      <trans-unit id="vfi1K7N" resname="Pseudify is ideal for use in virtualized environments with Docker. Many database drivers are already installed in the Pseudify Docker container, allowing quick integration into your CI system.">
+        <source>Pseudify is ideal for use in virtualized environments with Docker. Many database drivers are already installed in the Pseudify Docker container, allowing quick integration into your CI system.</source>
+        <target>Pseudify ist ideal für den Einsatz in virtualisierten Umgebungen mit Docker. Viele Datenbanktreiber sind bereits im Pseudify Docker Container installiert, so dass eine schnelle Integration in Dein CI-System möglich ist.</target>
+      </trans-unit>
+      <trans-unit id="8RfgLHb" resname="Everything from database drivers to fakedata generators is included.">
+        <source>Everything from database drivers to fakedata generators is included.</source>
+        <target>Vom Datenbanktreiber bis zum Fakedatengenerator ist alles enthalten.</target>
+      </trans-unit>
+      <trans-unit id="ceNu7hm" resname="Extensibility">
+        <source>Extensibility</source>
+        <target>Erweiterbarkeit</target>
+      </trans-unit>
+      <trans-unit id="0ENCfvp" resname="Application agnostic">
+        <source>Application agnostic</source>
+        <target>Applikationsagnostisch</target>
+      </trans-unit>
+      <trans-unit id="gZbdoFF" resname="Large range of functions">
+        <source>Large range of functions</source>
+        <target>Großer Funktionsumfang</target>
+      </trans-unit>
+      <trans-unit id=".bYn77h" resname="Open Source">
+        <source>Open Source</source>
+        <target>Open Source</target>
+      </trans-unit>
+      <trans-unit id="6.QEQKB" resname="Free to use">
+        <source>Free to use</source>
+        <target>Frei verwendbar</target>
+      </trans-unit>
+      <trans-unit id="51_ewGo" resname="100% Open Source">
+        <source>100% Open Source</source>
+        <target>100% Open Source</target>
+      </trans-unit>
+      <trans-unit id="OWtHu8j" resname="No license costs">
+        <source>No license costs</source>
+        <target>Keine Lizenzkosten</target>
+      </trans-unit>
+      <trans-unit id=".0lBE0d" resname="Self hosted">
+        <source>Self hosted</source>
+        <target>Selbst gehostet</target>
+      </trans-unit>
+      <trans-unit id="NgDn80I" resname="Community-driven">
+        <source>Community-driven</source>
+        <target>Community-driven</target>
+      </trans-unit>
+      <trans-unit id="uARFtcu" resname="100+ fake data formats">
+        <source>100+ fake data formats</source>
+        <target>100+ Fake-Datenformate</target>
+      </trans-unit>
+      <trans-unit id="u2LwlWI" resname="7+ supported database platforms">
+        <source>7+ supported database platforms</source>
+        <target>7+ unterstützte Datenbanken</target>
+      </trans-unit>
+      <trans-unit id="wUM2bT_" resname="12+ data encoders">
+        <source>12+ data encoders</source>
+        <target>12+ Datenenkodierer</target>
+      </trans-unit>
+      <trans-unit id="8JSvoYT" resname="Ready to use Docker container">
+        <source>Ready to use Docker container</source>
+        <target>Ready to use Docker container</target>
+      </trans-unit>
+      <trans-unit id="pyJhJGa" resname="extensible fake data formats">
+        <source>extensible fake data formats</source>
+        <target>erweiterbare Fake-Datenformate</target>
+      </trans-unit>
+      <trans-unit id="I0bbihV" resname="extensible data encoder">
+        <source>extensible data encoder</source>
+        <target>erweiterbare Datenkodierer</target>
+      </trans-unit>
+      <trans-unit id="QMm3hel" resname="extensible database types">
+        <source>extensible database types</source>
+        <target>erweiterbare Datenbanktypen</target>
+      </trans-unit>
+      <trans-unit id="fZ63rLE" resname="Close">
+        <source>Close</source>
+        <target>Schließen</target>
+      </trans-unit>
+      <trans-unit id="KE1espr" resname="Data privacy">
+        <source>Data privacy</source>
+        <target>Datenschutz</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/0.1/de/usage/complexDatatypes/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Komplexe Datentypen - pseudify.me</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Komplexe Datentypen";
+        var mkdocs_page_input_path = "usage/complexDatatypes.de.md";
+        var mkdocs_page_url = "/docs/0.1/de/usage/complexDatatypes/";
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+  <script async="async" defer="defer" data-domain="pseudify.me" src="https://anna.pseudify.me/js/plausible.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../" class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Einführung</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Überblick</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/configuration/">Konfiguration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Anwendung</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../analyze/">Analysiere die Datenbank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pseudonymize/">Pseudonymisiere die Datenbank</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Komplexe Datentypen</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#php-serialisierte-daten-verarbeiten">PHP - serialisierte Daten verarbeiten</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lasst-uns-ein-paar-beispiele-anschauen">Lasst uns ein paar Beispiele anschauen</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#integer">Integer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#float">Float</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#null">NULL</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#string">String</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#arrays">Arrays</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#objekte">Objekte</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#daten-erzeugen-manipulieren">Daten erzeugen / manipulieren</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#skalare-werte">Skalare Werte</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#integer_1">Integer</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#float_1">Float</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#boolean_1">Boolean</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#null_1">Null</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#string_1">String</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#arrays_1">Arrays</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#get-the-node-value-for-array-key-0">get the node value for array key 0</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#get-the-node-value-for-array-key-key2">get the node value for array key 'key2'</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#get-all-array-keys-of-the-first-array-level">get all array keys of the first array level</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#replace-value1-key-0-with-new-value">replace 'value1' (key 0) with 'new value'</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#replace-value4-key-key3-key4-with-newer-value">replace 'value4' (key 'key3' =&gt; 'key4') with 'newer value'</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#objekte_1">Objekte</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#get-the-node-value-for-class-member-privatemember-value1">get the node value for class member 'privateMember' ('value1')</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#get-the-node-value-for-class-member-protectedmember-value2">get the node value for class member 'protectedMember' ('value2')</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#get-the-node-value-for-class-member-publicmember-value3">get the node value for class member 'publicMember' ('value3')</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#get-all-direct-class-member-names">get all (direct) class member names</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#replace-value3-publicmember-with-newer-value">replace 'value3' ('publicMember') with 'newer value'</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../predefinedApplicationProfiles/">Vordefinierte Applikationsprofile</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sonstiges</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">Was sollte pseudonymisiert werden?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../development/">Entwicklung</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../versions/">Versionen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../license/">Lizenz</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Über das Projekt</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div  style="display:flex; justify-content:right;" role="navigation" aria-label="languages navigation">
+  <i class="fa fa-globe" style="margin-right:5px;" aria-hidden="true"></i>
+  
+    
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/0.1/">EN</a></div>
+    
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/0.1/de/">DE</a></div>
+    
+  
+</div>
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Anwendung &raquo;</li>
+      <li>Komplexe Datentypen</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/usage/complexDatatypes.de.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="komplexe-datentypen">Komplexe Datentypen</h1>
+<h2 id="php-serialisierte-daten-verarbeiten">PHP - serialisierte Daten verarbeiten</h2>
+<p>PHP Datenstrukturen lassen sich mittels der Funktion <a href="https://www.php.net/manual/de/function.serialize.php"><code>serialize()</code></a> in eine speicherbare Repräsentation transformieren.  </p>
+<p>Ein PHP Array kann serialisiert werden, um es z.B. in der Datenbank abzuspeichern.</p>
+<pre class="highlight"><code class="language-php">$array = [
+    'key1' =&gt; 'value1',
+    'key2' =&gt; 'value2',
+];
+
+echo serialize($array);
+
+// output: a:2:{s:4:"key1";s:6:"value1";s:4:"key2";s:6:"value2";}</code></pre>
+<p>Diese Datenstruktur kann später mit der Funktion <a href="https://www.php.net/manual/de/function.unserialize.php"><code>unserialize()</code></a> wieder in eine PHP Datenstruktur umgewandelt werden.  <br />
+Eine Beschreibung des Datenformats findet man <a href="https://github.com/php/php-src/blob/7936c8085e7521252214cad295775794dc7be25c/ext/standard/var.c#L992">im PHP Quellcode</a> und teilweise in der <a href="https://www.phpinternalsbook.com/php5/classes_objects/serialization.html">PHP Dokumentation</a>.</p>
+<p>Während die Arbeit mit einfachen Datenstrukturen wie Strings oder Arrays für pseudify recht einfach wäre, so wird die Arbeit mit serialisierten PHP Objekten schwieriger.  </p>
+<pre class="highlight"><code class="language-php">use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
+echo serialize(new SimpleObject('baz1', 'baz2', 'baz3'));
+
+// output: O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"\x00Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject\x00privateMember";s:4:"baz1";s:18:"*protectedMember";s:4:"baz2";s:12:"publicMember";s:4:"baz3";}`</code></pre>
+<p>Ein serialisiertes PHP Objekt <code>O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"\x00Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject\x00privateMember";s:4:"baz1";s:18:"*protectedMember";s:4:"baz2";s:12:"publicMember";s:4:"baz3";}</code> lässt sich von PHP nur de-serialisieren, wenn<br />
+der <a href="https://www.php.net/manual/de/language.oop5.autoload.php">PHP autoloader</a> Zugriff auf die entsprechenden Quellcodedateien hat, in welcher das Objekt definiert ist.<br />
+Pseudify muss aber ohne den Quellcode irgendwelcher Applikationen lauffähig sein.  </p>
+<p>Wie können wir nun gezielt z.B. den Wert der Eigenschaft <code>publicMember</code> (<code>baz3</code>) pseudonymisieren, ohne fehleranfällige Suchen-und-Ersetzen Strategien auf den Text anwenden zu müssen (z.B. mit wilden regulären Ausdrücken)?  </p>
+<p><strong>Für diesen Anwendungsfall bietet Dir pseudify den <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php"><code>SerializedEncoder</code></a>!</strong>  </p>
+<p>Mit dem <code>SerializedEncoder</code> ist es Dir möglich eine serialisierte Datenstruktur in einen <a href="https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume">AST</a> umzuwandeln, diesen zu manipulieren und den AST dann wieder in eine serialisierte Datenstruktur zurückzuschreiben.  </p>
+<h3 id="lasst-uns-ein-paar-beispiele-anschauen">Lasst uns ein paar Beispiele anschauen</h3>
+<h4 id="integer">Integer</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = 1;
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: i:1;
+
+serialized data AST:
+
+IntegerNode {
+  -content: 1
+}</code></pre>
+<h4 id="float">Float</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = 1.1;
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: d:1.1000000000000001;
+
+serialized data AST:
+
+FloatNode {
+  -content: 1.1
+}</code></pre>
+<h4 id="boolean">Boolean</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = true;
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: b:1;
+
+serialized data AST:
+
+BooleanNode {
+  -content: true
+}</code></pre>
+<h4 id="null">NULL</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = null;
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: N;
+
+serialized data AST:
+
+NullNode {
+}</code></pre>
+<h4 id="string">String</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = 'How nice is this!';
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: s:17:"How nice is this!";
+
+serialized data AST:
+
+StringNode {
+  -content: "How nice is this!"
+}</code></pre>
+<h4 id="arrays">Arrays</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = ['how', 'nice'];
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: a:2:{i:0;s:3:"how";i:1;s:4:"nice";}
+
+serialized data AST:
+
+ArrayNode {
+  -properties: array:2 [
+    0 =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "how"
+      }
+      -key: IntegerNode {
+        -content: 0
+      }
+    }
+    1 =&gt; ArrayElementNode {
+      -content: StringNode {
+        #parentNode: ArrayElementNode {}
+        -content: "nice"
+      }
+      -key: IntegerNode {
+        -content: 1
+      }
+    }
+  ]
+}</code></pre>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = ['key1' =&gt; 'how', 'key2' =&gt; 'nice'];
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: a:2:{s:4:"key1";s:3:"how";s:4:"key2";s:4:"nice";}
+
+serialized data AST:
+
+ArrayNode {
+  -properties: array:2 [
+    "key1" =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "how"
+      }
+      -key: StringNode {
+        -content: "key1"
+      }
+    }
+    "key2" =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "nice"
+      }
+      -key: StringNode {
+        -content: "key2"
+      }
+    }
+  ]
+}</code></pre>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = ['key1' =&gt; 'how', 'nice', null, 99 =&gt; 123];
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: a:4:{s:4:"key1";s:3:"how";i:0;s:4:"nice";i:1;N;i:99;i:123;}
+
+serialized data AST:
+
+ArrayNode {
+  -properties: array:4 [
+    "key1" =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "how"
+      }
+      -key: StringNode {
+        -content: "key1"
+      }
+    }
+    0 =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "nice"
+      }
+      -key: IntegerNode {
+        -content: 0
+      }
+    }
+    1 =&gt; ArrayElementNode {
+      -content: NullNode {
+      }
+      -key: IntegerNode {
+        -content: 1
+      }
+    }
+    99 =&gt; ArrayElementNode {
+      -content: IntegerNode {
+        -content: 123
+      }
+      -key: IntegerNode {
+        -content: 99
+      }
+    }
+  ]
+}</code></pre>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = ['key1' =&gt; 'how', 'nice', 'key2' =&gt; ['is', 'this']];
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">ArrayNode {
+  -properties: array:3 [
+    "key1" =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "how"
+      }
+      -key: StringNode {
+        -content: "key1"
+      }
+    }
+    0 =&gt; ArrayElementNode {
+      -content: StringNode {
+        -content: "nice"
+      }
+      -key: IntegerNode {
+        -content: 0
+      }
+    }
+    "key2" =&gt; ArrayElementNode {
+      -content: ArrayNode {
+        -properties: array:2 [
+          0 =&gt; ArrayElementNode {
+            -content: StringNode {
+              -content: "is"
+            }
+            -key: IntegerNode {
+              -content: 0
+            }
+          }
+          1 =&gt; ArrayElementNode {
+            -content: StringNode {
+              -content: "this"
+            }
+            -key: IntegerNode {
+              -content: 1
+            }
+          }
+        ]
+      }
+      -key: StringNode {
+        -content: "key2"
+      }
+    }
+  ]
+}</code></pre>
+<h4 id="objekte">Objekte</h4>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = new \Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject('baz1', 'baz2', 'baz3');
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObjectprivateMember";s:4:"baz1";s:18:"*protectedMember";s:4:"baz2";s:12:"publicMember";s:4:"baz3";}
+
+serialized data AST:
+
+ObjectNode {
+  -properties: array:3 [
+    "privateMember" =&gt; AttributeNode {
+      -content: StringNode {
+        -content: "baz1"
+      }
+      -propertyName: "privateMember"
+      -scope: "private"
+      -className: "Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject"
+    }
+    "protectedMember" =&gt; AttributeNode {
+      -content: StringNode {
+        -content: "baz2"
+      }
+      -propertyName: "protectedMember"
+      -scope: "protected"
+      -className: "*"
+    }
+    "publicMember" =&gt; AttributeNode {
+      -content: StringNode {
+        -content: "baz3"
+      }
+      -propertyName: "publicMember"
+      -scope: "public"
+      -className: null
+    }
+  ]
+  -className: "Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject"
+}</code></pre>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$data = new \Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject(null, null, ['key1' =&gt; 'value1']);
+
+$serializedData = serialize($data);
+$encoder = new SerializedEncoder();
+$serializedDataAST = $encoder-&gt;decode(data: $serializedData);
+
+echo 'serialized data: ' . $serializedData . PHP_EOL . PHP_EOL;
+echo 'serialized data AST:' . PHP_EOL . PHP_EOL;
+
+dump($serializedDataAST);</code></pre>
+<pre class="highlight"><code class="language-shell">serialized data: O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObjectprivateMember";N;s:18:"*protectedMember";N;s:12:"publicMember";a:1:{s:4:"key1";s:6:"value1";}}
+
+serialized data AST:
+
+ObjectNode {
+  -properties: array:3 [
+    "privateMember" =&gt; AttributeNode {
+      -content: NullNode {
+      }
+      -propertyName: "privateMember"
+      -scope: "private"
+      -className: "Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject"
+    }
+    "protectedMember" =&gt; AttributeNode {
+      -content: NullNode {
+      }
+      -propertyName: "protectedMember"
+      -scope: "protected"
+      -className: "*"
+    }
+    "publicMember" =&gt; AttributeNode {
+      -content: ArrayNode {
+        -properties: array:1 [
+          "key1" =&gt; ArrayElementNode {
+            -content: StringNode {
+              -content: "value1"
+            }
+            -key: StringNode {
+              -content: "key1"
+            }
+          }
+        ]
+      }
+      -propertyName: "publicMember"
+      -scope: "public"
+      -className: null
+    }
+  ]
+  -className: "Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject"
+}</code></pre>
+<h3 id="daten-erzeugen-manipulieren">Daten erzeugen / manipulieren</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Die verfügbaren Methoden der einzelnen Node-Implementierungen kannst Du Dir <a href="https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node">im Repository anschauen</a>.  </p>
+</div>
+<h4 id="skalare-werte">Skalare Werte</h4>
+<p>Skalare Werte zu erzeugen, ist einfach. Es muss nur eine neue Instanz des entsprechenden Datentyps erzeugt werden:</p>
+<h5 id="integer_1">Integer</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = 1;
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo 'get the node value: ' . var_export($node-&gt;getValue(), true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">get the node value: 1</code></pre>
+<h5 id="float_1">Float</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = 123.321;
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo 'get the node value: ' . var_export($node-&gt;getValue(), true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">get the node value: 123.321</code></pre>
+<h5 id="boolean_1">Boolean</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = true;
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo 'get the node value: ' . var_export($node-&gt;getValue(), true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">get the node value: true</code></pre>
+<h5 id="null_1">Null</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = null;
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo 'get the node value: ' . var_export($node-&gt;getValue(), true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">get the node value: NULL</code></pre>
+<h5 id="string_1">String</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = 'how nice';
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo 'get the node value: ' . var_export($node-&gt;getValue(), true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">get the node value: 'how nice'</code></pre>
+<h4 id="arrays_1">Arrays</h4>
+<p>Das Array sieht so aus:</p>
+<pre class="highlight"><code class="language-php">[
+    0 =&gt; 'value1',
+    'key2' =&gt; 'value2',
+    'key3' =&gt; [
+        0 =&gt; 'value3',
+        'key4' =&gt; 'value4'
+    ]
+];</code></pre>
+<h5 id="get-the-node-value-for-array-key-0">get the node value for array key 0</h5>
+<pre class="highlight"><code>&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = [0 =&gt; 'value1', 'key2' =&gt; 'value2', 'key3' =&gt; [0 =&gt; 'value3', 'key4' =&gt; 'value4']];
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get the node value for array key 0
+$value = $node-&gt;getPropertyContent(identifier: 0)-&gt;getValue();
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">'value1'</code></pre>
+<h5 id="get-the-node-value-for-array-key-key2">get the node value for array key 'key2'</h5>
+<pre class="highlight"><code>&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = [0 =&gt; 'value1', 'key2' =&gt; 'value2', 'key3' =&gt; [0 =&gt; 'value3', 'key4' =&gt; 'value4']];
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get the node value for array key 'key2'
+$value = $node-&gt;getPropertyContent(identifier: 'key2')-&gt;getValue();
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">'value2'</code></pre>
+<h5 id="get-all-array-keys-of-the-first-array-level">get all array keys of the first array level</h5>
+<pre class="highlight"><code>&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+use Waldhacker\Pseudify\Core\Processor\Encoder\Serialized\Node\ArrayElementNode;
+
+$encoder = new SerializedEncoder();
+
+$data = [0 =&gt; 'value1', 'key2' =&gt; 'value2', 'key3' =&gt; [0 =&gt; 'value3', 'key4' =&gt; 'value4']];
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get all array keys of the first array level
+$value = array_map(fn(ArrayElementNode $elementNode): string|int =&gt; $elementNode-&gt;getPropertyName(), $node-&gt;getContent());
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">array (
+  0 =&gt; 0,
+  'key2' =&gt; 'key2',
+  'key3' =&gt; 'key3',
+)</code></pre>
+<h5 id="replace-value1-key-0-with-new-value">replace 'value1' (key 0) with 'new value'</h5>
+<pre class="highlight"><code>&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = [0 =&gt; 'value1', 'key2' =&gt; 'value2', 'key3' =&gt; [0 =&gt; 'value3', 'key4' =&gt; 'value4']];
+$node = $encoder-&gt;decode(data: serialize($data));
+$originalSerializedData = $encoder-&gt;encode(data: $node);
+
+echo PHP_EOL;
+
+// replace 'value1' (key 0) with 'new value'
+$newValue = 'new value';
+$newValueNode = $encoder-&gt;decode(data: serialize($newValue));
+
+$node-&gt;replaceProperty(identifier: 0, property: $newValueNode);
+
+$newSerializedData = $encoder-&gt;encode(data: $node);
+
+echo 'original data: ' . $originalSerializedData . PHP_EOL;
+echo 'new data: ' . $newSerializedData . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">original data: a:3:{i:0;s:6:"value1";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0;s:6:"value3";s:4:"key4";s:6:"value4";}}
+new data:      a:3:{i:0;s:9:"new value";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0;s:6:"value3";s:4:"key4";s:6:"value4";}}</code></pre>
+<h5 id="replace-value4-key-key3-key4-with-newer-value">replace 'value4' (key 'key3' =&gt; 'key4') with 'newer value'</h5>
+<pre class="highlight"><code>&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+
+$encoder = new SerializedEncoder();
+
+$data = [0 =&gt; 'value1', 'key2' =&gt; 'value2', 'key3' =&gt; [0 =&gt; 'value3', 'key4' =&gt; 'value4']];
+$node = $encoder-&gt;decode(data: serialize($data));
+$originalSerializedData = $encoder-&gt;encode(data: $node);
+
+echo PHP_EOL;
+
+// replace 'value4' (key 'key3' =&gt; 'key4') with 'newer value'
+$newValue = 'newer value';
+$newValueNode = $encoder-&gt;decode(data: serialize($newValue));
+
+$node-&gt;getPropertyContent(identifier: 'key3')-&gt;replaceProperty(identifier: 'key4', property: $newValueNode);
+
+$newSerializedData = $encoder-&gt;encode(data: $node);
+
+echo 'original data: ' . $originalSerializedData . PHP_EOL;
+echo 'new data: ' . $newSerializedData . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">original data: a:3:{i:0;s:6:"value1";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0;s:6:"value3";s:4:"key4";s:6:"value4";}}
+new data:      a:3:{i:0;s:6:"value1";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0;s:6:"value3";s:4:"key4";s:11:"newer value";}}</code></pre>
+<h4 id="objekte_1">Objekte</h4>
+<p>Das Objekt sieht so aus:</p>
+<pre class="highlight"><code class="language-php">class SimpleObject
+{
+    private $privateMember;
+    protected $protectedMember;
+    public $publicMember;
+
+    public function __construct($privateMember, $protectedMember, $publicMember)
+    {
+        $this-&gt;privateMember = $privateMember;
+        $this-&gt;protectedMember = $protectedMember;
+        $this-&gt;publicMember = $publicMember;
+    }
+}
+</code></pre>
+<h5 id="get-the-node-value-for-class-member-privatemember-value1">get the node value for class member 'privateMember' ('value1')</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
+
+$encoder = new SerializedEncoder();
+
+$data = new SimpleObject('value1', 'value2', 'value3');
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get the node value for class member 'privateMember' ('value1')
+$value = $node-&gt;getPropertyContent(identifier: 'privateMember')-&gt;getValue();
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">'value1'</code></pre>
+<h5 id="get-the-node-value-for-class-member-protectedmember-value2">get the node value for class member 'protectedMember' ('value2')</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
+
+$encoder = new SerializedEncoder();
+
+$data = new SimpleObject('value1', 'value2', 'value3');
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get the node value for class member 'protectedMember' ('value2)
+$value = $node-&gt;getPropertyContent(identifier: 'protectedMember')-&gt;getValue();
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">'value2'</code></pre>
+<h5 id="get-the-node-value-for-class-member-publicmember-value3">get the node value for class member 'publicMember' ('value3')</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
+
+$encoder = new SerializedEncoder();
+
+$data = new SimpleObject('value1', 'value2', 'value3');
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get the node value for class member 'publicMember' ('value3)
+$value = $node-&gt;getPropertyContent(identifier: 'publicMember')-&gt;getValue();
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">'value3'</code></pre>
+<h5 id="get-all-direct-class-member-names">get all (direct) class member names</h5>
+<pre class="highlight"><code>&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+use Waldhacker\Pseudify\Core\Processor\Encoder\Serialized\Node\AttributeNode;
+use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
+
+$encoder = new SerializedEncoder();
+
+$data = new SimpleObject('value1', 'value2', 'value3');
+$node = $encoder-&gt;decode(data: serialize($data));
+
+echo PHP_EOL;
+
+// get all (direct) class member names
+$value = array_map(fn(AttributeNode $attributeNode): string =&gt; $attributeNode-&gt;getPropertyName(), $node-&gt;getContent());
+echo var_export($value, true) . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">array (
+  'privateMember' =&gt; 'privateMember',
+  'protectedMember' =&gt; 'protectedMember',
+  'publicMember' =&gt; 'publicMember',
+)</code></pre>
+<h5 id="replace-value3-publicmember-with-newer-value">replace 'value3' ('publicMember') with 'newer value'</h5>
+<pre class="highlight"><code class="language-php">&lt;?php
+use Waldhacker\Pseudify\Core\Processor\Encoder\SerializedEncoder;
+use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
+
+$encoder = new SerializedEncoder();
+
+$data = new SimpleObject('value1', 'value2', 'value3');
+$node = $encoder-&gt;decode(data: serialize($data));
+$originalSerializedData = $encoder-&gt;encode(data: $node);
+
+echo PHP_EOL;
+
+// replace 'value3' ('publicMember') with 'newer value'
+$newValue = 'newer value';
+$newValueNode = $encoder-&gt;decode(data: serialize($newValue));
+
+$node-&gt;replaceProperty(identifier: 'publicMember', property: $newValueNode);
+
+$newSerializedData = $encoder-&gt;encode(data: $node);
+
+echo 'original data: ' . $originalSerializedData . PHP_EOL;
+echo 'new data: ' . $newSerializedData . PHP_EOL;</code></pre>
+<pre class="highlight"><code class="language-shell">original data: O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObjectprivateMember";s:6:"value1";s:18:"*protectedMember";s:6:"value2";s:12:"publicMember";s:6:"value3";}
+new data:      O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObjectprivateMember";s:6:"value1";s:18:"*protectedMember";s:6:"value2";s:12:"publicMember";s:11:"newer value";}</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../pseudonymize/" class="btn btn-neutral float-left" title="Pseudonymisiere die Datenbank"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../predefinedApplicationProfiles/" class="btn btn-neutral float-right" title="Vordefinierte Applikationsprofile">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../pseudonymize/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../predefinedApplicationProfiles/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

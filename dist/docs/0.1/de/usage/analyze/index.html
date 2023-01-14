@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/0.1/de/usage/analyze/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Analysiere die Datenbank - pseudify.me</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Analysiere die Datenbank";
+        var mkdocs_page_input_path = "usage/analyze.de.md";
+        var mkdocs_page_url = "/docs/0.1/de/usage/analyze/";
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+  <script async="async" defer="defer" data-domain="pseudify.me" src="https://anna.pseudify.me/js/plausible.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../" class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Einführung</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Überblick</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/configuration/">Konfiguration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Anwendung</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Analysiere die Datenbank</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#die-analyse-modellieren">Die Analyse modellieren</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#einen-uberblick-verschaffen">Einen Überblick verschaffen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ein-analyze-profile-modellieren">Ein "Analyze Profile" modellieren</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#ein-profile-anlegen">Ein "Profile" anlegen</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quelldaten-definieren">Quelldaten definieren</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#enkodierte-daten-als-quelldaten">Enkodierte Daten als Quelldaten</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#suche-optimieren">Suche optimieren</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#datentypen-ausschlieen">Datentypen ausschließen</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#datentypen-auf-tabellenebene-ausschlieen">Datentypen auf Tabellenebene ausschließen</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#datentypen-global-ausschlieen">Datentypen global ausschließen</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#datenbankspalten-ausschlieen">Datenbankspalten ausschließen</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#tabellen-ausschlieen">Tabellen ausschließen</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#enkodierte-daten-durchsuchen">Enkodierte Daten durchsuchen</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#mehrfach-enkodierte-daten-durchsuchen">Mehrfach enkodierte Daten durchsuchen</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#unterschiedlich-enkodierte-daten-durchsuchen">Unterschiedlich enkodierte Daten durchsuchen</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#json-daten-normalisieren">Json Daten normalisieren</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#nicht-skalare-quelldaten-definieren">Nicht-Skalare Quelldaten definieren</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benutzerdefinierte-quelldaten-definieren">Benutzerdefinierte Quelldaten definieren</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ein-analyze-profile-ausfuhren">Ein "Analyze Profile" ausführen</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#erweiterte-informationen-ausgeben">Erweiterte Informationen ausgeben</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pseudonymize/">Pseudonymisiere die Datenbank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../complexDatatypes/">Komplexe Datentypen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../predefinedApplicationProfiles/">Vordefinierte Applikationsprofile</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sonstiges</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">Was sollte pseudonymisiert werden?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../development/">Entwicklung</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../versions/">Versionen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../license/">Lizenz</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Über das Projekt</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div  style="display:flex; justify-content:right;" role="navigation" aria-label="languages navigation">
+  <i class="fa fa-globe" style="margin-right:5px;" aria-hidden="true"></i>
+  
+    
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/0.1/">EN</a></div>
+    
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/0.1/de/">DE</a></div>
+    
+  
+</div>
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Anwendung &raquo;</li>
+      <li>Analysiere die Datenbank</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/usage/analyze.de.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="analysieren">Analysieren</h1>
+<h2 id="die-analyse-modellieren">Die Analyse modellieren</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Alle in diesem Tutorial beschriebenen Modellierungen kannst Du Dir mit Kommentaren <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Profiles/Tests/TestAnalyzeProfile.php">im<br />
+Testordner der Profile Templates (TestAnalyzeProfile.php)</a> anschauen.</p>
+</div>
+<h3 id="einen-uberblick-verschaffen">Einen Überblick verschaffen</h3>
+<p>Um einen Überblick über die Daten in der Datenbank zu bekommen, kann das Kommando <code>pseudify:debug:table_schema</code> verwendet werden.<br />
+Du kannst aber natürlich auch jedes andere Tool Deiner Wahl dazu verwenden.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:table_schema
+
+wh_log
+------
+
+ -------------------- --------- --------------------------------------------------------------------------------------------------------- 
+  column               type      data example                                                                                             
+ -------------------- --------- --------------------------------------------------------------------------------------------------------- 
+  id                   integer   6                                                                                                        
+  log_type             string    foo                                                                                                      
+  log_data             blob      613a323a7b693a303b733a33383a223466623a313434373a646566623a396434373a613265303a613336613a313064333a66...  
+  log_message          text      {"message":"foo text \"ronaldo15\", another \"mcclure.ofelia@example.com\""}                             
+  ip                   string    4fb:1447:defb:9d47:a2e0:a36a:10d3:fd98                                                                   
+ -------------------- --------- --------------------------------------------------------------------------------------------------------- 
+
+wh_meta_data
+------------
+
+ --------------------- --------- --------------------------------------------------------------------------------------------------------- 
+  column                type      data example                                                                                             
+ --------------------- --------- --------------------------------------------------------------------------------------------------------- 
+  id                    integer   5                                                                                                        
+  meta_data             blob      1f8b08000000000000036592dd6ea33010855f65657159116ca0818922f52fca6ea5d52a4bab46bd89066c821b302c769246...  
+ --------------------- --------- --------------------------------------------------------------------------------------------------------- 
+
+wh_user
+-------
+
+ -------------------- --------- ---------------------------------------------------------------------------------------------- 
+  column               type      data example                                                                                  
+ -------------------- --------- ---------------------------------------------------------------------------------------------- 
+  id                   integer   5                                                                                             
+  username             string    howell.damien                                                                                 
+  password             string    $argon2i$v=19$m=8,t=1,p=1$ZldmOWd2TDJRb3FTNVpGNA$ORIwp6yekRx02mqM4WCTVhllgXpUpuFJZ1MmbYwAMXs  
+  first_name           string    Mckayla                                                                                       
+  last_name            string    Stoltenberg                                                                                   
+  email                string    cassin.bernadette@example.net                                                                 
+  city                 string    South Wilfordland                                                                             
+ -------------------- --------- ---------------------------------------------------------------------------------------------- 
+
+wh_user_session
+---------------
+
+ ------------------- --------- -------------------------------------------------------------------- 
+  column              type      data example                                                        
+ ------------------- --------- -------------------------------------------------------------------- 
+  id                  integer   5                                                                   
+  session_data        blob      a:1:{s:7:"last_ip";s:38:"4fb:1447:defb:9d47:a2e0:a36a:10d3:fd98";}  
+  session_data_json   text      {"data":{"last_ip":"4fb:1447:defb:9d47:a2e0:a36a:10d3:fd98"}}
+ ------------------- --------- --------------------------------------------------------------------</code></pre>
+<p>Das Kommando gibt nacheinander alle Tabellen der Datenbank aus und listet deren Spalten auf.<br />
+In der Spalte <code>column</code> befindet sich der Name der Datenbankspalte.<br />
+In der Spalte <code>type</code> steht ein <a href="https://github.com/doctrine/dbal/blob/3.5.x/src/Types/Types.php#L13-L41">menschenlesbarer Name des Datentyps</a> der Datenbankspalte.<br />
+In der Spalte <code>data example</code> befindet sich der jeweils längste Datensatz, welcher in der Datenbank in dieser Datenbankspalte gefunden werden kann. Nach 100 Zeichen werden die Daten abgeschnitten.  </p>
+<p>Halte Ausschauen nach personenbezogenen Daten, welche Du pseudonymisieren möchtest.<br />
+Suche nach Namen, Benutzernamen, Passwörtern, Adressen, E-Mail-Adressen, IP-Adressen, Telefonnummern, ID-Nummern wie Versicherungsnummern, Profildaten wie Größe oder Gewicht usw.  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Falls Du Anregungen brauchst, dann lies das Kapitel <a href="../../whatToPseudonymize/"><code>Was sollte pseudonymisiert werden?</code></a></p>
+</div>
+<p>Merke Dir am besten die Spalten mit direkt sichtbaren personenbezogenen Daten, also die Spalten welche Daten im Klartext enthalten und nicht Spalten mit komplexeren Datenstrukturen wie JSON (z.B. die Spalte <code>wh_log.log_message</code>) oder Spalten in denen die Daten in enkodierter Form vorliegen (z.B. die Spalte <code>wh_log.log_data</code>).<br />
+Im Beispiel wären die bevorzugten Spalten:</p>
+<ul>
+<li><code>wh_log.ip</code></li>
+<li><code>wh_user.username</code></li>
+<li><code>wh_user.password</code></li>
+<li><code>wh_user.first_name</code></li>
+<li><code>wh_user.last_name</code></li>
+<li><code>wh_user.email</code></li>
+<li><code>wh_user.city</code></li>
+</ul>
+<h3 id="ein-analyze-profile-modellieren">Ein "Analyze Profile" modellieren</h3>
+<h4 id="ein-profile-anlegen">Ein "Profile" anlegen</h4>
+<p>Lege im Ordner <a href="https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles">src/Profiles</a> eine PHP Datei mit einem beliebigen Namen an.<br />
+Im Beispiel wird die Datei <code>TestAnalyzeProfile.php</code> genannt.<br />
+Die Datei bekommt folgenden Inhalt:</p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Die Methode <code>getIdentifier()</code> muss eine eindeutige Bezeichnung Deines Profils wiedergeben und sollte nur aus Buchstaben, Zahlen oder den Zeichen <code>-</code> und <code>_</code> bestehen und darf keine Leerzeichen enthalten.  </p>
+<p>Nach der Erzeugung des Profils muss der Cache geleert werden </p>
+<pre class="highlight"><code class="language-shell">$ pseudify cache:clear</code></pre>
+<p>Der Befehl <code>pseudify pseudify:debug:analyze test-profile</code> gibt Dir nun bereits Informationen über Dein Profil aus</p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ ------- -------- --------------- ----------------- 
+  Table   column   data decoders   data collectors  
+ ------- -------- --------------- ----------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_log            id (integer)               Scalar          no further processing  
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_data (blob)            Scalar          no further processing  
+  wh_log            log_message (text)         Scalar          no further processing  
+  wh_log            ip (string)                Scalar          no further processing  
+  wh_meta_data      id (integer)               Scalar          no further processing  
+  wh_meta_data      meta_data (blob)           Scalar          no further processing  
+  wh_user           id (integer)               Scalar          no further processing  
+  wh_user           username (string)          Scalar          no further processing  
+  wh_user           password (string)          Scalar          no further processing  
+  wh_user           first_name (string)        Scalar          no further processing  
+  wh_user           last_name (string)         Scalar          no further processing  
+  wh_user           email (string)             Scalar          no further processing  
+  wh_user           city (string)              Scalar          no further processing  
+  wh_user_session   id (integer)               Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- ----------------------- </code></pre>
+<h4 id="quelldaten-definieren">Quelldaten definieren</h4>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Das "Analyze Profile" ist dazu da, um herauszufinden in welchen "unbeleuchteten" Ecken der Datenbank sich personenbezogene Daten verstecken.<br />
+Wir verwenden darum die uns bereits bekannten personenbezogene Daten, welche wir im ersten Schritt identifiziert haben, um sie in der restlichen Datenbank aufzuspüren.  </p>
+</div>
+<p>Wir haben personenbezogene Daten in folgenden Spalten identifiziert:</p>
+<ul>
+<li><code>wh_log.ip</code></li>
+<li><code>wh_user.username</code></li>
+<li><code>wh_user.password</code></li>
+<li><code>wh_user.first_name</code></li>
+<li><code>wh_user.last_name</code></li>
+<li><code>wh_user.email</code></li>
+<li><code>wh_user.city</code></li>
+</ul>
+<p>Du musst pseudify nun mitteilen, dass Du die Daten in diesen Spalten als Quelldaten verwenden möchtest.<br />
+Dazu erweiterst Du die Methode <code>getTableDefinition()</code> im Profil</p>
+<pre class="highlight"><code class="language-php">    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_log', columns: [
+                'ip',
+            ])
+            -&gt;addSourceTable(table: 'wh_user', columns: [
+                'username',
+                'password',
+                'first_name',
+                'last_name',
+                'email',
+                'city',
+            ])
+        ;
+
+        return $tableDefinition;
+    }</code></pre>
+<p>Mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L103"><code>addSourceTable()</code></a> sagst Du pseudify, in welcher Datenbanktabelle und in welchen Datenbankspalten die Quelldaten gesammelt werden sollen.<br />
+Pseudify wird dann automatisch in allen anderen Datenbankspalten der Datenbanktabellen nach Vorkommen der Quelldaten suchen und diese ausgeben.<br />
+Zuvor standen in der Ausgabe des Kommandos <code>pseudify:debug:analyze test-profile</code> unter <code>Search data in this tables</code> alle Datenbanktabellen und alle Datenbankspalten.<br />
+Nun werden dort nur noch die Datenbanktabellen und deren Datenbankspalten aufgelistet, welche nicht als Quelldaten mittels <code>addSourceTable()</code> definiert wurden.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_log            id (integer)               Scalar          no further processing  
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_data (blob)            Scalar          no further processing  
+  wh_log            log_message (text)         Scalar          no further processing  
+  wh_meta_data      id (integer)               Scalar          no further processing  
+  wh_meta_data      meta_data (blob)           Scalar          no further processing  
+  wh_user           id (integer)               Scalar          no further processing  
+  wh_user_session   id (integer)               Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- -----------------------</code></pre>
+<h5 id="enkodierte-daten-als-quelldaten">Enkodierte Daten als Quelldaten</h5>
+<p>Es kommt vor, dass Daten in Datenbankspalten in enkodierter Form vorliegen.<br />
+Das bedeutet, der kodierte Klartext muss während der Analyse dekodiert werden, um ihn als Quelldaten verwenden zu können.<br />
+Ähnlich wie unter <a href="#enkodierte-daten-durchsuchen">"Enkodierte Daten durchsuchen"</a> beschrieben können auch die Datenbankspalten der Quelldaten dekodiert werden.  </p>
+<p>Der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L108"><code>SourceColumn::create()</code></a> kann mit dem Parameter <code>dataType</code> <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L38-L50">ein Name eines Built-in Dekodierers</a> mitgegeben werden.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wie unter <a href="#mehrfach-enkodierte-daten-durchsuchen">"Mehrfach enkodierte Daten durchsuchen"</a> beschrieben kann auch hier der <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php"><code>ChainedEncoder</code></a> verwendet werden, um mehrfach enkodierte Daten zu dekodieren.  </p>
+</div>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\SourceColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_test_table', columns: [
+                SourceColumn::create(identifier: 'wh_test_column', dataType: SourceColumn::DATA_TYPE_HEX),
+            ])
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Du siehst unter <code>Collect search data from this tables</code> nun, dass unter <code>data decoders</code> der Datenbankspalte <code>session_data_json</code> der Name <code>Hex</code> aufgelistet wird.<br />
+Dies signalisiert Dir, dass die Daten mittels des HexEncoder dekodiert werden.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ ----------------- -------------------------- --------------- ---------------------- 
+  Table             column                     data decoders   data collectors     
+ ----------------- -------------------------- --------------- ----------------------
+  wh_test_table     wh_test_column (text)      Hex             default (scalar data) 
+ ----------------- -------------------------- --------------- ---------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- --------------------- --------------- ----------------------- 
+  Table             column                data decoders   special data decoders  
+ ----------------- --------------------- --------------- ----------------------- 
+  wh_log            id (integer)          Scalar          no further processing  
+  wh_log            log_type (string)     Scalar          no further processing  
+  wh_log            log_data (blob)       Scalar          no further processing  
+  wh_log            log_message (text)    Scalar          no further processing  
+  wh_log            ip (string)           Scalar          no further processing  
+  wh_meta_data      id (integer)          Scalar          no further processing  
+  wh_meta_data      meta_data (blob)      Scalar          no further processing  
+  wh_user           id (integer)          Scalar          no further processing  
+  wh_user           username (string)     Scalar          no further processing  
+  wh_user           password (string)     Scalar          no further processing  
+  wh_user           first_name (string)   Scalar          no further processing  
+  wh_user           last_name (string)    Scalar          no further processing  
+  wh_user           email (string)        Scalar          no further processing  
+  wh_user           city (string)         Scalar          no further processing  
+  wh_user_session   id (integer)          Scalar          no further processing  
+  wh_user_session   session_data (blob)   Scalar          no further processing  
+ ----------------- --------------------- --------------- -----------------------</code></pre>
+<p>Alternativ kann die ausgeschriebene Variante <code>-&gt;setEncoder(encoder: new HexEncoder())</code> verwendet werden:</p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\SourceColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_test_table', columns: [
+                SourceColumn::create(identifier: 'wh_test_column')-&gt;setEncoder(encoder: new HexEncoder()),
+            ])
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<h4 id="suche-optimieren">Suche optimieren</h4>
+<p>Ohne weitere Definition wird pseudify die Quelldaten in allen Datenbanktabellen und deren Datenbankspalten suchen, welche nicht als Quelldaten mittels <code>addSourceTable()</code> bzw. <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceTable.php#L89"><code>addColumn()</code></a> definiert wurden.<br />
+Damit die Analyse nicht unnötig lange dauert, kann die Suche optimiert werden.<br />
+Ziel ist es in der Regel, nur "Text" (Strings) zu durchsuchen.</p>
+<h5 id="datentypen-ausschlieen">Datentypen ausschließen</h5>
+<p>Du kannst Spalten mit bestimmten Datentypen von der Suche ausschließen, um die Suchzeit zu verkürzen.<br />
+Es macht z.B. in den meisten Fällen keinen Sinn, Datenbankspalten vom Typ <code>integer</code> zu durchsuchen.<br />
+Datentypen lassen sich auf Tabellenebene ausschließen oder global für alle Tabellen.<br />
+Sobald auf Tabellenebene Datentypen ausgeschlossen werden, werden auf dieser Tabelle die global ausgeschlossenen Datentypen nicht zusätzlich ausgeschlossen.  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Die Namen der Datentypen kannst Du <a href="https://github.com/doctrine/dbal/blob/3.5.x/src/Types/Types.php#L13-L41">im Quellcode des Doctrine Projekts</a> finden, z.B.: <code>string</code>, <code>integer</code>, <code>datetime</code> etc.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Es existiert die Konstante <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L24-L39"><code>TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES</code></a>, welche<br />
+alle Datentypen enthält, die in der Regel nicht durchsucht werden müssen.</p>
+</div>
+<h6 id="datentypen-auf-tabellenebene-ausschlieen">Datentypen auf Tabellenebene ausschließen</h6>
+<p>Um in der Tabelle <code>wh_meta_data</code> alle Spalten mit dem Datentyp <code>integer</code> von der Suche auszuschließen, musst Du die Methode <code>getTableDefinition()</code> im Profil erweitern:</p>
+<pre class="highlight"><code class="language-php">    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;addTargetTable(table: 'wh_meta_data', excludeColumnTypes: [
+                'integer'
+            ])
+        ;
+
+        return $tableDefinition;
+    }</code></pre>
+<p>Die Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L169"><code>addTargetTable()</code></a> teilt der automatischen Tabellenkonfiguration mit, dass Du die Tabelle <code>wh_meta_data</code> speziell konfigurieren möchtest.<br />
+Im Parameter <code>excludeColumnTypes</code> kann ein Array von Datentypen übergeben werden, welche bei der Suche ausgeschlossen werden sollen.  </p>
+<h6 id="datentypen-global-ausschlieen">Datentypen global ausschließen</h6>
+<p>Um global in allen Tabellen alle Spalten mit dem Datentyp <code>integer</code> von der Suche auszuschließen, musst Du die Methode <code>getTableDefinition()</code> im Profil erweitern:</p>
+<pre class="highlight"><code class="language-php">    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_log', columns: [
+                'ip',
+            ])
+            -&gt;addSourceTable(table: 'wh_user', columns: [
+                'username',
+                'password',
+                'first_name',
+                'last_name',
+                'email',
+                'city',
+            ])
+
+            -&gt;excludeTargetColumnTypes(columnTypes: [
+                'integer'
+            ])
+        ;
+
+        return $tableDefinition;
+    }</code></pre>
+<p>Die Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L298"><code>excludeTargetColumnTypes()</code></a> teilt der automatischen Tabellenkonfiguration mit,<br />
+dass in allen Tabellen (welche keine speziellen Ausschlüsse definiert bekommen haben) alle Spalten vom Datentyp <code>integer</code> von der Suche ausgeschlossen werden sollen.</p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_data (blob)            Scalar          no further processing  
+  wh_log            log_message (text)         Scalar          no further processing  
+  wh_meta_data      meta_data (blob)           Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- -----------------------</code></pre>
+<p>Du siehst unter <code>Search data in this tables</code> nun, dass alle <code>integer</code> Spalten verschwunden sind.  </p>
+<p>Du wirst in der Regel folgende Zeile im Profil integrieren wollen, um global <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L24-L39">alle Datentypen auszuschließen, bei denen es wenig Sinn macht sie zu durchsuchen</a>:</p>
+<pre class="highlight"><code class="language-php">-&gt;excludeTargetColumnTypes(columnTypes: TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES)</code></pre>
+<h5 id="datenbankspalten-ausschlieen">Datenbankspalten ausschließen</h5>
+<p>Die automatische Tabellenkonfiguration wird immer zuerst Datenbankspalten von der Suche ausschließen, welche anhand des Datentyps ausgeschlossen wurden.<br />
+Zusätzlich kannst Du im Profil auf Tabellenebene definieren, dass Datenbankspalten anhand ihres Namens von der Suche ausgeschlossen werden sollen.<br />
+Dazu musst Du die Methode <code>getTableDefinition()</code> im Profil erweitern:</p>
+<pre class="highlight"><code class="language-php">    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_log', columns: [
+                'ip',
+            ])
+            -&gt;addSourceTable(table: 'wh_user', columns: [
+                'username',
+                'password',
+                'first_name',
+                'last_name',
+                'email',
+                'city',
+            ])
+
+            -&gt;excludeTargetColumnTypes(columnTypes: TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES)
+
+            -&gt;addTargetTable(table: 'wh_log', excludeColumns: [
+                'log_message',
+            ])
+        ;
+
+        return $tableDefinition;
+    }</code></pre>
+<p>Die Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L169"><code>addTargetTable()</code></a> teilt der automatischen Tabellenkonfiguration mit, dass Du die Tabelle <code>wh_log</code> speziell konfigurieren möchtest.<br />
+Im Parameter <code>excludeColumns</code> kann ein Array von Spaltennamen übergeben werden, welche bei der Suche ausgeschlossen werden sollen.</p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_data (blob)            Scalar          no further processing  
+  wh_meta_data      meta_data (blob)           Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- -----------------------</code></pre>
+<p>Du siehst unter <code>Search data in this tables</code> nun, dass die Spalte <code>log_message</code> der Tabelle <code>wh_log</code> verschwunden ist.  </p>
+<h5 id="tabellen-ausschlieen">Tabellen ausschließen</h5>
+<p>Du kannst ganze Tabellen von der Suche ausschließen, um die Suchzeit zu verkürzen.<br />
+Die kann mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L235"><code>excludeTargetTables()</code></a> erledigt werden.  </p>
+<pre class="highlight"><code class="language-php">    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_log', columns: [
+                'ip',
+            ])
+
+            -&gt;excludeTargetColumnTypes(columnTypes: TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES)
+
+            -&gt;excludeTargetTables(tables: [
+                'wh_user',
+            ])
+        ;
+
+        return $tableDefinition;
+    }</code></pre>
+<p>Wie Du siehst, wird die Tabelle <code>wh_user</code> nicht mehr unter <code>Search data in this tables</code> aufgelistet.</p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ -------- ------------- --------------- ----------------------- 
+  Table    column        data decoders   data collectors        
+ -------- ------------- --------------- ----------------------- 
+  wh_log   ip (string)   Scalar          default (scalar data)  
+ -------- ------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- ---------------------------- --------------- ----------------------- 
+  Table             column                       data decoders   special data decoders  
+ ----------------- ---------------------------- --------------- ----------------------- 
+  wh_log            log_type (string)            Scalar          no further processing  
+  wh_log            log_data (blob)              Scalar          no further processing  
+  wh_log            log_data_plaintext (blob)    Scalar          no further processing  
+  wh_log            log_message (text)           Scalar          no further processing  
+  wh_meta_data      meta_data (blob)             Scalar          no further processing  
+  wh_meta_data      meta_data_plaintext (blob)   Scalar          no further processing  
+  wh_user_session   session_data (blob)          Scalar          no further processing  
+ ----------------- ---------------------------- --------------- -----------------------</code></pre>
+<p>In den auszuschließenden Tabellennamen können reguläre Ausdrücke verwendet werden, z.B.: <code>wh_user.*</code>.<br />
+Somit ist es z.B. möglich, mehrere Tabellen auf einmal auszuschließen:</p>
+<pre class="highlight"><code class="language-php">    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_log', columns: [
+                'ip',
+            ])
+
+            -&gt;excludeTargetColumnTypes(columnTypes: TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES)
+
+            -&gt;excludeTargetTables(tables: [
+                'wh_user.*',
+            ])
+        ;
+
+        return $tableDefinition;
+    }</code></pre>
+<p>Wie Du siehst, werden die Tabellen <code>wh_user</code> und die Tabelle <code>wh_user_session</code> nicht mehr unter <code>Search data in this tables</code> aufgelistet.</p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ -------- ------------- --------------- ----------------------- 
+  Table    column        data decoders   data collectors        
+ -------- ------------- --------------- ----------------------- 
+  wh_log   ip (string)   Scalar          default (scalar data)  
+ -------- ------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ -------------- ---------------------------- --------------- ----------------------- 
+  Table          column                       data decoders   special data decoders  
+ -------------- ---------------------------- --------------- ----------------------- 
+  wh_log         log_type (string)            Scalar          no further processing  
+  wh_log         log_data (blob)              Scalar          no further processing  
+  wh_log         log_data_plaintext (blob)    Scalar          no further processing  
+  wh_log         log_message (text)           Scalar          no further processing  
+  wh_meta_data   meta_data (blob)             Scalar          no further processing  
+  wh_meta_data   meta_data_plaintext (blob)   Scalar          no further processing  
+ -------------- ---------------------------- --------------- ----------------------- </code></pre>
+<h4 id="enkodierte-daten-durchsuchen">Enkodierte Daten durchsuchen</h4>
+<p>Es kommt vor, dass Daten in Datenbankspalten in enkodierter Form vorliegen.<br />
+Das bedeutet, der kodierte Klartext muss während der Analyse dekodiert werden.<br />
+In unserem Beispiel enthält die Datenbankspalte <code>log_data</code> der Tabelle <code>wh_log</code> und die Datenbankspalte <code>meta_data</code> der Tabelle <code>wh_meta_data</code> enkodierte Daten.<br />
+Wie diese Daten enkodiert sind, musst Du anhand des Quellcodes oder der Dokumentation der Applikation, welche die Datenbank verwendet, herausfinden.  </p>
+<p>In unserem Beispiel sind die Daten der Datenbankspalte <code>log_data</code> (mit <code>log_type</code> = <code>bar</code>) wie folgt kodiert.</p>
+<p>Datenbankdaten:</p>
+<pre class="highlight"><code class="language-shell">613a323a7b693a303b733a31353a223133322e3138382e3234312e313535223b733a343a2275736572223b4f3a383a22737464436c617373223a353a7b733a383a22757365724e616d65223b733a373a22637972696c3036223b733a383a226c6173744e616d65223b733a383a22486f6d656e69636b223b733a353a22656d61696c223b733a32313a22636c696e746f6e3434406578616d706c652e6e6574223b733a323a226964223b693a39313b733a343a2275736572223b523a333b7d7d</code></pre>
+<p>Kodierung durch die Applikation:</p>
+<pre class="highlight"><code class="language-php">$plaintext = 'a:2:{i:0;s:15:"132.188.241.155";s:4:"user";O:8:"stdClass":5:{s:8:"userName";s:7:"cyril06";s:8:"lastName";s:8:"Homenick";s:5:"email";s:21:"clinton44@example.net";s:2:"id";i:91;s:4:"user";R:3;}}';
+$logData = bin2hex($plaintext);</code></pre>
+<p>Damit pseudify die Daten (<code>$plaintext</code>) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.<br />
+Hierzu kann der Definition einer Datenbankspalte (<code>TargetColumn::create()</code>) der Datentyp (Parameter <code>dataType</code>) übergeben werden.  </p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetTable;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;addTargetTable(table: TargetTable::create(identifier: 'wh_log',
+                columns: [
+                    TargetColumn::create(identifier: 'log_data', dataType: TargetColumn::DATA_TYPE_HEX),
+                ]
+            ))
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Der Methode <code>TargetColumn::create()</code> kann mit dem Parameter <code>dataType</code> <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TargetColumn.php#L31-L37">ein Name eines Built-in Dekodierers</a> mitgegeben werden.<br />
+Dies ist gleichbedeutend mit der ausgeschriebenen Variante <code>-&gt;setEncoder(encoder: new HexEncoder())</code>:</p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\HexEncoder;
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetTable;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;addTargetTable(table: TargetTable::create(identifier: 'wh_log',
+                columns: [
+                    TargetColumn::create(identifier: 'log_data')-&gt;setEncoder(encoder: new HexEncoder()),
+                ]
+            ))
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Beim Durchsuchen der Datenbankspalte <code>log_data</code> wird pseudify die Daten der Datenbankspalte dann immer mittels <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/HexEncoder.php#L38">der Methode <code>decode()</code> des HexEncoder</a> verarbeiten und anschließend das Resultat durchsuchen.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_log            log_data (blob)            Hex             no further processing  
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_message (text)         Scalar          no further processing  
+  wh_meta_data      meta_data (blob)           Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- -----------------------</code></pre>
+<p>Du siehst unter <code>Search data in this tables</code> nun, dass unter <code>data decoders</code> der Datenbankspalte <code>log_data</code> der Name <code>Hex</code> aufgelistet wird.<br />
+Dies signalisiert Dir, dass die Daten mittels des HexEncoder dekodiert werden.  </p>
+<h5 id="mehrfach-enkodierte-daten-durchsuchen">Mehrfach enkodierte Daten durchsuchen</h5>
+<p>Es kommt vor, dass Daten in Datenbankspalten in mehrfach enkodierter Form abgespeichert sind.<br />
+In unserem Beispiel sind die Daten der Datenbankspalte <code>meta_data</code> so kodiert:</p>
+<pre class="highlight"><code class="language-php">$plaintext = 'a:3:{s:4:"key1";a:9:{s:2:"id";i:5;s:8:"username";s:13:"howell.damien";s:8:"password";s:92:"$argon2i$v=19$m=8,t=1,p=1$ZldmOWd2TDJRb3FTNVpGNA$ORIwp6yekRx02mqM4WCTVhllgXpUpuFJZ1MmbYwAMXs";s:18:"password_hash_type";s:8:"argon2id";s:18:"password_plaintext";s:13:"nF5;06?nsS/nE";s:10:"first_name";s:7:"Mckayla";s:9:"last_name";s:11:"Stoltenberg";s:5:"email";s:24:"conn.abigale@example.net";s:4:"city";s:11:"Dorothyfort";}s:4:"key2";a:2:{s:2:"id";i:3;s:12:"session_data";s:41:"a:1:{s:7:"last_ip";s:13:"244.166.32.78";}";}s:4:"key3";a:1:{s:4:"key4";s:12:"139.81.0.139";}}';
+$meta_data = bin2hex(gzencode($plaintext, 5, ZLIB_ENCODING_GZIP));</code></pre>
+<p>Damit pseudify die Daten (<code>$plaintext</code>) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform in ein Binärformat umgewandelt werden und dann müssen die Binärdaten noch im ZLIB-Format dekomprimiert werden.<br />
+Um mehrfache Dekodierung durchzuführen, kann der <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php"><code>ChainedEncoder</code></a> verwendet werden.<br />
+Mit dem ChainedEncoder können mehrere Dekodierer konfiguriert werden, welche dann der Reihe nach die Daten dekodieren.  </p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\ChainedEncoder;
+use Waldhacker\Pseudify\Core\Processor\Encoder\GzEncodeEncoder;
+use Waldhacker\Pseudify\Core\Processor\Encoder\HexEncoder;
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetTable;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;addTargetTable(table: TargetTable::create(identifier: 'wh_meta_data',
+                columns: [
+                    TargetColumn::create(identifier: 'meta_data')-&gt;setEncoder(encoder: new ChainedEncoder(encoders: [
+                        new HexEncoder(),
+                        new GzEncodeEncoder(defaultContext: [
+                            GzEncodeEncoder::ENCODE_LEVEL =&gt; 5,
+                            GzEncodeEncoder::ENCODE_ENCODING =&gt; ZLIB_ENCODING_GZIP,
+                        ]),
+                    ])),
+                ]
+            ))
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Beim Durchsuchen der Datenbankspalte <code>meta_data</code> der Tabelle <code>wh_meta_data</code> wird pseudify die Daten der Datenbankspalte dann zuerst mittels <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/HexEncoder.php#L38">der Methode <code>decode()</code> des HexEncoder</a><br />
+und dann mittels <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/GzEncodeEncoder.php#L46">der Methode <code>decode()</code> des GzEncodeEncoder</a> verarbeiten und anschließend das Resultat durchsuchen.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_meta_data      meta_data (blob)           Hex&gt;GzEncode    no further processing  
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_data (blob)            Scalar          no further processing  
+  wh_log            log_message (text)         Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- -----------------------</code></pre>
+<p>Du siehst unter <code>Search data in this tables</code> nun, dass unter <code>data decoders</code> der Datenbankspalte <code>wh_meta_data</code> die Namen <code>Hex&gt;GzEncode</code> aufgelistet wird.<br />
+Dies signalisiert Dir, dass die Daten zuerst mittels des HexEncoder dekodiert werden und dann mittels des GzEncodeEncoder.  </p>
+<h5 id="unterschiedlich-enkodierte-daten-durchsuchen">Unterschiedlich enkodierte Daten durchsuchen</h5>
+<p>Es kommt vor, dass Daten in Datenbankspalten in unterschiedlich enkodierter Form abgespeichert sind.<br />
+Anhand von Bedingungen speichern Applikationen die Daten in anderen Formen ab.  </p>
+<p>In unserem Beispiel sind die Daten der Datenbankspalte <code>log_data</code> wie folgt kodiert, wenn die Datenbankspalte <code>log_type</code> den Wert <code>bar</code> enthält.</p>
+<p>Datenbankdaten:</p>
+<pre class="highlight"><code class="language-shell">613a323a7b693a303b733a31353a223133322e3138382e3234312e313535223b733a343a2275736572223b4f3a383a22737464436c617373223a353a7b733a383a22757365724e616d65223b733a373a22637972696c3036223b733a383a226c6173744e616d65223b733a383a22486f6d656e69636b223b733a353a22656d61696c223b733a32313a22636c696e746f6e3434406578616d706c652e6e6574223b733a323a226964223b693a39313b733a343a2275736572223b523a333b7d7d</code></pre>
+<p>Kodierung durch die Applikation:</p>
+<pre class="highlight"><code class="language-php">$plaintext = 'a:2:{i:0;s:15:"132.188.241.155";s:4:"user";O:8:"stdClass":5:{s:8:"userName";s:7:"cyril06";s:8:"lastName";s:8:"Homenick";s:5:"email";s:21:"clinton44@example.net";s:2:"id";i:91;s:4:"user";R:3;}}';
+$logData = bin2hex($plaintext);</code></pre>
+<p>Damit pseudify die Daten (<code>$plaintext</code>) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.  </p>
+<p>Die Daten der Datenbankspalte <code>log_data</code> sind wie folgt kodiert, wenn die Datenbankspalte <code>log_type</code> den Wert <code>foo</code> enthält.</p>
+<p>Datenbankdaten:</p>
+<pre class="highlight"><code class="language-shell">65794a3163325679546d46745a534936496e4a76626d46735a4738784e534973496d567459576c73496a6f6962574e6a624856795a5335765a6d5673615746415a586868625842735a53356a623230694c434a7359584e30546d46745a534936496b746c5a577870626d63694c434a7063434936496a457a4d6a45364e54646d597a6f304e6a42694f6d51305a4441365a44677a5a6a706a4d6a41774f6a52694f6d5978597a676966513d3d</code></pre>
+<p>Kodierung durch die Applikation:</p>
+<pre class="highlight"><code class="language-php">$plaintext = '{"userName":"ronaldo15","email":"mcclure.ofelia@example.com","lastName":"Keeling","ip":"1321:57fc:460b:d4d0:d83f:c200:4b:f1c8"}';
+$logData = bin2hex(base64_encode($logDataPlaintext));</code></pre>
+<p>Damit pseudify die Daten (<code>$plaintext</code>) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden und dann im Base64-Format dekodiert werden.  </p>
+<p>In beiden Fällen (<code>log_type</code> == <code>foo</code> und <code>log_type</code> == <code>bar</code>) können die Daten zuerst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.<br />
+Wenn die Datenbankspalte <code>log_type</code> == <code>foo</code> enthält, müssen die Daten dann zusätzlich noch base64 dekodiert werden.<br />
+Dies kann wie folgt modelliert werden.</p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Processor\Encoder\Base64Encoder;
+use Waldhacker\Pseudify\Core\Processor\Processing\Analyze\TargetDataDecoderContext;
+use Waldhacker\Pseudify\Core\Processor\Processing\DataProcessing;
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetTable;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;addTargetTable(table: TargetTable::create(identifier: 'wh_log',
+                columns: [
+                    TargetColumn::create(identifier: 'log_data', dataType: TargetColumn::DATA_TYPE_HEX)
+                        -&gt;addDataProcessing(dataProcessing: new DataProcessing(identifier: 'decode conditional log data',
+                            processor: function (TargetDataDecoderContext $context): void {
+                                $row = $context-&gt;getDatebaseRow();
+                                if ('foo' !== $row['log_type']) {
+                                    return;
+                                }
+                                $data = $context-&gt;getDecodedData();
+
+                                $encoder = new Base64Encoder();
+                                $logData = $encoder-&gt;decode(data: $data);
+
+                                $context-&gt;setDecodedData(decodedData: $logData);
+                            }
+                        )),
+                ]
+            ))
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TargetColumn.php#L131"><code>addDataProcessing()</code></a> können zusätzlich zur Dekodierung der Daten weitere manuelle Datentransformationen programmiert werden.<br />
+Die <code>DataProcessings</code> werden nach der Dekodierung der Daten aufgeführt.<br />
+Es können beliebig viele <code>DataProcessings</code> definiert werden, welche nacheinander abgearbeitet werden.  </p>
+<p>Ein <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/DataProcessing.php#L19"><code>DataProcessing</code></a> besteht aus einer eindeutigen Identifizierung pro Datenbankspalte (Parameter <code>identifier</code>) und<br />
+einer <a href="https://www.php.net/manual/en/functions.anonymous.php">anonymen Funktion</a> (Parameter <code>processor</code>).<br />
+Die anonyme Funktion wird mit einem Parameter <code>context</code> vom Typ <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderContext.php"><code>TargetDataDecoderContext</code></a> aufgerufen.<br />
+Durch den <code>TargetDataDecoderContext</code> können diverse Informationen über den zu verarbeitenden Datensatz erhalten werden:</p>
+<ul>
+<li><code>$context-&gt;getRawData()</code>: Die Originaldaten der Datenbankspalte</li>
+<li><code>$context-&gt;getDecodedData()</code>: Die Daten der Datenbankspalte nach der Dekodierung</li>
+<li><code>$context-&gt;getDatebaseRow()</code>: Enthält die Originaldaten aller Datenbankspalten der Datenbankzeile die verarbeitet wird</li>
+</ul>
+<p>Mit der Methode  <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderContext.php#L55"><code>setDecodedData()</code></a> können manuell prozessierte Daten an pseudify übergeben werden.<br />
+Diese manuell prozessierte Daten werden dann von der Analyse durchsucht.</p>
+<p>In unserem Beispiel ermitteln wir anhand des Wertes der Datenbankspalte <code>log_type</code> ob die Daten noch weiter mittels base64 dekodiert werden müssen.<br />
+Ist der Wert von <code>log_type</code> nicht <code>foo</code>, so wird durch das <code>return</code> Statement nichts weiter prozessiert.<br />
+Ist der Wert von <code>log_type</code> gleich <code>foo</code>, so werden die Daten mittels des Base64Encoder() dekodiert und durch die Methode <code>setDecodedData()</code> an pseudify zurückgeschrieben.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------------- 
+  Table             column                     data decoders   special data decoders        
+ ----------------- -------------------------- --------------- ----------------------------- 
+  wh_log            log_data (blob)            Hex             decode conditional log data  
+  wh_log            log_type (string)          Scalar          no further processing        
+  wh_log            log_message (text)         Scalar          no further processing        
+  wh_meta_data      meta_data (blob)           Scalar          no further processing        
+  wh_user_session   session_data (blob)        Scalar          no further processing        
+  wh_user_session   session_data_json (text)   Scalar          no further processing        
+ ----------------- -------------------------- --------------- -----------------------------</code></pre>
+<p>Du siehst unter <code>Search data in this tables</code> nun, dass unter <code>data decoders</code> der Datenbankspalte <code>wh_log</code> der Name <code>Hex</code> aufgelistet wird.<br />
+Dies signalisiert Dir, dass die Daten zuerst mittels des HexEncoder dekodiert werden.<br />
+Unter <code>special data decoders</code> wird das <code>DataProcessing</code> mit der Identifizierung <code>decode conditional log data</code> aufgelistet.<br />
+Dies signalisiert Dir, dass nach der Dekodierung der Daten die Daten zusätzlich mittels dieses <code>DataProcessing</code> verarbeitet werden.  </p>
+<h5 id="json-daten-normalisieren">Json Daten normalisieren</h5>
+<p>Liegen zu durchsuchende Daten im JSON-Format in der Datenbank, so möchtest Du diese wahrscheinlich normalisieren, um sie für pseudify sinnvoll durchsuchbar zu machen.<br />
+Beispielsweise werden UTF-8 Zeichen im JSON-Format maskiert, ein <code>Ö</code> ist im JSON-Format durch die Zeichenkette <code>\u00d6</code> maskiert.  </p>
+<p>Beispieldatensatz:</p>
+<pre class="highlight"><code class="language-json">"{"oldRecord":{"bodytext":"&lt;p&gt;In 2023 sind folgende \u00d6ffentlichkeitsaktionen geplant:&lt;\/p&gt;"}}"</code></pre>
+<p>Angenommen pseudify soll nach dem Vorkommen des Wortes <code>Öffentlichkeitsaktionen</code> suchen, so wird pseudify dies im Beispieldatensatz durch die Maskierung nicht finden.<br />
+Um den JSON-String zu normalisieren und ihn so aussehen zu lassen:</p>
+<pre class="highlight"><code class="language-json">"{"oldRecord":{"bodytext":"&lt;p&gt;In 2023 sind folgende Öffentlichkeitsaktionen geplant:&lt;/p&gt;"}}"</code></pre>
+<p>existiert das <code>DataProcessing</code> namens <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderPreset.php#L29"><code>normalizedJsonString()</code></a>.<br />
+Das Hinzufügen dieses <code>DataProcessing</code> mittels</p>
+<p><pre class="highlight"><code class="language-php">-&gt;addDataProcessing(dataProcessing: TargetDataDecoderPreset::normalizedJsonString())</code></pre><br />
+zu einer Datenbankspalte, welche JSON Datenstrukturen enthält, normalisiert den JSON-String und macht ihn für pseudify durchsuchbar.  </p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Processor\Processing\Analyze\TargetDataDecoderPreset;
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TargetTable;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;addTargetTable(table: TargetTable::create(identifier: 'wh_log',
+                columns: [
+                    TargetColumn::create(identifier: 'log_message')-&gt;addDataProcessing(dataProcessing: TargetDataDecoderPreset::normalizedJsonString()),
+                ]
+            ))
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<h4 id="nicht-skalare-quelldaten-definieren">Nicht-Skalare Quelldaten definieren</h4>
+<p>Manchmal ist es notwendig, Daten aus komplexen Datenstrukturen als Quelldaten zu definieren.<br />
+Als Beispiel möchten wir Daten aus der Datenbankspalte <code>session_data_json</code> der Tabelle <code>wh_user_session</code> verwenden, um sie als Quelldaten zu verwenden.<br />
+<code>session_data_json</code> enthält einen String im JSON-Format. In diesem gibt es eine Eigenschaft namens <code>data</code> bestehend aus einem Array mit der Eigenschaft <code>last_ip</code> welche wir als Quelldaten verwenden möchten.  </p>
+<pre class="highlight"><code class="language-json">{"data": {"last_ip":"107.66.23.195"}}</code></pre>
+<p>Der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L108"><code>SourceColumn::create()</code></a> kann mit dem Parameter <code>dataType</code> <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L38-L50">ein Name eines Built-in Dekodierers</a> mitgegeben werden.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wie unter <a href="#mehrfach-enkodierte-daten-durchsuchen">"Mehrfach enkodierte Daten durchsuchen"</a> beschrieben kann auch hier der <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php"><code>ChainedEncoder</code></a> verwendet werden, um mehrfach enkodierte Daten zu dekodieren.  </p>
+</div>
+<p>Mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L164"><code>addDataProcessing()</code></a> kann nun definiert werden, welche Daten aus der dekodierten Datenstruktur extrahiert werden sollen, um sie als Quelldaten zu verwenden.<br />
+Die <code>DataProcessings</code> werden nach der Dekodierung der Daten aufgeführt.<br />
+Es können beliebig viele <code>DataProcessings</code> definiert werden, welche nacheinander abgearbeitet werden.  </p>
+<p>Ein <code>DataProcessing</code> besteht aus einer eindeutigen Identifizierung pro Datenbankspalte (Parameter <code>identifier</code>) und einer anonymen Funktion (Parameter <code>processor</code>).<br />
+Die anonyme Funktion wird mit einem Parameter <code>context</code> vom Typ <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorContext.php"><code>SourceDataCollectorContext</code></a> aufgerufen.<br />
+Durch den <code>SourceDataCollectorContext</code> können diverse Informationen über den zu verarbeitenden Datensatz erhalten werden:</p>
+<ul>
+<li><code>$context-&gt;getRawData()</code>: Die Originaldaten der Datenbankspalte</li>
+<li><code>$context-&gt;getDecodedData()</code>: Die Daten der Datenbankspalte nach der Dekodierung</li>
+<li><code>$context-&gt;getDatebaseRow()</code>: Enthält die Originaldaten aller Datenbankspalten der Datenbankzeile die verarbeitet wird</li>
+</ul>
+<p>Mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorContext.php#L75"><code>addCollectedData()</code></a> können die extrahierten Daten als Quelldaten an pseudify übergeben werden.<br />
+Die Methode <code>addCollectedData()</code> kann beliebig oft verwendet werden, um beliebige viele Quelldaten an pseudify zu übergeben.<br />
+Der Methode <code>addCollectedData()</code> kann entweder ein String übergeben werden , oder ein eindimensionales Array. Wird ein Array übergeben, so werden alle darin befindlichen skalaren Daten extrahiert und als Quelldaten an pseudify übergeben.  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Wird kein <code>DataProcessing</code> definiert, so wird automatisch das Standard-DataProcessing <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorPreset.php#L29"><code>SourceDataCollectorPreset::scalarData()</code></a> verwendet.<br />
+Dieses sammelt die Daten aus einer Datenbankspalte nur dann, wenn der Inhalt größer oder gleich 3 Zeichen lang ist.</p>
+</div>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Processor\Processing\Analyze\SourceDataCollectorContext;
+use Waldhacker\Pseudify\Core\Processor\Processing\DataProcessing;
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\SourceColumn;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_user_session', columns: [
+                SourceColumn::create(identifier: 'session_data_json', dataType: SourceColumn::DATA_TYPE_JSON)
+                    -&gt;addDataProcessing(dataProcessing: new DataProcessing(identifier: 'extract ip address',
+                        processor: function (SourceDataCollectorContext $context): void {
+                            $data = $context-&gt;getDecodedData();
+                            $context-&gt;addCollectedData(data: $data['data']['last_ip']);
+                        }
+                    )),
+            ])
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Du siehst unter <code>Collect search data from this tables</code> nun, dass unter <code>data decoders</code> der Datenbankspalte <code>session_data_json</code> der Name <code>Json</code> aufgelistet wird.<br />
+Dies signalisiert Dir, dass die Daten mittels des JsonEncoder dekodiert werden.<br />
+Unter <code>data collectors</code> wird das <code>DataProcessing</code> mit der Identifizierung <code>extract ip address</code> aufgelistet.<br />
+Dies signalisiert Dir, dass nach der Dekodierung der Daten die Daten zusätzlich mittels dieses <code>DataProcessing</code> gesammelt werden.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ ----------------- -------------------------- --------------- -------------------- 
+  Table             column                     data decoders   data collectors     
+ ----------------- -------------------------- --------------- -------------------- 
+  wh_user_session   session_data_json (text)   Json            extract ip address  
+ ----------------- -------------------------- --------------- -------------------- 
+
+Search data in this tables
+--------------------------
+
+ ----------------- --------------------- --------------- ----------------------- 
+  Table             column                data decoders   special data decoders  
+ ----------------- --------------------- --------------- ----------------------- 
+  wh_log            id (integer)          Scalar          no further processing  
+  wh_log            log_type (string)     Scalar          no further processing  
+  wh_log            log_data (blob)       Scalar          no further processing  
+  wh_log            log_message (text)    Scalar          no further processing  
+  wh_log            ip (string)           Scalar          no further processing  
+  wh_meta_data      id (integer)          Scalar          no further processing  
+  wh_meta_data      meta_data (blob)      Scalar          no further processing  
+  wh_user           id (integer)          Scalar          no further processing  
+  wh_user           username (string)     Scalar          no further processing  
+  wh_user           password (string)     Scalar          no further processing  
+  wh_user           first_name (string)   Scalar          no further processing  
+  wh_user           last_name (string)    Scalar          no further processing  
+  wh_user           email (string)        Scalar          no further processing  
+  wh_user           city (string)         Scalar          no further processing  
+  wh_user_session   id (integer)          Scalar          no further processing  
+  wh_user_session   session_data (blob)   Scalar          no further processing  
+ ----------------- --------------------- --------------- -----------------------</code></pre>
+<h4 id="benutzerdefinierte-quelldaten-definieren">Benutzerdefinierte Quelldaten definieren</h4>
+<p>Es ist möglich benutzerdefinierte Quelldaten zu definieren die sich nicht aus Datenbankspalten beziehen.<br />
+Mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L348"><code>addSourceString()</code></a> können Strings als Quelldaten definiert werden.  </p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            -&gt;addSourceTable(table: 'wh_log', columns: [
+                'ip',
+            ])
+            -&gt;addSourceTable(table: 'wh_user', columns: [
+                'username',
+                'password',
+                'first_name',
+                'last_name',
+                'email',
+                'city',
+            ])
+
+            -&gt;addSourceString(string: 'example.com')
+            -&gt;addSourceString(string: 'regex:(?:[0-9]{1,3}\.){3}[0-9]{1,3}')
+
+            // ...
+        ;
+
+        return $tableDefinition;
+    }
+}</code></pre>
+<p>Du siehst unter <code>Search for this strings</code> nun die benutzerdefinierten Strings nach denen in der Datenbank gesucht wird.<br />
+Alternativ zu statischen Werten ist es möglich, reguläre Ausdrücke für die Suche zu verwenden.<br />
+Ein regulärer Ausdruck muss durch den Präfix <code>regex:</code> gekennzeichnet werden und der <a href="https://www.php.net/manual/en/pcre.pattern.php">PCRE-Regex-Syntax</a> folgen.<br />
+Mit <code>regex:(?:[0-9]{1,3}\.){3}[0-9]{1,3}</code> kann beispielsweise nach IPv4 Adressen gesucht werden.  </p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:debug:analyze test-profile
+
+Analyzer profile "test-profile"
+===============================
+
+Basis configuration
+-------------------
+
+ ----------------------------------------------- ------- 
+  Key                                             Value  
+ ----------------------------------------------- ------- 
+  Shown characters before and after the finding   10     
+ ----------------------------------------------- ------- 
+
+Collect search data from this tables
+------------------------------------
+
+ --------- --------------------- --------------- ----------------------- 
+  Table     column                data decoders   data collectors        
+ --------- --------------------- --------------- ----------------------- 
+  wh_log    ip (string)           Scalar          default (scalar data)  
+  wh_user   username (string)     Scalar          default (scalar data)  
+  wh_user   password (string)     Scalar          default (scalar data)  
+  wh_user   first_name (string)   Scalar          default (scalar data)  
+  wh_user   last_name (string)    Scalar          default (scalar data)  
+  wh_user   email (string)        Scalar          default (scalar data)  
+  wh_user   city (string)         Scalar          default (scalar data)  
+ --------- --------------------- --------------- ----------------------- 
+
+Search for this strings
+-----------------------
+
+ ------------------------------------- 
+  String                               
+ ------------------------------------- 
+  example.com                          
+  regex:(?:[0-9]{1,3}\.){3}[0-9]{1,3}  
+ -------------------------------------
+
+Search data in this tables
+--------------------------
+
+ ----------------- -------------------------- --------------- ----------------------- 
+  Table             column                     data decoders   special data decoders  
+ ----------------- -------------------------- --------------- ----------------------- 
+  wh_log            log_type (string)          Scalar          no further processing  
+  wh_log            log_data (blob)            Scalar          no further processing  
+  wh_log            log_message (text)         Scalar          no further processing  
+  wh_meta_data      meta_data (blob)           Scalar          no further processing  
+  wh_user_session   session_data (blob)        Scalar          no further processing  
+  wh_user_session   session_data_json (text)   Scalar          no further processing  
+ ----------------- -------------------------- --------------- -----------------------</code></pre>
+<h3 id="ein-analyze-profile-ausfuhren">Ein "Analyze Profile" ausführen</h3>
+<p>Ein "Analyze Profile" kann mit dem Kommando <code>pseudify:analyze &lt;profil-name&gt;</code> ausgeführt werden.</p>
+<pre class="highlight"><code class="language-shell">$ pseudify pseudify:analyze test-profile
+
+ 1224/1224 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100% &lt; 1 sec/&lt; 1 sec 4.0 MiB
+
+summary
+=======
+
+ ----------------------------------- ---------------------------------------------------------------------------------------------- ------------------------------ 
+  source                              data                                                                                           seems to be in                
+ ----------------------------------- ---------------------------------------------------------------------------------------------- ------------------------------ 
+  __custom__.__custom__               132.188.241.155                                                                                wh_log.ip                     
+  __custom__.__custom__               155.215.67.191                                                                                 wh_log.ip                     
+  __custom__.__custom__               243.202.241.67                                                                                 wh_log.ip                     
+  __custom__.__custom__               132.188.241.155                                                                                wh_log.log_data               
+  __custom__.__custom__               155.215.67.191                                                                                 wh_log.log_data               
+  __custom__.__custom__               243.202.241.67                                                                                 wh_log.log_data               
+  __custom__.__custom__               example.com                                                                                    wh_log.log_data               
+  __custom__.__custom__               example.com                                                                                    wh_log.log_message            
+  __custom__.__custom__               139.81.0.139                                                                                   wh_meta_data.meta_data        
+  __custom__.__custom__               187.135.239.239                                                                                wh_meta_data.meta_data        
+  __custom__.__custom__               197.110.248.18                                                                                 wh_meta_data.meta_data        
+  __custom__.__custom__               20.1.58.149                                                                                    wh_meta_data.meta_data        
+  __custom__.__custom__               239.27.57.12                                                                                   wh_meta_data.meta_data        
+  __custom__.__custom__               244.166.32.78                                                                                  wh_meta_data.meta_data        
+  __custom__.__custom__               83.243.216.115                                                                                 wh_meta_data.meta_data        
+  __custom__.__custom__               example.com                                                                                    wh_meta_data.meta_data        
+  __custom__.__custom__               107.66.23.195                                                                                  wh_user_session.session_data  
+  __custom__.__custom__               197.110.248.18                                                                                 wh_user_session.session_data  
+  __custom__.__custom__               244.166.32.78                                                                                  wh_user_session.session_data  
+  wh_user.city                        Dorothyfort                                                                                    wh_meta_data.meta_data        
+  wh_user.city                        North Elenamouth                                                                               wh_meta_data.meta_data        
+  wh_user.city                        South Wilfordland                                                                              wh_meta_data.meta_data        
+  wh_user.email                       mcclure.ofelia@example.com                                                                     wh_log.log_data               
+  wh_user.email                       mcclure.ofelia@example.com                                                                     wh_log.log_message            
+  wh_user.email                       cassin.bernadette@example.net                                                                  wh_meta_data.meta_data        
+  wh_user.email                       conn.abigale@example.net                                                                       wh_meta_data.meta_data        
+  wh_user.email                       mcclure.ofelia@example.com                                                                     wh_meta_data.meta_data        
+  wh_user.first_name                  Donato                                                                                         wh_meta_data.meta_data        
+  wh_user.first_name                  Maybell                                                                                        wh_meta_data.meta_data        
+  wh_user.first_name                  Mckayla                                                                                        wh_meta_data.meta_data        
+  wh_user.last_name                   Keeling                                                                                        wh_log.log_data               
+  wh_user.last_name                   Anderson                                                                                       wh_meta_data.meta_data        
+  wh_user.last_name                   Keeling                                                                                        wh_meta_data.meta_data        
+  wh_user.last_name                   Stoltenberg                                                                                    wh_meta_data.meta_data        
+  wh_user.password                    $argon2i$v=19$m=8,t=1,p=1$QXNXbTRMZWxmenBRUzdwZQ$i6hntUDLa3ZFqmCG4FM0iPrpMp6d4D8XfrNBtyDmV9U   wh_meta_data.meta_data        
+  wh_user.password                    $argon2i$v=19$m=8,t=1,p=1$SUJJeWZGSGEwS2h2TEw5Ug$kCQm4/5DqnjXc/3SiXwimtTBvbDO9H0Ru1f5hkQvE/Q   wh_meta_data.meta_data        
+  wh_user.password                    $argon2i$v=19$m=8,t=1,p=1$ZldmOWd2TDJRb3FTNVpGNA$ORIwp6yekRx02mqM4WCTVhllgXpUpuFJZ1MmbYwAMXs   wh_meta_data.meta_data        
+  wh_user.username                    georgiana59                                                                                    wh_log.log_data               
+  wh_user.username                    georgiana59                                                                                    wh_log.log_message            
+  wh_user.username                    georgiana59                                                                                    wh_meta_data.meta_data        
+  wh_user.username                    howell.damien                                                                                  wh_meta_data.meta_data        
+  wh_user.username                    hpagac                                                                                         wh_meta_data.meta_data        
+  wh_user_session.session_data_json   1321:57fc:460b:d4d0:d83f:c200:4b:f1c8                                                          wh_log.ip                     
+  wh_user_session.session_data_json   4fb:1447:defb:9d47:a2e0:a36a:10d3:fd98                                                         wh_log.ip                     
+  wh_user_session.session_data_json   1321:57fc:460b:d4d0:d83f:c200:4b:f1c8                                                          wh_log.log_data               
+  wh_user_session.session_data_json   4fb:1447:defb:9d47:a2e0:a36a:10d3:fd98                                                         wh_log.log_data               
+  wh_user_session.session_data_json   1321:57fc:460b:d4d0:d83f:c200:4b:f1c8                                                          wh_meta_data.meta_data        
+  wh_user_session.session_data_json   197.110.248.18                                                                                 wh_meta_data.meta_data        
+  wh_user_session.session_data_json   244.166.32.78                                                                                  wh_meta_data.meta_data        
+  wh_user_session.session_data_json   107.66.23.195                                                                                  wh_user_session.session_data  
+  wh_user_session.session_data_json   1321:57fc:460b:d4d0:d83f:c200:4b:f1c8                                                          wh_user_session.session_data  
+  wh_user_session.session_data_json   197.110.248.18                                                                                 wh_user_session.session_data  
+  wh_user_session.session_data_json   244.166.32.78                                                                                  wh_user_session.session_data  
+  wh_user_session.session_data_json   4fb:1447:defb:9d47:a2e0:a36a:10d3:fd98                                                         wh_user_session.session_data  
+ ----------------------------------- ---------------------------------------------------------------------------------------------- ------------------------------</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Je nach Größe der Datenbank kann die Analyse in Sekunden oder erst in Stunden fertig sein.<br />
+Da Analysen in der Regel nur selten durchgeführt werden, z.B. um mit den gesammelten Informationen die Pseudonymisierung zu modellieren, haben wir entscheiden, dass eine etwas längere Laufzeit einer Analyse vertretbar ist.  </p>
+</div>
+<p>Die erste Zeile der Analyse gibt an, wie viele Daten bereits analysiert wurden und wie viele insgesamt analysiert werden (<code>1148/1148</code>).<br />
+Es folgt ein Fortschrittsbalken und eine prozentuale Angabe des Fortschritts.<br />
+Danach wird die Laufzeit und die geschätzte Gesamtzeit der Analyse ausgegeben.<br />
+Zum Schluss wird der bisher maximale Speicherverbrauch ausgegeben.  </p>
+<p>Die Zusammenfassung der Analyse listet letztendlich auf, welche Quelldaten (Spalte <code>data</code>) aus welcher Quell-Datenbankspalte (Spalte <code>source</code>) sich in welchen Datenbankspalten wiederfinden (Spalte <code>seems to be in</code>).<br />
+Wenn in der Spalte <code>source</code>  ein <code>__custom__.__custom__</code> steht so bedeutet dies, dass die Quelldaten nicht aus einer Datenbankspalte stammen, sondern mittels <code>addSourceString()</code> definiert wurden.<br />
+Wenn Dir bisher noch nicht bekannt war, dass sich in einer Datenbankspalte unter <code>seems to be in</code> gewisse Quelldaten befinden, dann kannst Du Dir nun diese Datenbankspalten genauer anschauen und sie in die Modellierung der Pseudonymisierung mit aufnehmen.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Wenn viele Datenbanktabellen und Spalten existieren, dann kann die Ausgabe der Analyse sehr lang werden und vielleicht nicht in den Buffer Deines Terminals passen.<br />
+In diesem Fall lohnt es sich, die Ausgabe in eine Datei zu schreiben.</p>
+<pre class="highlight"><code class="language-shell">pseudify --no-ansi pseudify:debug:analyze test-profile &gt; analysis.log</code></pre>
+</div>
+<h4 id="erweiterte-informationen-ausgeben">Erweiterte Informationen ausgeben</h4>
+<p>Für die Fehlersuche oder die Verfeinerung des Analyseprofils kann es sinnvoll sein zu sehen, welche Daten pseudify in den Datenbankdaten gefunden hat.<br />
+Dafür kann das Kommando <code>pseudify:analyze</code> mit dem Parameter <code>--verbose</code> aufgerufen werden:</p>
+<pre class="highlight"><code class="language-shell">pseudify pseudify:analyze &lt;profil-name&gt; --verbose</code></pre>
+<p>Nun werden die Quelldaten aufgelistet (wh_log.ip (<code>1321:57fc:460b:d4d0:d83f:c200:4b:f1c8</code>)) und die Fundstelle (wh_meta_data.meta_data (...ip";s:37:"<code>1321:57fc:460b:d4d0:d83f:c200:4b:f1c8</code>";}";}s:4:...))</p>
+<p><a href="../../img/analyze-debug.png" target="_blank"><img alt="" src="../../img/analyze-debug.png" /></a></p>
+<p>Die Anzahl der Zeichen, die vor und nach der Fundstelle ausgegeben werden, können mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L386"><code>setTargetDataFrameCuttingLength()</code></a> definiert werden.<br />
+Standardmäßig werden 10 Zeichen vor und nach einer Fundstelle ausgegeben.<br />
+Wird der Wert auf 0 gesetzt, so wird vor und nach der Fundstelle nichts abgeschnitten und Du bekommst den vollständigen Datenbankinhalt ausgegeben.  </p>
+<pre class="highlight"><code class="language-php">&lt;?php
+
+namespace Waldhacker\Pseudify\Profiles;
+
+use Waldhacker\Pseudify\Core\Profile\Analyze\ProfileInterface;
+use Waldhacker\Pseudify\Core\Profile\Model\Analyze\TableDefinition;
+
+class TestAnalyzeProfile implements ProfileInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'test-profile';
+    }
+
+    public function getTableDefinition(): TableDefinition
+    {
+        $tableDefinition = new TableDefinition(identifier: $this-&gt;getIdentifier());
+
+        $tableDefinition
+            // ...
+            -&gt;setTargetDataFrameCuttingLength(length: 15);
+
+        return $tableDefinition;
+    }
+}</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../setup/configuration/" class="btn btn-neutral float-left" title="Konfiguration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pseudonymize/" class="btn btn-neutral float-right" title="Pseudonymisiere die Datenbank">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../setup/configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../pseudonymize/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

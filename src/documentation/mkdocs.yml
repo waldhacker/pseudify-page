@@ -1,0 +1,67 @@
+site_name: pseudify.me
+site_url: https://www.pseudify.me/docs/0.1/
+repo_url: https://github.com/waldhacker/pseudify-page/
+repo_name: GitHub
+edit_uri: 'edit/main/src/documentation/docs/'
+site_description: pseudify
+site_author: waldhacker UG (haftungsbeschränkt)
+copyright: waldhacker UG (haftungsbeschränkt)
+site_dir: '../public/docs/0.1/'
+theme:
+    name: readthedocs
+    locale: en
+    #logo: '/assets/img/Logo.svg'
+    custom_dir: theme_overrides
+    current_version: 0.1
+    navigation_depth: 6
+markdown_extensions:
+    - admonition
+    - attr_list
+    - nl2br
+    - pymdownx.details
+    - pymdownx.superfences
+plugins:
+    - callouts
+    - search
+    - i18n:
+        default_language: en
+        languages:
+            en:
+                name: EN
+                build: false
+            de:
+                name: DE
+                build: true
+        nav_translations:
+          de:
+            'Introduction': 'Einführung'
+            'Overview': 'Überblick'
+            'Configuration': 'Konfiguration'
+            'Usage': 'Anwendung'
+            'Analyze the database': 'Analysiere die Datenbank'
+            'Pseudonymize the database': 'Pseudonymisiere die Datenbank'
+            'Complex datatypes': 'Komplexe Datentypen'
+            'Predefined application profiles': 'Vordefinierte Applikationsprofile'
+            'Miscellaneous': 'Sonstiges'
+            'What to pseudonymize?': 'Was sollte pseudonymisiert werden?'
+            'Development': 'Entwicklung'
+            'Versions': 'Versionen'
+            'License': 'Lizenz'
+            'About the project': 'Über das Projekt'
+nav:
+    - 'Introduction':
+        - 'Overview': 'index.md'
+    - 'Setup':
+        - 'Installation': 'setup/installation.md'
+        - 'Configuration': 'setup/configuration.md'
+    - 'Usage':
+        - 'Analyze the database': 'usage/analyze.md'
+        - 'Pseudonymize the database': 'usage/pseudonymize.md'
+        - 'Complex datatypes': 'usage/complexDatatypes.md'
+        - 'Predefined application profiles': 'usage/predefinedApplicationProfiles.md'
+    - 'Miscellaneous':
+        - 'What to pseudonymize?': 'whatToPseudonymize.md'
+        - 'Development': 'development.md'
+        - 'Versions': 'versions.md'
+        - 'License': 'license.md'
+        - 'About the project': 'about.md'

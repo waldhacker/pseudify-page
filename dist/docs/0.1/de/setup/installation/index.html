@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/0.1/de/setup/installation/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Installation - pseudify.me</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation";
+        var mkdocs_page_input_path = "setup/installation.de.md";
+        var mkdocs_page_url = "/docs/0.1/de/setup/installation/";
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+  <script async="async" defer="defer" data-domain="pseudify.me" src="https://anna.pseudify.me/js/plausible.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../" class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Einführung</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Überblick</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#docker-image-empfohlen">docker Image (empfohlen)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#phar-archiv">PHAR Archiv</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Konfiguration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Anwendung</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/analyze/">Analysiere die Datenbank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/pseudonymize/">Pseudonymisiere die Datenbank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/complexDatatypes/">Komplexe Datentypen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/predefinedApplicationProfiles/">Vordefinierte Applikationsprofile</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sonstiges</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">Was sollte pseudonymisiert werden?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../development/">Entwicklung</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../versions/">Versionen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../license/">Lizenz</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Über das Projekt</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div  style="display:flex; justify-content:right;" role="navigation" aria-label="languages navigation">
+  <i class="fa fa-globe" style="margin-right:5px;" aria-hidden="true"></i>
+  
+    
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/0.1/">EN</a></div>
+    
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/0.1/de/">DE</a></div>
+    
+  
+</div>
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Setup &raquo;</li>
+      <li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/setup/installation.de.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installation">Installation</h1>
+<p>Pseudify kann in 2 Varianten verwendet werden</p>
+<ul>
+<li>mittels docker container (empfohlen)</li>
+<li>mittels phar Archiv</li>
+</ul>
+<h2 id="docker-image-empfohlen">docker Image (empfohlen)</h2>
+<div class="admonition info">
+<p class="admonition-title">Abhängigkeiten</p>
+<p>Folgende Komponenten müssen installiert werden:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">docker</a></li>
+</ul>
+</div>
+<p>Der docker container enthält alle benötigten Abhängigkeiten, um pseudify mit allen unterstützten Datenbanktypen auszuführen.  </p>
+<ul>
+<li>Starte mit den Profile Templates</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Profile Templates</p>
+<p>Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile Templates</a> beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.<br />
+Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.</p>
+</div>
+<p>Download der "Profile Templates":</p>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
+  composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .</code></pre>
+<ul>
+<li>Die .env erzeugen und editieren</li>
+</ul>
+<pre class="highlight"><code class="language-shell">cp .env.example .env</code></pre>
+<ul>
+<li>Testen ob alles funktioniert</li>
+</ul>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data \
+  ghcr.io/waldhacker/pseudify pseudify:information</code></pre>
+<h2 id="phar-archiv">PHAR Archiv</h2>
+<div class="admonition info">
+<p class="admonition-title">Abhängigkeiten</p>
+<p>Wird das PHAR Archiv verwendet, so müssen die benötigten Abhängigkeiten manuell installiert werden.<br />
+Folgende Komponenten müssen installiert werden:</p>
+<ul>
+<li>PHP 8.1</li>
+</ul>
+<p>Folgende PHP-Erweiterungen müssen installiert werden, je nachdem welche Datenbanktypen verwendet werden:</p>
+<ul>
+<li>pdo_mysql (A MySQL driver that uses the pdo_mysql PDO extension)</li>
+<li>mysqli (A MySQL driver that uses the mysqli extension)</li>
+<li>pdo_pgsql (A PostgreSQL driver that uses the pdo_pgsql PDO extension)</li>
+<li>pdo_sqlite (An SQLite driver that uses the pdo_sqlite PDO extension)</li>
+<li>sqlite3 (An SQLite driver that uses the sqlite3 extension)</li>
+<li>pdo_sqlsrv (A Microsoft SQL Server driver that uses pdo_sqlsrv PDO)<ul>
+<li><a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15">Microsoft ODBC Driver for SQL Server</a></li>
+</ul>
+</li>
+<li>sqlsrv (A Microsoft SQL Server driver that uses the sqlsrv PHP extension)<ul>
+<li><a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15">Microsoft ODBC Driver for SQL Server</a></li>
+</ul>
+</li>
+<li>pdo_oci (An Oracle driver that uses the pdo_oci PDO extension (not recommended by doctrine))</li>
+<li>oci8 (An Oracle driver that uses the oci8 PHP extension)</li>
+<li>pdo_ibm (An DB2 driver that uses the pdo_ibm PHP extension)</li>
+<li>ibm_db2 (An DB2 driver that uses the ibm_db2 extension)</li>
+</ul>
+</div>
+<ul>
+<li>Starte mit den Profile Templates</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Profile Templates</p>
+<p>Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile Templates</a> beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.<br />
+Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.</p>
+</div>
+<p>Download der "Profile Templates":</p>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
+  composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .</code></pre>
+<ul>
+<li>Das PHAR Archiv in denselben Ordner herunterladen, in dem die pseudify Profile aus dem vorherigen Schritt installiert wurden.</li>
+</ul>
+<pre class="highlight"><code class="language-shell">curl -sLo pseudify https://github.com/waldhacker/pseudify-core/releases/latest/download/pseudify.phar
+chmod u+x pseudify</code></pre>
+<ul>
+<li>Die .env erzeugen und editieren</li>
+</ul>
+<pre class="highlight"><code class="language-shell">cp .env.example .env</code></pre>
+<ul>
+<li>Testen ob alles funktioniert</li>
+</ul>
+<pre class="highlight"><code class="language-shell">./pseudify pseudify:information</code></pre>
+<div class="admonition info">
+<p class="admonition-title">alternativer Installationsort</p>
+<p>Das pseudify PHAR Archiv kann auch an einem anderen Ort (z.B. global unter <code>/usr/bin/pseudify</code>) installiert werden.<br />
+Mit dem Parameter <code>--data</code> kann pseudify der Pfad zu den pseudify Profilen, welche verwendet werden sollen, mitgeteilt werden.<br />
+<pre class="highlight"><code class="language-shell">/usr/bin/pseudify --data /home/project/path/to/pseudify-profile-templates pseudify:information</code></pre></p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../" class="btn btn-neutral float-left" title="Überblick"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../configuration/" class="btn btn-neutral float-right" title="Konfiguration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
