@@ -51,6 +51,10 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#docker-image-empfohlen">docker Image (empfohlen)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#phar-archiv">PHAR Archiv</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
@@ -117,7 +121,100 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<p>todo</p>
+<p><strong>todo: translate to en</strong></p>
+<p>Pseudify kann in 2 Varianten verwendet werden</p>
+<ul>
+<li>mittels docker container (empfohlen)</li>
+<li>mittels phar Archiv</li>
+</ul>
+<h2 id="docker-image-empfohlen">docker Image (empfohlen)</h2>
+<div class="admonition info">
+<p class="admonition-title">Abhängigkeiten</p>
+<p>Folgende Komponenten müssen installiert werden:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">docker</a></li>
+</ul>
+</div>
+<p>Der docker container enthält alle benötigten Abhängigkeiten, um pseudify mit allen unterstützten Datenbanktypen auszuführen.  </p>
+<ul>
+<li>Starte mit den Profile Templates</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Profile Templates</p>
+<p>Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile Templates</a> beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.<br />
+Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.</p>
+</div>
+<p>Download der "Profile Templates":</p>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
+  composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .</code></pre>
+<ul>
+<li>Die .env erzeugen und editieren</li>
+</ul>
+<pre class="highlight"><code class="language-shell">cp .env.example .env</code></pre>
+<ul>
+<li>Testen ob alles funktioniert</li>
+</ul>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data \
+  ghcr.io/waldhacker/pseudify pseudify:information</code></pre>
+<h2 id="phar-archiv">PHAR Archiv</h2>
+<div class="admonition info">
+<p class="admonition-title">Abhängigkeiten</p>
+<p>Wird das PHAR Archiv verwendet, so müssen die benötigten Abhängigkeiten manuell installiert werden.<br />
+Folgende Komponenten müssen installiert werden:</p>
+<ul>
+<li>PHP 8.1</li>
+</ul>
+<p>Folgende PHP-Erweiterungen müssen installiert werden, je nachdem welche Datenbanktypen verwendet werden:</p>
+<ul>
+<li>pdo_mysql (A MySQL driver that uses the pdo_mysql PDO extension)</li>
+<li>mysqli (A MySQL driver that uses the mysqli extension)</li>
+<li>pdo_pgsql (A PostgreSQL driver that uses the pdo_pgsql PDO extension)</li>
+<li>pdo_sqlite (An SQLite driver that uses the pdo_sqlite PDO extension)</li>
+<li>sqlite3 (An SQLite driver that uses the sqlite3 extension)</li>
+<li>pdo_sqlsrv (A Microsoft SQL Server driver that uses pdo_sqlsrv PDO)<ul>
+<li><a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15">Microsoft ODBC Driver for SQL Server</a></li>
+</ul>
+</li>
+<li>sqlsrv (A Microsoft SQL Server driver that uses the sqlsrv PHP extension)<ul>
+<li><a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15">Microsoft ODBC Driver for SQL Server</a></li>
+</ul>
+</li>
+<li>pdo_oci (An Oracle driver that uses the pdo_oci PDO extension (not recommended by doctrine))</li>
+<li>oci8 (An Oracle driver that uses the oci8 PHP extension)</li>
+<li>pdo_ibm (An DB2 driver that uses the pdo_ibm PHP extension)</li>
+<li>ibm_db2 (An DB2 driver that uses the ibm_db2 extension)</li>
+</ul>
+</div>
+<ul>
+<li>Starte mit den Profile Templates</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Profile Templates</p>
+<p>Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile Templates</a> beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.<br />
+Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.</p>
+</div>
+<p>Download der "Profile Templates":</p>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
+  composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .</code></pre>
+<ul>
+<li>Das PHAR Archiv in denselben Ordner herunterladen, in dem die pseudify Profile aus dem vorherigen Schritt installiert wurden.</li>
+</ul>
+<pre class="highlight"><code class="language-shell">curl -sLo pseudify https://github.com/waldhacker/pseudify-core/releases/latest/download/pseudify.phar
+chmod u+x pseudify</code></pre>
+<ul>
+<li>Die .env erzeugen und editieren</li>
+</ul>
+<pre class="highlight"><code class="language-shell">cp .env.example .env</code></pre>
+<ul>
+<li>Testen ob alles funktioniert</li>
+</ul>
+<pre class="highlight"><code class="language-shell">./pseudify pseudify:information</code></pre>
+<div class="admonition info">
+<p class="admonition-title">alternativer Installationsort</p>
+<p>Das pseudify PHAR Archiv kann auch an einem anderen Ort (z.B. global unter <code>/usr/bin/pseudify</code>) installiert werden.<br />
+Mit dem Parameter <code>--data</code> kann pseudify der Pfad zu den pseudify Profilen, welche verwendet werden sollen, mitgeteilt werden.<br />
+<pre class="highlight"><code class="language-shell">/usr/bin/pseudify --data /home/project/path/to/pseudify-profile-templates pseudify:information</code></pre></p>
+</div>
               
             </div>
           </div><footer>

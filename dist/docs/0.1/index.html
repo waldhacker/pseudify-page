@@ -46,6 +46,26 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href=".">Overview</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unterstutzte-datenbanken">Unterstützte Datenbanken</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mysql">MySQL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mariadb">MariaDB</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ms-sql-server">MS SQL Server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sqlite">SQLite</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oracle">Oracle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ibm-db2">IBM DB2</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -117,7 +137,347 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="overview">Overview</h1>
-<p>todo</p>
+<p><strong>todo: translate to en</strong></p>
+<h2 id="features">Features</h2>
+<p>&#127881; Analysiere und pseudonymisiere unterstützte Datenbanken von beliebigen Applikationen<br />
+&#127881; Finde versteckte personenbezogene Daten<br />
+&#127881; Datenintegrität: gleiche Eingangsdaten erzeugen gleiche Pseudonyme über alle Datenbankspalten hinweg<br />
+&#127881; Analysiere und pseudonymisiere einfach enkodierte Daten<br />
+&#127881; Analysiere und pseudonymisiere mehrfach enkodierte Daten<br />
+&#127881; Analysiere und pseudonymisiere komplexe Datenstrukturen wie JSON oder serialisierte PHP Daten<br />
+&#127881; Analysiere und pseudonymisiere dynamische Daten<br />
+&#127881; 12 Built-in Dekodierer / Enkodierer<br />
+&#127881; Erweiterbarkeit mit eigenen Dekodierern / Enkodierern<br />
+&#127881; 100+ Built-in lokalisierbare Fake-Datenformate dank FakerPHP<br />
+&#127881; Erweiterbarkeit mit eigenen Fake-Datenformaten<br />
+&#127881; Unterstützung von 7 Built-in Datenbankplattformen dank Doctrine DBAL<br />
+&#127881; Erweiterbarkeit mit eigenen Datenbankplattformen<br />
+&#127881; Modellierung der Profile in PHP  </p>
+<h2 id="unterstutzte-datenbanken">Unterstützte Datenbanken</h2>
+<h3 id="mysql">MySQL</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>MySQL 5.1</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MySQL 5.5</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MySQL 5.6</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MySQL 5.7</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MySQL 8.0</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<hr />
+<h3 id="mariadb">MariaDB</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>MariaDB 10.2</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.3</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.4</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.5</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.6</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.7</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.8</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>MariaDB 10.9</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="postgresql">PostgreSQL</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>PostgreSQL 9.4</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 9.5</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 9.6</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 10</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 11</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 12</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 13</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 14</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>PostgreSQL 15</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<hr />
+<h3 id="ms-sql-server">MS SQL Server</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>SQL Server 2014</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>SQL Server 2016</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>SQL Server 2017</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>SQL Server 2019</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>SQL Server 2022</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<hr />
+<h3 id="sqlite">SQLite</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>SQLite 1.x</strong></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>SQLite 2.x</strong></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>SQLite 3.x</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:green">&#x2714;</PDO_ODBCspan></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="oracle">Oracle</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Oracle Database 11</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>Oracle Database 12</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>Oracle Database 19</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>Oracle Database 21</strong></td>
+<td align="center"><span style="color:green">&#x2714;</span></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<p>--</p>
+<h3 id="ibm-db2">IBM DB2</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">doctrine dbal Unterstützung</th>
+<th align="center">pseudify Unterstützung</th>
+<th align="center">Treiber im docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>DB2 9.x</strong></td>
+<td align="center"><span style="color:red">&#x2753;</span></td>
+<td align="center"><span style="color:red">&#x2753;</span></td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>DB2 10.x</strong></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td align="left"><strong>DB2 11.x</strong></td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td align="center"><span style="color:red">&#x274C;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
               
             </div>
           </div><footer>

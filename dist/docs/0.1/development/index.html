@@ -71,6 +71,24 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Development</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#website">Website</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#starten-der-webseite">Starten der Webseite</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bauen-der-webseite">Bauen der Webseite</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#core">Core</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#das-phar-archiv-bauen">Das PHAR Archiv bauen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#das-docker-image-bauen">Das docker image bauen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bauen-von-pseudify">Bauen von pseudify</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../versions/">Versions</a>
@@ -117,7 +135,43 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="development">Development</h1>
-<p>todo</p>
+<p><strong>todo: translate to en</strong></p>
+<h2 id="website">Website</h2>
+<p>Der Quellcode der Webseite befindet sich im Repository <a href="https://github.com/waldhacker/pseudify-page">pseudify-page</a>.<br />
+Um die Webseite zu entwickeln, wird das Programm <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> benötigt.  </p>
+<h3 id="starten-der-webseite">Starten der Webseite</h3>
+<pre class="highlight"><code class="language-shell">ddev start
+ddev launch</code></pre>
+<h3 id="bauen-der-webseite">Bauen der Webseite</h3>
+<pre class="highlight"><code class="language-shell"># 0.1 = current version
+ddev exec ../build/build.sh 0.1</code></pre>
+<h2 id="core">Core</h2>
+<p>Der Quellcode von pseudify befindet sich im Repository <a href="https://github.com/waldhacker/pseudify-core">pseudify-core</a>.<br />
+Um pseudify zu entwickeln wird das Programm <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> benötigt.  </p>
+<h3 id="das-phar-archiv-bauen">Das PHAR Archiv bauen</h3>
+<pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data --workdir=/data \
+  php:8.1-cli-alpine \
+    sh -c '\
+      apk update \
+      &amp;&amp; apk add bash rsync \
+      &amp;&amp; /bin/bash -c "build/build-phar.sh" \
+      &amp;&amp; chown -R '$(id -u)':'$(id -g)' .build/ \
+    '</code></pre>
+<h3 id="das-docker-image-bauen">Das docker image bauen</h3>
+<p>Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv bauen".</p>
+<pre class="highlight"><code class="language-shell">./build/build-docker.sh</code></pre>
+<h3 id="bauen-von-pseudify">Bauen von pseudify</h3>
+<pre class="highlight"><code class="language-shell">ddev start
+ddev exec composer install
+
+docker run -it -v $(pwd)/build/development/userdata/:/app -u $(id -u):$(id -g) \
+  composer create-project waldhacker/pseudify-profile-templates --stability=dev --remove-vcs
+
+cp build/development/userdata/pseudify-profile-templates/tests/mariadb/10.5/.env build/development/userdata/pseudify-profile-templates/.env
+
+ddev exec 'rm -f ~/.pgpass ~/.my.cnf &amp;&amp; mariadb -h mariadb_10_5 -uroot -p"pseudify(!)w4ldh4ck3r" pseudify_utf8mb4 &lt; ../build/development/userdata/pseudify-profile-templates/tests/mariadb/10.5/pseudify_utf8mb4.sql'
+
+ddev exec bin/pseudify pseudify:debug:table_schema</code></pre>
               
             </div>
           </div><footer>

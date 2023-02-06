@@ -1,3 +1,3 @@
 # What to pseudonymize?
 
-todo
+**todo: translate to en**
