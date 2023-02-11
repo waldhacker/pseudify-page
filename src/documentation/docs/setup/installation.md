@@ -1,41 +1,39 @@
 # Installation
 
-**todo: translate to en**
+Pseudify can be used in 2 variants
 
-Pseudify kann in 2 Varianten verwendet werden
+* via docker container (recommended)
+* via phar archive
 
-* mittels docker container (empfohlen)
-* mittels phar Archiv
+## docker Image (recommended)
 
-## docker Image (empfohlen)
-
-!!! info "Abhängigkeiten"
-    Folgende Komponenten müssen installiert werden:
+!!! info "Dependencies"
+    The following components must be installed:
 
     * [docker](https://docs.docker.com/get-docker/)
 
-Der docker container enthält alle benötigten Abhängigkeiten, um pseudify mit allen unterstützten Datenbanktypen auszuführen.  
+The docker container contains all the dependencies needed to run pseudify with all supported database types.  
 
-* Starte mit den Profile Templates
+* Start with the profile templates
 
-!!! info "Profile Templates"
-    Die [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates) beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.  
-    Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.
+!!! info "Profile templates"
+    The [profile templates](https://github.com/waldhacker/pseudify-profile-templates) contain the basic configuration for pseudify and provide basic profiles for various applications.  
+    They are the ideal basis for modelling the pseudonymisation of your application.
 
-Download der "Profile Templates":
+Download the profile templates:
 
 ```shell
 docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
   composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .
 ```
 
-* Die .env erzeugen und editieren
+* Create and edit the .env
 
 ```shell
 cp .env.example .env
 ```
 
-* Testen ob alles funktioniert
+* Test if everything works
 
 ```shell
 docker run -it -v $(pwd):/data \
@@ -44,13 +42,13 @@ docker run -it -v $(pwd):/data \
 
 ## PHAR Archiv
 
-!!! info "Abhängigkeiten"
-    Wird das PHAR Archiv verwendet, so müssen die benötigten Abhängigkeiten manuell installiert werden.
-    Folgende Komponenten müssen installiert werden:
+!!! info "Dependencies"
+    If the PHAR archive is used, the required dependencies must be installed manually.
+    The following components must be installed:
 
     * PHP 8.1
 
-    Folgende PHP-Erweiterungen müssen installiert werden, je nachdem welche Datenbanktypen verwendet werden:
+    The following PHP extensions must be installed depending on which database types are used:
 
     * pdo_mysql (A MySQL driver that uses the pdo_mysql PDO extension)
     * mysqli (A MySQL driver that uses the mysqli extension)
@@ -66,41 +64,41 @@ docker run -it -v $(pwd):/data \
     * pdo_ibm (An DB2 driver that uses the pdo_ibm PHP extension)
     * ibm_db2 (An DB2 driver that uses the ibm_db2 extension)
 
-* Starte mit den Profile Templates
+* Start with the profile templates
 
 !!! info "Profile Templates"
-    Die [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates) beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.  
-    Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.
+    The [profile templates](https://github.com/waldhacker/pseudify-profile-templates) contain the basic configuration for pseudify and provide basic profiles for various applications.  
+    They are the ideal basis for modelling the pseudonymisation of your application.
 
-Download der "Profile Templates":
+Download the profile templates:
 
 ```shell
 docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
   composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .
 ```
 
-* Das PHAR Archiv in denselben Ordner herunterladen, in dem die pseudify Profile aus dem vorherigen Schritt installiert wurden.
+* Download the PHAR archive to the same folder where the pseudify profiles from the previous step were installed.
 
 ```shell
 curl -sLo pseudify https://github.com/waldhacker/pseudify-core/releases/latest/download/pseudify.phar
 chmod u+x pseudify
 ```
 
-* Die .env erzeugen und editieren
+* Create and edit the .env
 
 ```shell
 cp .env.example .env
 ```
 
-* Testen ob alles funktioniert
+* Test if everything works
 
 ```shell
 ./pseudify pseudify:information
 ```
 
-!!! info "alternativer Installationsort"
-    Das pseudify PHAR Archiv kann auch an einem anderen Ort (z.B. global unter `/usr/bin/pseudify`) installiert werden.
-    Mit dem Parameter `--data` kann pseudify der Pfad zu den pseudify Profilen, welche verwendet werden sollen, mitgeteilt werden.
+!!! info "Alternative installation location"
+    The pseudify PHAR archive can also be installed in another location (e.g. globally under `/usr/bin/pseudify`).
+    The parameter `--data` can be used to tell pseudify the path to the pseudify profiles to be used.
     ```shell
     /usr/bin/pseudify --data /home/project/path/to/pseudify-profile-templates pseudify:information
     ```

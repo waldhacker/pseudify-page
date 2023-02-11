@@ -14,13 +14,13 @@ Pseudify kann in 2 Varianten verwendet werden
 
 Der docker container enthält alle benötigten Abhängigkeiten, um pseudify mit allen unterstützten Datenbanktypen auszuführen.  
 
-* Starte mit den Profile Templates
+* Beginne mit den Profile Templates
 
 !!! info "Profile Templates"
     Die [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates) beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.  
     Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.
 
-Download der "Profile Templates":
+Download der Profile Templates:
 
 ```shell
 docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
@@ -64,13 +64,13 @@ docker run -it -v $(pwd):/data \
     * pdo_ibm (An DB2 driver that uses the pdo_ibm PHP extension)
     * ibm_db2 (An DB2 driver that uses the ibm_db2 extension)
 
-* Starte mit den Profile Templates
+* Beginne mit den Profile Templates
 
 !!! info "Profile Templates"
     Die [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates) beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.  
     Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.
 
-Download der "Profile Templates":
+Download der Profile Templates:
 
 ```shell
 docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
@@ -96,7 +96,7 @@ cp .env.example .env
 ./pseudify pseudify:information
 ```
 
-!!! info "alternativer Installationsort"
+!!! info "Alternativer Installationsort"
     Das pseudify PHAR Archiv kann auch an einem anderen Ort (z.B. global unter `/usr/bin/pseudify`) installiert werden.
     Mit dem Parameter `--data` kann pseudify der Pfad zu den pseudify Profilen, welche verwendet werden sollen, mitgeteilt werden.
     ```shell
