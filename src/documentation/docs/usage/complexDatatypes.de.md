@@ -35,9 +35,9 @@ Pseudify muss aber ohne den Quellcode irgendwelcher Applikationen lauffähig sei
 
 Wie können wir nun gezielt z.B. den Wert der Eigenschaft `publicMember` (`baz3`) pseudonymisieren, ohne fehleranfällige Suchen-und-Ersetzen Strategien auf den Text anwenden zu müssen (z.B. mit wilden regulären Ausdrücken)?  
 
-**Für diesen Anwendungsfall bietet Dir pseudify den [`SerializedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php)!**  
+**Für diesen Anwendungsfall bietet dir pseudify den [`SerializedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php)!**  
 
-Mit dem `SerializedEncoder` ist es Dir möglich eine serialisierte Datenstruktur in einen [AST](https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume) umzuwandeln, diesen zu manipulieren und den AST dann wieder in eine serialisierte Datenstruktur zurückzuschreiben.  
+Mit dem `SerializedEncoder` ist es möglich eine serialisierte Datenstruktur in einen [AST](https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume) umzuwandeln, diesen zu manipulieren und den AST dann wieder in eine serialisierte Datenstruktur zurückzuschreiben.  
 
 ### Lasst uns ein paar Beispiele anschauen
 
@@ -518,11 +518,11 @@ ObjectNode {
 ### Daten erzeugen / manipulieren
 
 !!! info
-    Die verfügbaren Methoden der einzelnen Node-Implementierungen kannst Du Dir [im Repository anschauen](https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node).  
+    Die verfügbaren Methoden der einzelnen Node-Implementierungen kannst du dir [im Repository anschauen](https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node).  
 
 #### Skalare Werte
 
-Skalare Werte zu erzeugen, ist einfach. Es muss nur eine neue Instanz des entsprechenden Datentyps erzeugt werden:
+Skalare Werte zu erzeugen, ist einfach. Es muss nur eine neue Instanz des entsprechenden Datentyps erzeugt werden.
 
 ##### Integer
 

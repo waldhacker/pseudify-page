@@ -1,17 +1,14 @@
-# Analyze
+# Analyse
 
-**todo: translate to en**
-
-## Die Analyse modellieren
+## Model the analysis
 
 !!! info
-    Alle in diesem Tutorial beschriebenen Modellierungen kannst Du Dir mit Kommentaren [im
-    Testordner der Profile Templates (TestAnalyzeProfile.php)](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Profiles/Tests/TestAnalyzeProfile.php) anschauen.
+    All the modelling described in this tutorial can be viewed with comments [in the Test folder of the Profile Templates (TestAnalyzeProfile.php)](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Profiles/Tests/TestAnalyzeProfile.php).
 
-### Einen Überblick verschaffen
+### Get an overview
 
-Um einen Überblick über die Daten in der Datenbank zu bekommen, kann das Kommando `pseudify:debug:table_schema` verwendet werden.  
-Du kannst aber natürlich auch jedes andere Tool Deiner Wahl dazu verwenden.  
+To get an overview of the data in the database, you can use the command `pseudify:debug:table_schema`.  
+Of course, you can also use any other tool of your choice.  
 
 ```shell
 $ pseudify pseudify:debug:table_schema
@@ -66,19 +63,19 @@ wh_user_session
  ------------------- --------- --------------------------------------------------------------------
 ```
 
-Das Kommando gibt nacheinander alle Tabellen der Datenbank aus und listet deren Spalten auf.  
-In der Spalte `column` befindet sich der Name der Datenbankspalte.  
-In der Spalte `type` steht ein [menschenlesbarer Name des Datentyps](https://github.com/doctrine/dbal/blob/3.5.x/src/Types/Types.php#L13-L41) der Datenbankspalte.  
-In der Spalte `data example` befindet sich der jeweils längste Datensatz, welcher in der Datenbank in dieser Datenbankspalte gefunden werden kann. Nach 100 Zeichen werden die Daten abgeschnitten.  
+The command outputs all tables of the database one after the other and lists their columns.  
+The column `column` contains the name of the database column.  
+The column `type` contains the [human-readable name of the data type](https://github.com/doctrine/dbal/blob/3.5.x/src/Types/Types.php#L13-L41) of the database column.  
+The column `data example` contains the longest data record that can be found in the database in this column. After 100 characters, the data will be truncated.  
 
-Halte Ausschauen nach personenbezogenen Daten, welche Du pseudonymisieren möchtest.  
-Suche nach Namen, Benutzernamen, Passwörtern, Adressen, E-Mail-Adressen, IP-Adressen, Telefonnummern, ID-Nummern wie Versicherungsnummern, Profildaten wie Größe oder Gewicht usw.  
+Search for personal data that you want to pseudonymise.  
+Search for names, user names, passwords, addresses, email addresses, IP addresses, telephone numbers, ID numbers such as insurance numbers, profile data such as height or weight, etc.  
 
 !!! info
-    Falls Du Anregungen brauchst, dann lies das Kapitel [`Was sollte pseudonymisiert werden?`](../whatToPseudonymize.md)
+    If you need suggestions, read the chapter ["What to pseudonymise?"](../whatToPseudonymize.md).
 
-Merke Dir am besten die Spalten mit direkt sichtbaren personenbezogenen Daten, also die Spalten welche Daten im Klartext enthalten und nicht Spalten mit komplexeren Datenstrukturen wie JSON (z.B. die Spalte `wh_log.log_message`) oder Spalten in denen die Daten in enkodierter Form vorliegen (z.B. die Spalte `wh_log.log_data`).  
-Im Beispiel wären die bevorzugten Spalten:
+It is best to note the columns with directly visible personal data, i.e. the columns that contain data in plain text and not those with more complex data structures such as JSON (e.g. the column `wh_log.log_message`) or those in which the data is available in encoded form (e.g. the column `wh_log.log_data`).  
+In the example, the preferred columns would be:
 
 * `wh_log.ip`
 * `wh_user.username`
@@ -88,13 +85,13 @@ Im Beispiel wären die bevorzugten Spalten:
 * `wh_user.email`
 * `wh_user.city`
 
-### Ein "Analyze Profile" modellieren
+### Model an "Analyze Profile"
 
-#### Ein "Profile" anlegen
+#### Create a "Profile"
 
-Lege im Ordner [src/Profiles](https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles) eine PHP Datei mit einem beliebigen Namen an.  
-Im Beispiel wird die Datei `TestAnalyzeProfile.php` genannt.  
-Die Datei bekommt folgenden Inhalt:
+In the folder [src/Profiles](https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles) create a PHP file with any name.  
+In the example, the file is called `TestAnalyzeProfile.php`.  
+The file will have the following content:
 
 ```php
 <?php
@@ -120,15 +117,15 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Die Methode `getIdentifier()` muss eine eindeutige Bezeichnung Deines Profils wiedergeben und sollte nur aus Buchstaben, Zahlen oder den Zeichen `-` und `_` bestehen und darf keine Leerzeichen enthalten.  
+The `getIdentifier()` method must return a unique identifier of your profile and should only consist of letters, numbers or the characters `-` and `_` and must not contain any spaces.  
 
-Nach der Erzeugung des Profils muss der Cache geleert werden 
+After creating the profile, the cache must be cleared. 
 
 ```shell
 $ pseudify cache:clear
 ```
 
-Der Befehl `pseudify pseudify:debug:analyze test-profile` gibt Dir nun bereits Informationen über Dein Profil aus
+The command `pseudify pseudify:debug:analyse test-profile` already gives you information about your profile.
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -178,13 +175,13 @@ Search data in this tables
  ----------------- -------------------------- --------------- ----------------------- 
 ```
 
-#### Quelldaten definieren
+#### Define source data
 
 !!! info
-    Das "Analyze Profile" ist dazu da, um herauszufinden in welchen "unbeleuchteten" Ecken der Datenbank sich personenbezogene Daten verstecken.  
-    Wir verwenden darum die uns bereits bekannten personenbezogene Daten, welche wir im ersten Schritt identifiziert haben, um sie in der restlichen Datenbank aufzuspüren.  
+    The "Analyze Profile" is used to determine in which "unlit corners" of the database other personal data are hiding.  
+    We therefore use the personal data already known to us, which we identified in the first step, to find them in the rest of the database.  
 
-Wir haben personenbezogene Daten in folgenden Spalten identifiziert:
+We have identified personal data in the following columns:
 
 * `wh_log.ip`
 * `wh_user.username`
@@ -194,8 +191,8 @@ Wir haben personenbezogene Daten in folgenden Spalten identifiziert:
 * `wh_user.email`
 * `wh_user.city`
 
-Du musst pseudify nun mitteilen, dass Du die Daten in diesen Spalten als Quelldaten verwenden möchtest.  
-Dazu erweiterst Du die Methode `getTableDefinition()` im Profil
+You must now tell pseudify that you want to use the data in these columns as source data.  
+To do this, you extend the `getTableDefinition()` method in the profile.
 
 ```php
     public function getTableDefinition(): TableDefinition
@@ -220,10 +217,10 @@ Dazu erweiterst Du die Methode `getTableDefinition()` im Profil
     }
 ``` 
 
-Mit der Methode [`addSourceTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L103) sagst Du pseudify, in welcher Datenbanktabelle und in welchen Datenbankspalten die Quelldaten gesammelt werden sollen.  
-Pseudify wird dann automatisch in allen anderen Datenbankspalten der Datenbanktabellen nach Vorkommen der Quelldaten suchen und diese ausgeben.  
-Zuvor standen in der Ausgabe des Kommandos `pseudify:debug:analyze test-profile` unter `Search data in this tables` alle Datenbanktabellen und alle Datenbankspalten.  
-Nun werden dort nur noch die Datenbanktabellen und deren Datenbankspalten aufgelistet, welche nicht als Quelldaten mittels `addSourceTable()` definiert wurden.  
+With the method [`addSourceTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L103) you tell pseudify in which database table and in which database columns the source data should be collected.  
+Pseudify will then automatically search for occurrences of the source data in all other database columns of the database tables and output them.  
+Previously, the output of the command `pseudify:debug:analyse test-profile` contained all database tables and all database columns under `Search data in this tables`.  
+Now only the database tables and their database columns that were not defined as source data using `addSourceTable()` are listed there.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -274,16 +271,16 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------
 ```
 
-##### Enkodierte Daten als Quelldaten
+##### Encoded data as source data
 
-Es kommt vor, dass Daten in Datenbankspalten in enkodierter Form vorliegen.  
-Das bedeutet, der kodierte Klartext muss während der Analyse dekodiert werden, um ihn als Quelldaten verwenden zu können.  
-Ähnlich wie unter ["Enkodierte Daten durchsuchen"](#enkodierte-daten-durchsuchen) beschrieben können auch die Datenbankspalten der Quelldaten dekodiert werden.  
+It happens that data in database columns are in encoded form.  
+This means that the encoded plaintext must be decoded during the analysis in order to be able to use it as source data.  
+Similar to what is described under ["Search encoded data"](#search-encoded-data), the database columns of the source data can also be decoded.  
 
-Der Methode [`SourceColumn::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L108) kann mit dem Parameter `dataType` [ein Name eines Built-in Dekodierers](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L38-L50) mitgegeben werden.  
+The method [`SourceColumn::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L108) can be given [a name of a built-in decoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L38-L50) with the parameter `dataType`.  
 
 !!! note
-    Wie unter ["Mehrfach enkodierte Daten durchsuchen"](#mehrfach-enkodierte-daten-durchsuchen) beschrieben kann auch hier der [`ChainedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php) verwendet werden, um mehrfach enkodierte Daten zu dekodieren.  
+    As described in ["Search multiple encoded data"](#search-multiple-encoded-data), the [`ChainedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php) can also be used here to decode multiple-encoded data.  
 
 ```php
 <?php
@@ -316,8 +313,8 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Du siehst unter `Collect search data from this tables` nun, dass unter `data decoders` der Datenbankspalte `session_data_json` der Name `Hex` aufgelistet wird.  
-Dies signalisiert Dir, dass die Daten mittels des HexEncoder dekodiert werden.  
+You will now see under `Collect search data from these tables` that the name `Hex` is listed under `data decoders` in the database column `session_data_json`.  
+This signals to you that the data will be decoded using the HexEncoder.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -368,7 +365,7 @@ Search data in this tables
  ----------------- --------------------- --------------- -----------------------
 ```
 
-Alternativ kann die ausgeschriebene Variante `->setEncoder(encoder: new HexEncoder())` verwendet werden:
+Alternatively, `->setEncoder(encoder: new HexEncoder())` can be used:
 
 ```php
 <?php
@@ -401,29 +398,28 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-#### Suche optimieren
+#### Optimise search
 
-Ohne weitere Definition wird pseudify die Quelldaten in allen Datenbanktabellen und deren Datenbankspalten suchen, welche nicht als Quelldaten mittels `addSourceTable()` bzw. [`addColumn()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceTable.php#L89) definiert wurden.  
-Damit die Analyse nicht unnötig lange dauert, kann die Suche optimiert werden.  
-Ziel ist es in der Regel, nur "Text" (Strings) zu durchsuchen.
+Without further definition, pseudify will search for the source data in all database tables and their columns that have not been defined as source data using `addSourceTable()` or [`addColumn()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceTable.php#L89).  
+The search can be optimised so that the analysis does not take an unnecessarily long time.  
+The aim is usually to search only "text" (strings).
 
-##### Datentypen ausschließen
+##### Exclude data types
 
-Du kannst Spalten mit bestimmten Datentypen von der Suche ausschließen, um die Suchzeit zu verkürzen.  
-Es macht z.B. in den meisten Fällen keinen Sinn, Datenbankspalten vom Typ `integer` zu durchsuchen.  
-Datentypen lassen sich auf Tabellenebene ausschließen oder global für alle Tabellen.  
-Sobald auf Tabellenebene Datentypen ausgeschlossen werden, werden auf dieser Tabelle die global ausgeschlossenen Datentypen nicht zusätzlich ausgeschlossen.  
-
-!!! info
-    Die Namen der Datentypen kannst Du [im Quellcode des Doctrine Projekts](https://github.com/doctrine/dbal/blob/3.5.x/src/Types/Types.php#L13-L41) finden, z.B.: `string`, `integer`, `datetime` etc.
+You can exclude columns with certain data types from the search to shorten the search time.  
+For example, in most cases it does not make sense to search database columns of the type `integer'.  
+Data types can be excluded for certain tables or for all tables.
+As soon as data types are excluded at the table level, the globally excluded data types are not additionally excluded for this table.  
 
 !!! info
-    Es existiert die Konstante [`TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L24-L39), welche
-    alle Datentypen enthält, die in der Regel nicht durchsucht werden müssen.
+    You can find the names of the data types [in the source code of the Doctrine project](https://github.com/doctrine/dbal/blob/3.5.x/src/Types/Types.php#L13-L41), e.g. `string`, `integer`, `datetime` etc: `string`, `integer`, `datetime` etc.
 
-###### Datentypen auf Tabellenebene ausschließen
+!!! info
+    There is the constant [`TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L24-L39), which contains all data types that do not normally have to be scanned.
 
-Um in der Tabelle `wh_meta_data` alle Spalten mit dem Datentyp `integer` von der Suche auszuschließen, musst Du die Methode `getTableDefinition()` im Profil erweitern:
+###### Exclude data types at table level
+
+To exclude all columns with the data type `integer` in the table `wh_meta_data` from the search, you must extend the method `getTableDefinition()` in the profile:
 
 ```php
     public function getTableDefinition(): TableDefinition
@@ -441,12 +437,12 @@ Um in der Tabelle `wh_meta_data` alle Spalten mit dem Datentyp `integer` von der
     }
 ``` 
 
-Die Methode [`addTargetTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L169) teilt der automatischen Tabellenkonfiguration mit, dass Du die Tabelle `wh_meta_data` speziell konfigurieren möchtest.  
-Im Parameter `excludeColumnTypes` kann ein Array von Datentypen übergeben werden, welche bei der Suche ausgeschlossen werden sollen.  
+The method [`addTargetTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L169) tells the automatic table configuration that you want to configure the table `wh_meta_data` specifically.  
+In the parameter `excludeColumnTypes` you can pass an array of data types to be excluded from the search.  
 
-###### Datentypen global ausschließen
+###### Exclude data types globally
 
-Um global in allen Tabellen alle Spalten mit dem Datentyp `integer` von der Suche auszuschließen, musst Du die Methode `getTableDefinition()` im Profil erweitern:
+To globally exclude all columns with the data type `integer` from the search in all tables, you must extend the method `getTableDefinition()` in the profile:
 
 ```php
     public function getTableDefinition(): TableDefinition
@@ -475,8 +471,8 @@ Um global in allen Tabellen alle Spalten mit dem Datentyp `integer` von der Such
     }
 ```
 
-Die Methode [`excludeTargetColumnTypes()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L298) teilt der automatischen Tabellenkonfiguration mit,
-dass in allen Tabellen (welche keine speziellen Ausschlüsse definiert bekommen haben) alle Spalten vom Datentyp `integer` von der Suche ausgeschlossen werden sollen.
+The method [`excludeTargetColumnTypes()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L298) tells the automatic table configuration,
+that in all tables (which have no special exclusions defined) all columns of the data type `integer` are to be excluded from the search.
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -523,19 +519,19 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------
 ```
 
-Du siehst unter `Search data in this tables` nun, dass alle `integer` Spalten verschwunden sind.  
+You will now see under `Search data in this tables` that all `integer` columns have disappeared.  
 
-Du wirst in der Regel folgende Zeile im Profil integrieren wollen, um global [alle Datentypen auszuschließen, bei denen es wenig Sinn macht sie zu durchsuchen](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L24-L39):
+As a rule, it is a good idea to integrate the following line in the profile in order to globally [exclude all data types for which it does not make sense to search](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L24-L39):
 
 ```php  
 ->excludeTargetColumnTypes(columnTypes: TableDefinition::COMMON_EXCLUED_TARGET_COLUMN_TYPES)
 ```
 
-##### Datenbankspalten ausschließen
+##### Exclude database columns
 
-Die automatische Tabellenkonfiguration wird immer zuerst Datenbankspalten von der Suche ausschließen, welche anhand des Datentyps ausgeschlossen wurden.  
-Zusätzlich kannst Du im Profil auf Tabellenebene definieren, dass Datenbankspalten anhand ihres Namens von der Suche ausgeschlossen werden sollen.  
-Dazu musst Du die Methode `getTableDefinition()` im Profil erweitern:
+The automatic table configuration will always exclude database columns from the search first on the basis of the data type.  
+In addition, you can define in the profile at table level that database columns are to be excluded from the search based on their name.  
+To do this, you must extend the `getTableDefinition()` method in the profile:
 
 ```php
     public function getTableDefinition(): TableDefinition
@@ -566,8 +562,8 @@ Dazu musst Du die Methode `getTableDefinition()` im Profil erweitern:
     }
 ```
 
-Die Methode [`addTargetTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L169) teilt der automatischen Tabellenkonfiguration mit, dass Du die Tabelle `wh_log` speziell konfigurieren möchtest.  
-Im Parameter `excludeColumns` kann ein Array von Spaltennamen übergeben werden, welche bei der Suche ausgeschlossen werden sollen.
+The method [`addTargetTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L169) tells the automatic table configuration that you want to configure the table `wh_log` specifically.  
+In the parameter `excludeColumns` you can pass an array of column names which should be excluded from the search.
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -613,12 +609,12 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------
 ```
 
-Du siehst unter `Search data in this tables` nun, dass die Spalte `log_message` der Tabelle `wh_log` verschwunden ist.  
+You now see under `Search data in these tables` that the column `log_message` of the table `wh_log` has disappeared.  
 
-##### Tabellen ausschließen
+##### Exclude tables
 
-Du kannst ganze Tabellen von der Suche ausschließen, um die Suchzeit zu verkürzen.  
-Die kann mit der Methode [`excludeTargetTables()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L235) erledigt werden.  
+You can exclude whole tables from the search to shorten the search time.  
+This can be done with the method [`excludeTargetTables()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L235).  
 
 ```php
     public function getTableDefinition(): TableDefinition
@@ -641,7 +637,7 @@ Die kann mit der Methode [`excludeTargetTables()`](https://github.com/waldhacker
     }
 ```
 
-Wie Du siehst, wird die Tabelle `wh_user` nicht mehr unter `Search data in this tables` aufgelistet.
+As you can see, the table `wh_user` is no longer listed under `Search data in these tables`.
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -683,8 +679,8 @@ Search data in this tables
  ----------------- ---------------------------- --------------- -----------------------
 ```
 
-In den auszuschließenden Tabellennamen können reguläre Ausdrücke verwendet werden, z.B.: `wh_user.*`.  
-Somit ist es z.B. möglich, mehrere Tabellen auf einmal auszuschließen:
+Regular expressions can be used in the table names to be excluded, e.g.: `wh_user.*`.  
+This makes it possible, for example, to exclude several tables with one expression:
 
 ```php
     public function getTableDefinition(): TableDefinition
@@ -707,7 +703,7 @@ Somit ist es z.B. möglich, mehrere Tabellen auf einmal auszuschließen:
     }
 ```
 
-Wie Du siehst, werden die Tabellen `wh_user` und die Tabelle `wh_user_session` nicht mehr unter `Search data in this tables` aufgelistet.
+As you can see, the tables `wh_user` and the table `wh_user_session` are no longer listed under `Search data in these tables`.
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -748,30 +744,30 @@ Search data in this tables
  -------------- ---------------------------- --------------- ----------------------- 
 ```
 
-#### Enkodierte Daten durchsuchen
+#### Search encoded data
 
-Es kommt vor, dass Daten in Datenbankspalten in enkodierter Form vorliegen.  
-Das bedeutet, der kodierte Klartext muss während der Analyse dekodiert werden.  
-In unserem Beispiel enthält die Datenbankspalte `log_data` der Tabelle `wh_log` und die Datenbankspalte `meta_data` der Tabelle `wh_meta_data` enkodierte Daten.  
-Wie diese Daten enkodiert sind, musst Du anhand des Quellcodes oder der Dokumentation der Applikation, welche die Datenbank verwendet, herausfinden.  
+It happens that data in database columns are in encoded form.  
+This means that the encoded plaintext must be decoded during the analysis.  
+In our example, the database column `log_data` of the table `wh_log` and the database column `meta_data` of the table `wh_meta_data` contain encoded data.  
+You have to find out how this data is encoded by looking at the source code or the documentation of the application that uses the database.  
 
-In unserem Beispiel sind die Daten der Datenbankspalte `log_data` (mit `log_type` = `bar`) wie folgt kodiert.
+In our example, the data in the database column `log_data` (with `log_type` = `bar`) is encoded as follows.
 
-Datenbankdaten:
+Database data:
 
 ```shell
 613a323a7b693a303b733a31353a223133322e3138382e3234312e313535223b733a343a2275736572223b4f3a383a22737464436c617373223a353a7b733a383a22757365724e616d65223b733a373a22637972696c3036223b733a383a226c6173744e616d65223b733a383a22486f6d656e69636b223b733a353a22656d61696c223b733a32313a22636c696e746f6e3434406578616d706c652e6e6574223b733a323a226964223b693a39313b733a343a2275736572223b523a333b7d7d
 ```
 
-Kodierung durch die Applikation:
+Encoding through the application:
 
 ```php
 $plaintext = 'a:2:{i:0;s:15:"132.188.241.155";s:4:"user";O:8:"stdClass":5:{s:8:"userName";s:7:"cyril06";s:8:"lastName";s:8:"Homenick";s:5:"email";s:21:"clinton44@example.net";s:2:"id";i:91;s:4:"user";R:3;}}';
 $logData = bin2hex($plaintext);
 ```
 
-Damit pseudify die Daten (`$plaintext`) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.  
-Hierzu kann der Definition einer Datenbankspalte (`TargetColumn::create()`) der Datentyp (Parameter `dataType`) übergeben werden.  
+In order for pseudify to search the data (`$plaintext`), the data must first be converted from hexadecimal representation to binary format.  
+For this purpose, the data type (parameter `dataType`) can be passed to the definition of a database column (`TargetColumn::create()`).  
 
 ```php
 <?php
@@ -808,8 +804,8 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Der Methode `TargetColumn::create()` kann mit dem Parameter `dataType` [ein Name eines Built-in Dekodierers](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TargetColumn.php#L31-L37) mitgegeben werden.  
-Dies ist gleichbedeutend mit der ausgeschriebenen Variante `->setEncoder(encoder: new HexEncoder())`:
+The method `TargetColumn::create()` can be passed with the parameter `dataType` [a name of a built-in decoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TargetColumn.php#L31-L37).  
+This is equivalent to: `->setEncoder(encoder: new HexEncoder())`.
 
 ```php
 <?php
@@ -847,7 +843,7 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Beim Durchsuchen der Datenbankspalte `log_data` wird pseudify die Daten der Datenbankspalte dann immer mittels [der Methode `decode()` des HexEncoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/HexEncoder.php#L38) verarbeiten und anschließend das Resultat durchsuchen.  
+When searching the database column `log_data`, pseudify will then always process the database column data using [the `decode()` method of the HexEncoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/HexEncoder.php#L38) and then search the result.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -894,22 +890,22 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------
 ```
 
-Du siehst unter `Search data in this tables` nun, dass unter `data decoders` der Datenbankspalte `log_data` der Name `Hex` aufgelistet wird.  
-Dies signalisiert Dir, dass die Daten mittels des HexEncoder dekodiert werden.  
+You will now see under `Search data in this tables` that the name `Hex` is listed under `data decoders` in the database column `log_data`.  
+This signals to you that the data is being decoded using the HexEncoder.  
 
-##### Mehrfach enkodierte Daten durchsuchen
+##### Search multiple encoded data
 
-Es kommt vor, dass Daten in Datenbankspalten in mehrfach enkodierter Form abgespeichert sind.  
-In unserem Beispiel sind die Daten der Datenbankspalte `meta_data` so kodiert:
+It happens that data in database columns are stored in multiple encoded form.  
+In our example, the data of the database column `meta_data` are encoded like this:
 
 ```php
 $plaintext = 'a:3:{s:4:"key1";a:9:{s:2:"id";i:5;s:8:"username";s:13:"howell.damien";s:8:"password";s:92:"$argon2i$v=19$m=8,t=1,p=1$ZldmOWd2TDJRb3FTNVpGNA$ORIwp6yekRx02mqM4WCTVhllgXpUpuFJZ1MmbYwAMXs";s:18:"password_hash_type";s:8:"argon2id";s:18:"password_plaintext";s:13:"nF5;06?nsS/nE";s:10:"first_name";s:7:"Mckayla";s:9:"last_name";s:11:"Stoltenberg";s:5:"email";s:24:"conn.abigale@example.net";s:4:"city";s:11:"Dorothyfort";}s:4:"key2";a:2:{s:2:"id";i:3;s:12:"session_data";s:41:"a:1:{s:7:"last_ip";s:13:"244.166.32.78";}";}s:4:"key3";a:1:{s:4:"key4";s:12:"139.81.0.139";}}';
 $meta_data = bin2hex(gzencode($plaintext, 5, ZLIB_ENCODING_GZIP));
 ```
 
-Damit pseudify die Daten (`$plaintext`) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform in ein Binärformat umgewandelt werden und dann müssen die Binärdaten noch im ZLIB-Format dekomprimiert werden.  
-Um mehrfache Dekodierung durchzuführen, kann der [`ChainedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php) verwendet werden.  
-Mit dem ChainedEncoder können mehrere Dekodierer konfiguriert werden, welche dann der Reihe nach die Daten dekodieren.  
+In order for pseudify to search the data (`$plaintext`), the data must first be converted from hexadecimal representation to binary format and then the binary data must still be decompressed from ZLIB format.  
+To perform multiple decoding, the [`ChainedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php) can be used.  
+With the ChainedEncoder, several decoders can be configured, which then decode the data in sequence.  
 
 ```php
 <?php
@@ -955,8 +951,8 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Beim Durchsuchen der Datenbankspalte `meta_data` der Tabelle `wh_meta_data` wird pseudify die Daten der Datenbankspalte dann zuerst mittels [der Methode `decode()` des HexEncoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/HexEncoder.php#L38)
-und dann mittels [der Methode `decode()` des GzEncodeEncoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/GzEncodeEncoder.php#L46) verarbeiten und anschließend das Resultat durchsuchen.  
+When searching the database column `meta_data` of the table `wh_meta_data`, pseudify will then first process the data of the database column using [the method `decode()` of the HexEncoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/HexEncoder.php#L38)
+and then by [the `decode()` method of the GzEncodeEncoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/GzEncodeEncoder.php#L46) and then search the result.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -1003,51 +999,51 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------
 ```
 
-Du siehst unter `Search data in this tables` nun, dass unter `data decoders` der Datenbankspalte `wh_meta_data` die Namen `Hex>GzEncode` aufgelistet wird.  
-Dies signalisiert Dir, dass die Daten zuerst mittels des HexEncoder dekodiert werden und dann mittels des GzEncodeEncoder.  
+You will now see under `Search data in this tables` that under `data decoders` of the database column `wh_meta_data` the names `Hex>GzEncode` are listed.  
+This signals to you that the data will first be decoded using the HexEncoder and then using the GzEncodeEncoder.  
 
-##### Unterschiedlich enkodierte Daten durchsuchen
+##### Search differently encoded data
 
-Es kommt vor, dass Daten in Datenbankspalten in unterschiedlich enkodierter Form abgespeichert sind.  
-Anhand von Bedingungen speichern Applikationen die Daten in anderen Formen ab.  
+It happens that data in database columns are stored in differently encoded form.  
+Based on conditions, applications store the data in different forms.  
 
-In unserem Beispiel sind die Daten der Datenbankspalte `log_data` wie folgt kodiert, wenn die Datenbankspalte `log_type` den Wert `bar` enthält.
+In our example, the data of the database column `log_data` are encoded as follows if the database column `log_type` contains the value `bar`.
 
-Datenbankdaten:
+Database data:
 
 ```shell
 613a323a7b693a303b733a31353a223133322e3138382e3234312e313535223b733a343a2275736572223b4f3a383a22737464436c617373223a353a7b733a383a22757365724e616d65223b733a373a22637972696c3036223b733a383a226c6173744e616d65223b733a383a22486f6d656e69636b223b733a353a22656d61696c223b733a32313a22636c696e746f6e3434406578616d706c652e6e6574223b733a323a226964223b693a39313b733a343a2275736572223b523a333b7d7d
 ```
 
-Kodierung durch die Applikation:
+Encoding through the application:
 
 ```php
 $plaintext = 'a:2:{i:0;s:15:"132.188.241.155";s:4:"user";O:8:"stdClass":5:{s:8:"userName";s:7:"cyril06";s:8:"lastName";s:8:"Homenick";s:5:"email";s:21:"clinton44@example.net";s:2:"id";i:91;s:4:"user";R:3;}}';
 $logData = bin2hex($plaintext);
 ```
 
-Damit pseudify die Daten (`$plaintext`) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.  
+In order for pseudify to search the data (`$plaintext`), the data must first be converted from hexadecimal representation to binary format.  
 
-Die Daten der Datenbankspalte `log_data` sind wie folgt kodiert, wenn die Datenbankspalte `log_type` den Wert `foo` enthält.
+The data of the database column `log_data` are encoded as follows if the database column `log_type` contains the value `foo`.
 
-Datenbankdaten:
+Database data:
 
 ```shell
 65794a3163325679546d46745a534936496e4a76626d46735a4738784e534973496d567459576c73496a6f6962574e6a624856795a5335765a6d5673615746415a586868625842735a53356a623230694c434a7359584e30546d46745a534936496b746c5a577870626d63694c434a7063434936496a457a4d6a45364e54646d597a6f304e6a42694f6d51305a4441365a44677a5a6a706a4d6a41774f6a52694f6d5978597a676966513d3d
 ```
 
-Kodierung durch die Applikation:
+Encoding through the application:
 
 ```php
 $plaintext = '{"userName":"ronaldo15","email":"mcclure.ofelia@example.com","lastName":"Keeling","ip":"1321:57fc:460b:d4d0:d83f:c200:4b:f1c8"}';
 $logData = bin2hex(base64_encode($logDataPlaintext));
 ```
 
-Damit pseudify die Daten (`$plaintext`) durchsuchen kann, müssen die Daten erst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden und dann im Base64-Format dekodiert werden.  
+In order for pseudify to search the data (`$plaintext`), the data must first be converted from hexadecimal representation to binary format and then decoded in Base64 format.  
 
-In beiden Fällen (`log_type` == `foo` und `log_type` == `bar`) können die Daten zuerst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.  
-Wenn die Datenbankspalte `log_type` == `foo` enthält, müssen die Daten dann zusätzlich noch base64 dekodiert werden.  
-Dies kann wie folgt modelliert werden.
+In both cases (`log_type` == `foo` and `log_type` == `bar`) the data can first be converted from hexadecimal representation to binary format.  
+If the database column contains `log_type` == `foo`, the data must then additionally be base64 decoded.  
+This can be modelled as follows:
 
 ```php
 <?php
@@ -1101,25 +1097,25 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Mit der Methode [`addDataProcessing()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TargetColumn.php#L131) können zusätzlich zur Dekodierung der Daten weitere manuelle Datentransformationen programmiert werden.  
-Die `DataProcessings` werden nach der Dekodierung der Daten aufgeführt.  
-Es können beliebig viele `DataProcessings` definiert werden, welche nacheinander abgearbeitet werden.  
+With the method [`addDataProcessing()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TargetColumn.php#L131), further manual data transformations can be programmed in addition to the decoding of the data.  
+The `DataProcessings` are executed after the decoding of the data.  
+Any number of `DataProcessings` can be defined, which are processed one after the other.  
 
-Ein [`DataProcessing`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/DataProcessing.php#L19) besteht aus einer eindeutigen Identifizierung pro Datenbankspalte (Parameter `identifier`) und
-einer [anonymen Funktion](https://www.php.net/manual/en/functions.anonymous.php) (Parameter `processor`).  
-Die anonyme Funktion wird mit einem Parameter `context` vom Typ [`TargetDataDecoderContext`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderContext.php) aufgerufen.  
-Durch den `TargetDataDecoderContext` können diverse Informationen über den zu verarbeitenden Datensatz erhalten werden:
+A [`DataProcessing`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/DataProcessing.php#L19) consists of a unique identification per database column (parameter `identifier`) and
+an [anonymous function](https://www.php.net/manual/en/functions.anonymous.php) (parameter `processor`).  
+The anonymous function is called with a parameter `context` of the type [`TargetDataDecoderContext`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderContext.php).  
+The `TargetDataDecoderContext` can be used to obtain various information about the data set to be processed:
 
-* `$context->getRawData()`: Die Originaldaten der Datenbankspalte
-* `$context->getDecodedData()`: Die Daten der Datenbankspalte nach der Dekodierung
-* `$context->getDatebaseRow()`: Enthält die Originaldaten aller Datenbankspalten der Datenbankzeile die verarbeitet wird
+* `$context->getRawData()`: The original data of the database column.
+* `$context->getDecodedData()`: The data of the database column after decoding
+* `$context->getDatebaseRow()`: Contains the original data of all database columns of the row being processed
 
-Mit der Methode  [`setDecodedData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderContext.php#L55) können manuell prozessierte Daten an pseudify übergeben werden.  
-Diese manuell prozessierte Daten werden dann von der Analyse durchsucht.
+With the method [`setDecodedData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderContext.php#L55) manually processed data can be passed to pseudify.  
+This manually processed data is then searched by the analysis.
 
-In unserem Beispiel ermitteln wir anhand des Wertes der Datenbankspalte `log_type` ob die Daten noch weiter mittels base64 dekodiert werden müssen.  
-Ist der Wert von `log_type` nicht `foo`, so wird durch das `return` Statement nichts weiter prozessiert.  
-Ist der Wert von `log_type` gleich `foo`, so werden die Daten mittels des Base64Encoder() dekodiert und durch die Methode `setDecodedData()` an pseudify zurückgeschrieben.  
+In our example, we use the value of the column `log_type` to determine whether the data needs to be further decoded using base64.  
+If the value of `log_type` is not `foo`, nothing further is processed by the `return` statement.  
+If the value of `log_type` is `foo`, the data is decoded by the Base64Encoder() and written back to pseudify by the `setDecodedData()` method.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -1166,36 +1162,37 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------------
 ```
 
-Du siehst unter `Search data in this tables` nun, dass unter `data decoders` der Datenbankspalte `wh_log` der Name `Hex` aufgelistet wird.  
-Dies signalisiert Dir, dass die Daten zuerst mittels des HexEncoder dekodiert werden.  
-Unter `special data decoders` wird das `DataProcessing` mit der Identifizierung `decode conditional log data` aufgelistet.  
-Dies signalisiert Dir, dass nach der Dekodierung der Daten die Daten zusätzlich mittels dieses `DataProcessing` verarbeitet werden.  
+You will now see under `Search data in this tables` that the name `Hex` is listed under `data decoders` in the `wh_log` database column.  
+This signals to you that the data will first be decoded using the HexEncoder.  
+Under `special data decoders` the `DataProcessing` is listed with the identification `decode conditional log data`.  
+This signals to you that after decoding the data, it will also be processed using the specified `DataProcessing`.  
 
-##### Json Daten normalisieren
+##### Normalize Json Data
 
-Liegen zu durchsuchende Daten im JSON-Format in der Datenbank, so möchtest Du diese wahrscheinlich normalisieren, um sie für pseudify sinnvoll durchsuchbar zu machen.  
-Beispielsweise werden UTF-8 Zeichen im JSON-Format maskiert, ein `Ö` ist im JSON-Format durch die Zeichenkette `\u00d6` maskiert.  
+If the data to be searched is in JSON format in the database, 
+it should be normalised to make it fully searchable by pseudify.  
+For example, UTF-8 characters are masked in JSON format, so for example an `Ö` in JSON format is masked by the string `\u00d6`.  
 
-Beispieldatensatz:
+Example dataset:
 
 ```json
 "{"oldRecord":{"bodytext":"<p>In 2023 sind folgende \u00d6ffentlichkeitsaktionen geplant:<\/p>"}}"
 ```
 
-Angenommen pseudify soll nach dem Vorkommen des Wortes `Öffentlichkeitsaktionen` suchen, so wird pseudify dies im Beispieldatensatz durch die Maskierung nicht finden.  
-Um den JSON-String zu normalisieren und ihn so aussehen zu lassen:
+Assuming pseudify is to search for occurrences of the word `Öffentlichkeitsaktionen`, pseudify will not find this in the sample dataset due to the masking.  
+To normalise the JSON string and make it look like this:
 
 ```json
 "{"oldRecord":{"bodytext":"<p>In 2023 sind folgende Öffentlichkeitsaktionen geplant:</p>"}}"
 ```
 
-existiert das `DataProcessing` namens [`normalizedJsonString()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderPreset.php#L29).  
-Das Hinzufügen dieses `DataProcessing` mittels
+the `DataProcessing` named [`normalisedJsonString()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/TargetDataDecoderPreset.php#L29) exists.  
+The addition of this `DataProcessing` by using
 
 ```php
 ->addDataProcessing(dataProcessing: TargetDataDecoderPreset::normalizedJsonString())
 ```
-zu einer Datenbankspalte, welche JSON Datenstrukturen enthält, normalisiert den JSON-String und macht ihn für pseudify durchsuchbar.  
+to a database column containing JSON data structures, normalises the JSON string and makes it searchable for pseudify.  
 
 ```php
 <?php
@@ -1233,40 +1230,40 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-#### Nicht-Skalare Quelldaten definieren
+#### Define non-scalar source data
 
-Manchmal ist es notwendig, Daten aus komplexen Datenstrukturen als Quelldaten zu definieren.  
-Als Beispiel möchten wir Daten aus der Datenbankspalte `session_data_json` der Tabelle `wh_user_session` verwenden, um sie als Quelldaten zu verwenden.  
-`session_data_json` enthält einen String im JSON-Format. In diesem gibt es eine Eigenschaft namens `data` bestehend aus einem Array mit der Eigenschaft `last_ip` welche wir als Quelldaten verwenden möchten.  
+Sometimes it is necessary to define data from complex data structures as source data.  
+As an example, we want to use data from the database column `session_data_json` of the table `wh_user_session` to use as source data.  
+`session_data_json` contains a string in JSON format. In this there is a property called `data` consisting of an array with the property `last_ip` which we want to use as source data.  
 
 ```json
 {"data": {"last_ip":"107.66.23.195"}}
 ```
 
-Der Methode [`SourceColumn::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L108) kann mit dem Parameter `dataType` [ein Name eines Built-in Dekodierers](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L38-L50) mitgegeben werden.  
+You can pass the method [`SourceColumn::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L108) with the parameter `dataType` [a name of a built-in decoder](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L38-L50).  
 
 !!! note
-    Wie unter ["Mehrfach enkodierte Daten durchsuchen"](#mehrfach-enkodierte-daten-durchsuchen) beschrieben kann auch hier der [`ChainedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php) verwendet werden, um mehrfach enkodierte Daten zu dekodieren.  
+    As described in ["Search multiple encoded data"](#search-multiple-encoded-data), the [`ChainedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/ChainedEncoder.php) can also be used here to decode multiple-encoded data.  
 
-Mit der Methode [`addDataProcessing()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L164) kann nun definiert werden, welche Daten aus der dekodierten Datenstruktur extrahiert werden sollen, um sie als Quelldaten zu verwenden.  
-Die `DataProcessings` werden nach der Dekodierung der Daten aufgeführt.  
-Es können beliebig viele `DataProcessings` definiert werden, welche nacheinander abgearbeitet werden.  
+The method [`addDataProcessing()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/SourceColumn.php#L164) can now be used to define which data is to be extracted from the decoded data structure in order to use it as source data.  
+The `DataProcessings` are executed after the decoding of the data.  
+Any number of `DataProcessings` can be defined, which are processed one after the other.  
 
-Ein `DataProcessing` besteht aus einer eindeutigen Identifizierung pro Datenbankspalte (Parameter `identifier`) und einer anonymen Funktion (Parameter `processor`).  
-Die anonyme Funktion wird mit einem Parameter `context` vom Typ [`SourceDataCollectorContext`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorContext.php) aufgerufen.  
-Durch den `SourceDataCollectorContext` können diverse Informationen über den zu verarbeitenden Datensatz erhalten werden:
+A `DataProcessing` consists of a unique identification per database column (parameter `identifier`) and an anonymous function (parameter `processor`).  
+The anonymous function is called with a parameter `context` of the type [`SourceDataCollectorContext`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorContext.php).  
+The `SourceDataCollectorContext` can be used to obtain various information about the data set to be processed:
 
-* `$context->getRawData()`: Die Originaldaten der Datenbankspalte
-* `$context->getDecodedData()`: Die Daten der Datenbankspalte nach der Dekodierung
-* `$context->getDatebaseRow()`: Enthält die Originaldaten aller Datenbankspalten der Datenbankzeile die verarbeitet wird
+* `$context->getRawData()`: The original data of the database column.
+* `$context->getDecodedData()`: The data of the database column after decoding
+* `$context->getDatebaseRow()`: Contains the original data of all database columns of the row being processed
 
-Mit der Methode [`addCollectedData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorContext.php#L75) können die extrahierten Daten als Quelldaten an pseudify übergeben werden.  
-Die Methode `addCollectedData()` kann beliebig oft verwendet werden, um beliebige viele Quelldaten an pseudify zu übergeben.  
-Der Methode `addCollectedData()` kann entweder ein String übergeben werden , oder ein eindimensionales Array. Wird ein Array übergeben, so werden alle darin befindlichen skalaren Daten extrahiert und als Quelldaten an pseudify übergeben.  
+The [`addCollectedData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorContext.php#L75) method can be used to pass the extracted data to pseudify as source data.  
+The method `addCollectedData()` can be used any number of times to pass any number of source data to pseudify.  
+The method `addCollectedData()` can be passed either a string or a one-dimensional array. If an array is passed, all scalar data in it is extracted and passed to pseudify as source data.  
 
 !!! info
-    Wird kein `DataProcessing` definiert, so wird automatisch das Standard-DataProcessing [`SourceDataCollectorPreset::scalarData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorPreset.php#L29) verwendet.
-    Dieses sammelt die Daten aus einer Datenbankspalte nur dann, wenn der Inhalt größer oder gleich 3 Zeichen lang ist.
+    If no `DataProcessing` is defined, the standard DataProcessing [`SourceDataCollectorPreset::scalarData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Analyze/SourceDataCollectorPreset.php#L29) is automatically used.
+    This only collects the data from a database column if the content contains more than 2 characters.
 
 ```php
 <?php
@@ -1307,10 +1304,10 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Du siehst unter `Collect search data from this tables` nun, dass unter `data decoders` der Datenbankspalte `session_data_json` der Name `Json` aufgelistet wird.  
-Dies signalisiert Dir, dass die Daten mittels des JsonEncoder dekodiert werden.  
-Unter `data collectors` wird das `DataProcessing` mit der Identifizierung `extract ip address` aufgelistet.  
-Dies signalisiert Dir, dass nach der Dekodierung der Daten die Daten zusätzlich mittels dieses `DataProcessing` gesammelt werden.  
+You will now see under `Collect search data from these tables` that the name `Json` is listed under `data decoders` in the database column `session_data_json`.  
+This signals to you that the data will be decoded using the JsonEncoder.  
+Under `data collectors` the `DataProcessing` is listed with the identification `extract ip address`.  
+This signals to you that after decoding the data, it will also be collected using the specified `DataProcessing`.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -1361,10 +1358,10 @@ Search data in this tables
  ----------------- --------------------- --------------- -----------------------
 ```
 
-#### Benutzerdefinierte Quelldaten definieren
+#### Define custom source data
 
-Es ist möglich benutzerdefinierte Quelldaten zu definieren die sich nicht aus Datenbankspalten beziehen.  
-Mit der Methode [`addSourceString()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L348) können Strings als Quelldaten definiert werden.  
+It is possible to define user-defined source data that does not refer to database columns.  
+With the method [`addSourceString()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L348) strings can be defined as source data.  
 
 ```php
 <?php
@@ -1409,10 +1406,10 @@ class TestAnalyzeProfile implements ProfileInterface
 }
 ```
 
-Du siehst unter `Search for this strings` nun die benutzerdefinierten Strings nach denen in der Datenbank gesucht wird.  
-Alternativ zu statischen Werten ist es möglich, reguläre Ausdrücke für die Suche zu verwenden.  
-Ein regulärer Ausdruck muss durch den Präfix `regex:` gekennzeichnet werden und der [PCRE-Regex-Syntax](https://www.php.net/manual/en/pcre.pattern.php) folgen.  
-Mit `regex:(?:[0-9]{1,3}\.){3}[0-9]{1,3}` kann beispielsweise nach IPv4 Adressen gesucht werden.  
+You will now see the user-defined strings that are searched for in the database under 'Search for this strings'.  
+As an alternative to static values, it is possible to use regular expressions for the search.  
+A regular expression must be identified by the prefix `regex:` and follow the [PCRE regex syntax](https://www.php.net/manual/en/pcre.pattern.php).  
+For example, `regex:(?:[0-9]{1,3}\.){3}[0-9]{1,3}` can be used to search for IPv4 addresses.  
 
 ```shell
 $ pseudify pseudify:debug:analyze test-profile
@@ -1469,9 +1466,9 @@ Search data in this tables
  ----------------- -------------------------- --------------- -----------------------
 ```
 
-### Ein "Analyze Profile" ausführen
+### Execute an "Analyze Profile"
 
-Ein "Analyze Profile" kann mit dem Kommando `pseudify:analyze <profil-name>` ausgeführt werden.
+An "Analyze Profile" can be executed with the command `pseudify:analyse <profile-name>`.
 
 ```shell
 $ pseudify pseudify:analyze test-profile
@@ -1542,42 +1539,42 @@ summary
 ```
 
 !!! note
-    Je nach Größe der Datenbank kann die Analyse in Sekunden oder erst in Stunden fertig sein.  
-    Da Analysen in der Regel nur selten durchgeführt werden, z.B. um mit den gesammelten Informationen die Pseudonymisierung zu modellieren, haben wir entscheiden, dass eine etwas längere Laufzeit einer Analyse vertretbar ist.  
+    Depending on the size of the database, the analysis can be finished after seconds or only after hours.  
+    Since analyses are usually only carried out infrequently, e.g. to model pseudonymisation with the collected information, we have decided that a somewhat longer runtime of an analysis is justifiable.  
 
-Die erste Zeile der Analyse gibt an, wie viele Daten bereits analysiert wurden und wie viele insgesamt analysiert werden (`1148/1148`).  
-Es folgt ein Fortschrittsbalken und eine prozentuale Angabe des Fortschritts.  
-Danach wird die Laufzeit und die geschätzte Gesamtzeit der Analyse ausgegeben.  
-Zum Schluss wird der bisher maximale Speicherverbrauch ausgegeben.  
+The first line of the analysis indicates how many data have already been analysed and how many are analysed in total (`1148/1148`).  
+This is followed by a progress bar and a percentage indication of the progress.  
+After that, the runtime and the estimated total time of the analysis are output.  
+Finally, the maximum memory consumption so far is output.  
 
-Die Zusammenfassung der Analyse listet letztendlich auf, welche Quelldaten (Spalte `data`) aus welcher Quell-Datenbankspalte (Spalte `source`) sich in welchen Datenbankspalten wiederfinden (Spalte `seems to be in`).  
-Wenn in der Spalte `source`  ein `__custom__.__custom__` steht so bedeutet dies, dass die Quelldaten nicht aus einer Datenbankspalte stammen, sondern mittels `addSourceString()` definiert wurden.  
-Wenn Dir bisher noch nicht bekannt war, dass sich in einer Datenbankspalte unter `seems to be in` gewisse Quelldaten befinden, dann kannst Du Dir nun diese Datenbankspalten genauer anschauen und sie in die Modellierung der Pseudonymisierung mit aufnehmen.
+The summary of the analysis finally lists which source data (column `data`) from which source database column (column `source`) can be found in which database columns (column `seems to be in`).  
+If there is a `__custom__.__custom__` in the `source` column, this means that the source data does not come from a database column, but was defined using `addSourceString()`.  
+If you were not previously aware that certain source data can be found in a database column under `seems to be in`, then you can now take a closer look at these database columns and include them in the modelling of the pseudonymisation.
 
 !!! info
-    Wenn viele Datenbanktabellen und Spalten existieren, dann kann die Ausgabe der Analyse sehr lang werden und vielleicht nicht in den Buffer Deines Terminals passen.
-    In diesem Fall lohnt es sich, die Ausgabe in eine Datei zu schreiben.
+    If there are many database tables and columns, the output of the analysis can become very long and may not fit into the buffer of your terminal.
+    In this case, it is worth writing the output to a file.
 
     ```shell
     pseudify --no-ansi pseudify:debug:analyze test-profile > analysis.log
     ```
 
-#### Erweiterte Informationen ausgeben
+#### Output extended information
 
-Für die Fehlersuche oder die Verfeinerung des Analyseprofils kann es sinnvoll sein zu sehen, welche Daten pseudify in den Datenbankdaten gefunden hat.  
-Dafür kann das Kommando `pseudify:analyze` mit dem Parameter `--verbose` aufgerufen werden:
+For debugging or refining the analysis profile, it may be useful to see what data pseudify found in the database data.  
+To do this, the command `pseudify:analyse` can be called with the parameter `--verbose`:
 
 ```shell
 pseudify pseudify:analyze <profil-name> --verbose
 ```
 
-Nun werden die Quelldaten aufgelistet (wh_log.ip (`1321:57fc:460b:d4d0:d83f:c200:4b:f1c8`)) und die Fundstelle (wh_meta_data.meta_data (...ip";s:37:"`1321:57fc:460b:d4d0:d83f:c200:4b:f1c8`";}";}s:4:...))
+Now the source data is listed (wh_log.ip (`1321:57fc:460b:d4d0:d83f:c200:4b:f1c8`)) and the location (wh_meta_data.meta_data (...ip";s:37:"`1321:57fc:460b:d4d0:d83f:c200:4b:f1c8`";}";}s:4:...))
 
 <a href="../../img/analyze-debug.png" target="_blank">![](../img/analyze-debug.png)</a>
 
-Die Anzahl der Zeichen, die vor und nach der Fundstelle ausgegeben werden, können mit der Methode [`setTargetDataFrameCuttingLength()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L386) definiert werden.  
-Standardmäßig werden 10 Zeichen vor und nach einer Fundstelle ausgegeben.  
-Wird der Wert auf 0 gesetzt, so wird vor und nach der Fundstelle nichts abgeschnitten und Du bekommst den vollständigen Datenbankinhalt ausgegeben.  
+The number of characters that are output before and after the location can be defined with the [`setTargetDataFrameCuttingLength()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L386) method.  
+By default, 10 characters are output before and after a target.  
+If the value is set to 0, nothing is cut off before and after the target and the complete database content is output.  
 
 ```php
 <?php

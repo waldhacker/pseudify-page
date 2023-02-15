@@ -3,15 +3,15 @@
 ## Die Pseudonymisierung modellieren
 
 !!! info
-    Alle in diesem Tutorial beschriebenen Modellierungen kannst Du Dir mit Kommentaren [im
+    Alle in diesem Tutorial beschriebenen Modellierungen kannst du dir mit Kommentaren [im
     Testordner der Profile Templates (TestPseudonymizeProfile.php)](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Profiles/Tests/TestPseudonymizeProfile.php) anschauen.
 
 ### Einen Überblick verschaffen
 
-Um die Pseudonymisierung modellieren zu können, musst Du genau wissen, in welchen Datenbankspalten sich die Daten befinden welche Du pseudonymisieren möchtest.  
-Pseudify liefert Dir für diese Aufgabe Werkzeuge, welche im Kapitel [Analysieren](analyze.md) dokumentiert sind.  
+Um die Pseudonymisierung modellieren zu können, musst du genau wissen, in welchen Datenbankspalten sich die Daten befinden welche du pseudonymisieren möchtest.  
+Pseudify liefert dir für diese Aufgabe Werkzeuge, welche im Kapitel ["Analysieren"](analyze.md) dokumentiert sind.  
 
-Wir analysieren die Datenbank mit folgendem Profil (siehe Kapitel [Analysieren](analyze.md)):
+Wir analysieren die Datenbank mit folgendem Profil (siehe Kapitel ["Analysieren"](analyze.md)):
 
 ```php
 <?php
@@ -351,16 +351,16 @@ class TestPseudonymizeProfile implements ProfileInterface
 }
 ```
 
-Die Methode `getIdentifier()` muss eine eindeutige Bezeichnung Deines Profils wiedergeben und sollte nur aus Buchstaben, Zahlen oder den Zeichen `-` und `_` bestehen und darf keine Leerzeichen enthalten.  
+Die Methode `getIdentifier()` muss eine eindeutige Bezeichnung deines Profils wiedergeben und sollte nur aus Buchstaben, Zahlen oder den Zeichen `-` und `_` bestehen und darf keine Leerzeichen enthalten.  
 
-Nach der Erzeugung des Profils muss der Cache geleert werden 
+Nach der Erzeugung des Profils muss der Cache geleert werden. 
 
 ```shell
 $ docker run -it -v $(pwd):/data \
   ghcr.io/waldhacker/pseudify cache:clear
 ```
 
-Der Befehl `pseudify pseudify:debug:pseudonymize test-profile` gibt Dir nun bereits (leere) Informationen über Dein Profil aus
+Der Befehl `pseudify pseudify:debug:pseudonymize test-profile` gibt dir nun bereits (leere) Informationen über dein Profil aus.
 
 ```shell
 $ pseudify pseudify:debug:pseudonymize test-profile
@@ -379,7 +379,7 @@ Pseudonymize data in this tables
 #### Daten einer Datenbankspalten pseudonymisieren
 
 Wir beginnen damit, die skalaren Datenbankdaten zu modellieren.  
-Dazu erweiterst Du die Methode `getTableDefinition()` im Profil
+Dazu erweiterst du die Methode `getTableDefinition()` im Profil.
 
 ```php
 <?php
@@ -422,10 +422,10 @@ class TestPseudonymizeProfile implements ProfileInterface
 }
 ```
 
-Mit der Methode [`addTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/TableDefinition.php#L72) sagst Du pseudify, dass Du eine Datenbanktabelle modellieren willst.  
+Mit der Methode [`addTable()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/TableDefinition.php#L72) sagst du pseudify, dass Du eine Datenbanktabelle modellieren willst.  
 Im Parameter `columns` können eine oder mehrere Datenbankspalten modelliert werden ([`Column::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php#L112)).  
 
-Der Befehl `pseudify pseudify:debug:pseudonymize test-profile` gibt Dir nun unter `Pseudonymize data in this tables` die eben modellierten Datenbankspalten aus.  
+Der Befehl `pseudify pseudify:debug:pseudonymize test-profile` gibt dir nun unter `Pseudonymize data in this tables` die eben modellierten Datenbankspalten aus.  
 Unter `data decoders` steht `Scalar`, was bedeutet, dass die Daten während der Pseudonymisierung nicht dekodiert werden.  
 
 ```shell
@@ -456,10 +456,10 @@ Wie bereits im Kapitel ["Enkodierte Daten durchsuchen"](analyze.md#enkodierte-da
 Das bedeutet, der kodierte Klartext muss vor der Pseudonymisierung dekodiert werden und nach der Pseudonymisierung wieder enkodiert werden.  
 In unserem Beispiel enthält die Datenbankspalte `log_message` der Tabelle `wh_log` und die Datenbankspalte `session_data_json` der Tabelle `wh_user_session` enkodierte Daten im JSON-Format.  
 Die Datenbankspalte `session_data` der Tabelle `wh_user_session` enthält enkodierte Daten in Form von serialisierten PHP-Daten.  
-Wie diese Daten enkodiert sind, musst Du anhand des Quellcodes oder der Dokumentation der Applikation, welche die Datenbank verwendet, herausfinden.  
+Wie diese Daten enkodiert sind, musst du anhand des Quellcodes oder der Dokumentation der Applikation, welche die Datenbank verwendet, herausfinden.  
 
 Damit pseudify die Daten pseudonymisieren kann, müssen die Daten erst dekodiert werden.  
-Hierzu kann der Definition einer Datenbankspalte ([`Column::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php#L112)) der Datentyp (Parameter `dataType`) übergeben werden. 
+Hierzu muss der Definition einer Datenbankspalte ([`Column::create()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php#L112)) der Datentyp (Parameter `dataType`) übergeben werden. 
 
 ```php
 <?php
@@ -500,7 +500,7 @@ class TestPseudonymizeProfile implements ProfileInterface
 }
 ```
 
-Der Methode `Column::create()` kann mit dem Parameter `dataType` [ein Name eines Built-in Dekodierers](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php#L66-L104) mitgegeben werden.  
+Der Methode `Column::create()` kann mit dem Parameter `dataType` [ein Name eines Built-in Dekodierers](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php#L66-L104) übergeben werden.  
 Dies ist gleichbedeutend mit der ausgeschriebenen Variante `->setEncoder(encoder: new JsonEncoder())` bzw. `->setEncoder(encoder: new SerializedEncoder())`:
 
 ```php
@@ -544,8 +544,8 @@ class TestPseudonymizeProfile implements ProfileInterface
 }
 ```
 
-Der Befehl `pseudify pseudify:debug:pseudonymize test-profile` gibt Dir nun unter `Pseudonymize data in this tables` die eben modellierten Datenbankspalten aus.  
-Unter `data decoders` steht werden nun die gerade definierten Dekodierer gelistet (`Json` / `Serialized`).  
+Der Befehl `pseudify pseudify:debug:pseudonymize test-profile` gibt dir nun unter `Pseudonymize data in this tables` die eben modellierten Datenbankspalten aus.  
+Unter `data decoders` werden nun die gerade definierten Dekodierer aufgelistet (`Json` / `Serialized`).  
 
 ```shell
 pseudify pseudify:debug:pseudonymize test-profile
@@ -654,14 +654,14 @@ Pseudonymize data in this tables
  ----------------- -------------------------- --------------- -------------------
 ```
 
-Du siehst unter `Pseudonymize data in this tables` nun, dass unter `data decoders` der Datenbankspalte `wh_meta_data` die Namen `Hex<>GzEncode` aufgelistet wird.  
-Dies signalisiert Dir, dass die Daten zuerst mittels des HexEncoder dekodiert werden und dann mittels des GzEncodeEncoder.  
+Du siehst unter `Pseudonymize data in this tables` nun, dass unter `data decoders` der Datenbankspalte `wh_meta_data` die Namen `Hex<>GzEncode` aufgelistet werden.  
+Dies signalisiert dir, dass die Daten zuerst mittels des HexEncoder dekodiert werden und dann mittels des GzEncodeEncoder.  
 
 ###### Unterschiedlich enkodierte Datenbankspalten
 
 Wie bereits im Kapitel ["Unterschiedlich enkodierte Daten durchsuchen"](analyze.md#unterschiedlich-enkodierte-daten-durchsuchen) gelernt, kann es vorkommen, dass Daten in Datenbankspalten in unterschiedlich enkodierter Form abgespeichert sind.  
 Anhand von Bedingungen speichern Applikationen die Daten in anderen Formen ab.  
-In unserem Beispiel sind die Daten der Datenbankspalte `log_data` der Tabelle `wh_log` serialisierte PHP-Data, welche im Base64-Format enkodiert wurden und dann in hexadezimaler Form abgespeichert wurden, wenn die Datenbankspalte `log_type` den Wert `bar` enthält.  
+In unserem Beispiel sind die Daten der Datenbankspalte `log_data` der Tabelle `wh_log` serialisierte PHP-Data, welche im Base64-Format enkodiert worden sind und dann in hexadezimaler Form abgespeichert wurden, wenn die Datenbankspalte `log_type` den Wert `bar` enthält.  
 Die Daten der Datenbankspalte `log_data` sind im JSON-Format, welche in hexadezimaler Form abgespeichert wurden, wenn die Datenbankspalte `log_type` den Wert `foo` enthält.  
 
 In beiden Fällen (`log_type` == `foo` und `log_type` == `bar`) können die Daten zuerst von hexadezimaler Darstellungsform zum Binärformat umgewandelt werden.  
@@ -728,7 +728,7 @@ class TestPseudonymizeProfile implements ProfileInterface
 ```
 
 Mit der Methode [`addDataProcessing()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php#L184) können zusätzlich zur Dekodierung der Daten weitere manuelle Datentransformationen programmiert werden.  
-Die `DataProcessings` werden nach der Dekodierung der Daten aufgeführt.  
+Die `DataProcessings` werden nach der Dekodierung der Daten ausgeführt.  
 Es können beliebig viele `DataProcessings` definiert werden, welche nacheinander abgearbeitet werden.  
 
 Ein [`DataProcessing`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/DataProcessing.php#L19) besteht aus einer eindeutigen Identifizierung pro Datenbankspalte (Parameter `identifier`) und
@@ -741,7 +741,7 @@ Durch den `DataManipulatorContext` können diverse Informationen über den zu ve
 * `$context->getDatebaseRow()`: Enthält die Originaldaten aller Datenbankspalten der Datenbankzeile die verarbeitet wird
 * `$context->getProcessedData()`: Enthält die verarbeiteten Daten welche mittels [`$context->setProcessedData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php#L84) gesetzt wurden, anderenfalls die Daten der Datenbankspalte nach der Dekodierung
 
-In unserem Beispiel ermitteln wir anhand des Wertes der Datenbankspalte `log_type`, wie die Daten noch weiter dekodiert werden sollen.  
+In unserem Beispiel ermitteln wir anhand des Wertes der Datenbankspalte `log_type`, wie die Daten noch weiter dekodiert werden müssen.  
 Ist der Wert von `log_type` gleich `foo`, so werden die Daten mittels des Base64Encoder() und dann mittels des JsonEncoder() dekodiert.  
 Ist der Wert von `log_type` gleich `bar`, so werden die Daten mittels des SerializedEncoder() dekodiert.  
 Die Daten sind nun dekodiert und können im Anschluss pseudonymisiert werden.  
@@ -781,7 +781,7 @@ In einem `DataProcessing` findet nicht nur eine ggf. benötigte erweiterte Dekod
 Jede definierte Datenbankspalte (`Column::create()`) benötigt mindestens ein `DataProcessing` damit pseudify weiß, wie es die Daten in der Datenbankspalte pseudonymisieren muss.  
 
 Wir beginnen wieder mit den leicht zu pseudonymisierenden skalaren Datenstrukturen.  
-Dazu erweiterst Du die definierten Datenbankspalten (`Column::create()`) im Profil
+Dazu erweiterst du die definierten Datenbankspalten (`Column::create()`) im Profil.
 
 ```php
 <?php
@@ -849,7 +849,7 @@ Der Methode [`addDataProcessing()`](https://github.com/waldhacker/pseudify-core/
 !!! info
     `DataManipulatorPreset::scalarData()` implementiert bereits alles, was nötig ist, um einfache Datenstrukturen in der Datenbank zu pseudonymisieren.  
 
-Dem Argument `fakerFormatter` übergibst Du einen von [der FakerPHP/Faker Komponente](https://fakerphp.github.io/) bereitgestellten oder [selbst implementierten](../setup/configuration.md#registrieren-von-benutzerdefinierten-faker-formatierern) Formatierer z.B. [`email`](https://fakerphp.github.io/formatters/internet/#email).  
+Dem Argument `fakerFormatter` übergibst du einen von [der FakerPHP/Faker Komponente](https://fakerphp.github.io/) bereitgestellten oder [selbst implementierten](../setup/configuration.md#registrieren-von-benutzerdefinierten-faker-formatierern) Formatierer z.B. [`email`](https://fakerphp.github.io/formatters/internet/#email).  
 Unterstützt ein Formatierer [Argumente wie z.B. beim `firstName` Formatierer](https://github.com/FakerPHP/Faker/blob/v1.20.0/src/Faker/Generator.php#L454), so können diese mit dem Argument `fakerArguments` übergeben werden.  
 
 Eine Analyse des Profils sieht nun so aus:
@@ -881,9 +881,9 @@ Pseudonymize data in this tables
  ----------------- -------------------------- --------------- -----------------------------
 ```
 
-Unter `data manipulators` kannst Du nun sehen, dass für einige Spalten `DataProcessings` modelliert wurden.  
+Unter `data manipulators` kannst du nun sehen, dass für einige Spalten `DataProcessings` modelliert wurden.  
 Die Werte (z.B. `autogenerated-63db8d8426b5f`) werden von pseudify automatisch generiert.  
-Möchtest Du zur besseren Übersicht menschenlesbare Bezeichnungen aufgelistet bekommen, so kannst Du der Methode `DataManipulatorPreset::scalarData()` das Argument `processingIdentifier` übergeben.  
+Möchtest du zur besseren Übersicht menschenlesbare Bezeichnungen aufgelistet bekommen, so kannst du der Methode `DataManipulatorPreset::scalarData()` das Argument `processingIdentifier` übergeben.  
 
 ```php
 <?php
@@ -987,7 +987,7 @@ Darin befinden sich JSON-Strings wie z.B. `{"data":{"last_ip":"107.66.23.195"}}`
 Wir möchten nun gezielt den Wert der Eigenschaft `last_ip` mit Fakedaten ersetzten.  
 
 Dafür definieren wir ein `DataProcessing` (`addDataProcessing()`) an der Datenbankspalte (`Column::create()`).  
-Im Kapitel [`Unterschiedlich enkodierte Datenbankspalten`](#unterschiedlich-enkodierte-datenbankspalten) wurden bereits der [`DataManipulatorContext`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php) erwähnt, welcher an die anonyme Funktion eines `DataProcessing` übergeben wird.  
+Im Kapitel ["Unterschiedlich enkodierte Datenbankspalten"](#unterschiedlich-enkodierte-datenbankspalten) wurden bereits der [`DataManipulatorContext`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php) erwähnt, welcher an die anonyme Funktion eines `DataProcessing` übergeben wird.  
 
 Durch den `DataManipulatorContext` können diverse Informationen über den zu verarbeitenden Datensatz erhalten werden:
 
@@ -998,7 +998,7 @@ Durch den `DataManipulatorContext` können diverse Informationen über den zu ve
 
 Mittels des `DataManipulatorContext` können die Daten ebenfalls pseudonymisiert und zurück an pseudify übergeben werden:  
 
-Mit der Methode [`fake()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php#L40) kann die [FakerPHP/Faker Komponente](https://fakerphp.github.io/) initialisiert werden, um  pseudonyme zu erzeugen.  
+Mit der Methode [`fake()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php#L40) kann die [FakerPHP/Faker Komponente](https://fakerphp.github.io/) initialisiert werden, um  Pseudonyme zu erzeugen.  
 Mit der Methode [`setProcessedData()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php#L84) kann die pseudonymisierte Datenstruktur zurück an pseudify übergeben werden.  
 
 ```php
@@ -1050,7 +1050,7 @@ class TestPseudonymizeProfile implements ProfileInterface
 }
 ```
 
-Mit `$data = $context->getDecodedData();` bekommen wir den dekodierten JSON-String in Form eines assoziativen arrays geliefert.  
+Mit `$data = $context->getDecodedData();` bekommen wir den dekodierten JSON-String in Form eines assoziativen Arrays geliefert.  
 Mit `$ip = $data['data']['last_ip'];` holen wir uns gezielt den Wert aus der Datenstruktur (die IP-Adresse), welchen wir pseudonymisieren wollen.  
 
 Der Aufruf `$context->fake(source: $ip);` initialisiert den Faker.  
@@ -1067,14 +1067,14 @@ Pseudify wird die Datenstruktur dann wieder enkodieren und zurück in die Datenb
 
 ###### Unterschiedliche Datenformate in einer Datenbankspalte Faken (pseudonymisieren)
 
-Wie bereits im Kapitel [`Unterschiedlich enkodierte Datenbankspalten`](#unterschiedlich-enkodierte-datenbankspalten) und ["Unterschiedlich enkodierte Daten durchsuchen"](analyze.md#unterschiedlich-enkodierte-daten-durchsuchen) gelernt, kann es vorkommen, dass Daten in Datenbankspalten in unterschiedlich enkodierter Form abgespeichert sind.  
+Wie bereits im Kapitel ["Unterschiedlich enkodierte Datenbankspalten"](#unterschiedlich-enkodierte-datenbankspalten) und ["Unterschiedlich enkodierte Daten durchsuchen"](analyze.md#unterschiedlich-enkodierte-daten-durchsuchen) gelernt, kann es vorkommen, dass Daten in Datenbankspalten in unterschiedlich enkodierter Form abgespeichert sind.  
 Es kann auch vorkommen, dass Daten in Datenbankspalten in unterschiedlichen Datenformaten abgespeichert sind.  
 Anhand von Bedingungen muss detektiert werden, in welchem Datenformat die Daten vorliegen, um sie dann entsprechend pseudonymisieren zu können.  
 
 In unserem Beispiel sind die Plaintext-Daten der Datenbankspalte `log_data` der Tabelle `wh_log` serialisierte PHP-Data, wenn die Datenbankspalte `log_type` den Wert `bar` enthält.  
 Die Plaintext-Daten der Datenbankspalte `log_data` sind im JSON-Format, wenn die Datenbankspalte `log_type` den Wert `foo` enthält.  
 
-Wenn die Datenbankspalte `log_data` der Tabelle `wh_log` den Wert `foo` enthält, dann sieht die Datenstruktur so aus:
+Wenn die Datenbankspalte `log_data` der Tabelle `wh_log` den Wert `foo` enthält, dann sieht die Datenstruktur folgendermaßen aus:
 
 ```json
 {"message":"foo text \"ronaldo15\", another \"mcclure.ofelia@example.com\""}
@@ -1180,7 +1180,7 @@ Somit sind 2 Dinge sichergestellt:
    bei der zweiten Pseudonymisierung wird der Wert "Stan" aus Tabelle 1 und Tabelle 2 in beiden Tabellen mit dem Wert "Roger" ersetzt usw.)
 
 Möchte man aus irgendwelchen Gründen dieses Verhalten ändern, so kann der Methode [`$context->fake()`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Processing/Pseudonymize/DataManipulatorContext.php#L40) der Parameter `scope` mitgegeben werden.  
-Mit diesem Parameter kannst Du pseudify anweisen für gleiche Eingangsdaten unterschiedliche Pseudonyme pro `scope` zu bilden.  
+Mit diesem Parameter kannst du pseudify anweisen für gleiche Eingangsdaten unterschiedliche Pseudonyme pro `scope` zu bilden.  
 
 Beispiel:
 
@@ -1250,17 +1250,17 @@ class TestPseudonymizeProfile implements ProfileInterface
 }
 ```
 
-In diesem callback hast Du Zugriff auf alle wichtigen Objekte und Daten, um in irgendwelchen verrückten Szenarien noch Datenmanipulationen vornehmen zu können:
+In diesem callback hast du Zugriff auf alle wichtigen Objekte und Daten, um in irgendwelchen verrückten Szenarien noch Datenmanipulationen vornehmen zu können:
 
 * `$originalData`: Die Originaldaten in der Datenbank, welche gleich ersetzt werden
 * `$processedData`: Die pseudonymisierten Daten, welche gleich geschrieben werden
 * `$databaseRow`: Der gesamte Originaldatensatz
-* `$queryBuilder`: Die [`Query Builder` Instanz](https://github.com/doctrine/dbal/blob/3.5.x/src/Query/QueryBuilder.php), die verwendet wird, um die Daten zu schreiben
-* `$table`: Die [pseudify `Table` Instanz](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Table.php), die von Dir modelliert wurde
-* `$column`: Die [pseudify `Column` Instanz](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php), die von Dir modelliert wurde
-* `$columnInfo`: Die [doctrine `Column` Instanz](https://github.com/doctrine/dbal/blob/3.5.x/src/Schema/Column.php) mit nützlichen technischen Informationen über die Datenbankspalte
+* `$queryBuilder`: Die [`Query Builder` Instanz](https://github.com/doctrine/dbal/blob/3.6.x/src/Query/QueryBuilder.php), die verwendet wird, um die Daten zu schreiben
+* `$table`: Die [pseudify `Table` Instanz](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Table.php), die von dir modelliert wurde
+* `$column`: Die [pseudify `Column` Instanz](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Pseudonymize/Column.php), die von dir modelliert wurde
+* `$columnInfo`: Die [doctrine `Column` Instanz](https://github.com/doctrine/dbal/blob/3.6.x/src/Schema/Column.php) mit nützlichen technischen Informationen über die Datenbankspalte
 
-Möchtest Du vor dem Update der Daten noch etwas manipulieren, so ist dies mittels der `$queryBuilder` Instanz möglich. Eine Änderung der anderen Objekte und Daten wird keinerlei Auswirkung haben.  
+Möchtest du vor dem Update der Daten noch etwas manipulieren, so ist dies mittels der `$queryBuilder` Instanz möglich. Eine Änderung der anderen Objekte und Daten wird keinerlei Auswirkung haben.  
 
 ### Ein "Pseudonymizer Profile" anwenden
 
@@ -1275,7 +1275,7 @@ done
 
 #### dry run
 
-Du kannst Dein Profil testen, ohne die Daten in der Datenbank zu überschreiben. Mit dem Parameter `--dry-run` werden Dir alle SQL Anweisungen aufgelistet, die pseudify ausführen würde.
+Du kannst dein Profil testen, ohne die Daten in der Datenbank zu überschreiben. Mit dem Parameter `--dry-run` werden dir alle SQL Anweisungen aufgelistet, die pseudify ausführen würde.
 
 ```shell
 pseudify pseudify:pseudonymize test-profile --dry-run

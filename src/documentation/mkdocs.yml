@@ -55,12 +55,12 @@ nav:
         - 'Installation': 'setup/installation.md'
         - 'Configuration': 'setup/configuration.md'
     - 'Usage':
-        - 'Analyze the database': 'usage/analyze.md'
-        - 'Pseudonymize the database': 'usage/pseudonymize.md'
+        - 'Analyse the database': 'usage/analyze.md'
+        - 'Pseudonymise the database': 'usage/pseudonymize.md'
         - 'Complex datatypes': 'usage/complexDatatypes.md'
         - 'Predefined application profiles': 'usage/predefinedApplicationProfiles.md'
     - 'Miscellaneous':
-        - 'What to pseudonymize?': 'whatToPseudonymize.md'
+        - 'What to pseudonymise?': 'whatToPseudonymize.md'
         - 'Development': 'development.md'
         - 'Versions': 'versions.md'
         - 'License': 'license.md'

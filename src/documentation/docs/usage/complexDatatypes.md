@@ -1,12 +1,10 @@
 # Complex datatypes
 
-**todo: translate to en**
+## PHP - process serialised data
 
-## PHP - serialisierte Daten verarbeiten
+PHP data structures can be transformed into a storable representation using the [`serialize()`](https://www.php.net/manual/de/function.serialize.php) function.  
 
-PHP Datenstrukturen lassen sich mittels der Funktion [`serialize()`](https://www.php.net/manual/de/function.serialize.php) in eine speicherbare Repräsentation transformieren.  
-
-Ein PHP Array kann serialisiert werden, um es z.B. in der Datenbank abzuspeichern.
+A PHP array can be serialised in order to store it in the database, for example.
 
 ```php
 $array = [
@@ -19,10 +17,10 @@ echo serialize($array);
 // output: a:2:{s:4:"key1";s:6:"value1";s:4:"key2";s:6:"value2";}
 ```
 
-Diese Datenstruktur kann später mit der Funktion [`unserialize()`](https://www.php.net/manual/de/function.unserialize.php) wieder in eine PHP Datenstruktur umgewandelt werden.    
-Eine Beschreibung des Datenformats findet man [im PHP Quellcode](https://github.com/php/php-src/blob/7936c8085e7521252214cad295775794dc7be25c/ext/standard/var.c#L992) und teilweise in der [PHP Dokumentation](https://www.phpinternalsbook.com/php5/classes_objects/serialization.html).
+This data structure can later be converted back into a PHP data structure with the function [`unserialize()`](https://www.php.net/manual/de/function.unserialize.php).    
+A description of the data format can be found [in the PHP source code](https://github.com/php/php-src/blob/7936c8085e7521252214cad295775794dc7be25c/ext/standard/var.c#L992) and partly in the [PHP documentation](https://www.phpinternalsbook.com/php5/classes_objects/serialization.html).
 
-Während die Arbeit mit einfachen Datenstrukturen wie Strings oder Arrays für pseudify recht einfach wäre, so wird die Arbeit mit serialisierten PHP Objekten schwieriger.  
+While working with simple data structures like strings or arrays would be quite easy for pseudify, working with serialised PHP objects becomes more difficult. 
 
 ```php
 use Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject;
@@ -31,17 +29,16 @@ echo serialize(new SimpleObject('baz1', 'baz2', 'baz3'));
 // output: O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"\x00Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject\x00privateMember";s:4:"baz1";s:18:"*protectedMember";s:4:"baz2";s:12:"publicMember";s:4:"baz3";}`
 ```
 
-Ein serialisiertes PHP Objekt `O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"\x00Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject\x00privateMember";s:4:"baz1";s:18:"*protectedMember";s:4:"baz2";s:12:"publicMember";s:4:"baz3";}` lässt sich von PHP nur de-serialisieren, wenn
-der [PHP autoloader](https://www.php.net/manual/de/language.oop5.autoload.php) Zugriff auf die entsprechenden Quellcodedateien hat, in welcher das Objekt definiert ist.  
-Pseudify muss aber ohne den Quellcode irgendwelcher Applikationen lauffähig sein.  
+A serialised PHP object `O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject":3:{s:101:"\x00Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Serialized\Fixtures\SimpleObject\x00privateMember";s:4:"baz1";s:18:"*protectedMember";s:4:"baz2";s:12:"publicMember";s:4:"baz3";}` can only be deserialised by PHP if the [PHP autoloader](https://www.php.net/manual/de/language.oop5.autoload.php) has access to the corresponding source code files in which the object is defined.  
+However, Pseudify must be executable without the source code of any applications.  
 
-Wie können wir nun gezielt z.B. den Wert der Eigenschaft `publicMember` (`baz3`) pseudonymisieren, ohne fehleranfällige Suchen-und-Ersetzen Strategien auf den Text anwenden zu müssen (z.B. mit wilden regulären Ausdrücken)?  
+How can we now specifically pseudonymise e.g. the value of the property `publicMember` (`baz3`) without having to apply error-prone search-and-replace strategies to the text (e.g. with wild regular expressions)?  
 
-**Für diesen Anwendungsfall bietet Dir pseudify den [`SerializedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php)!**  
+**For this use case, pseudify offers you the [`SerializedEncoder`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php)!**  
 
-Mit dem `SerializedEncoder` ist es Dir möglich eine serialisierte Datenstruktur in einen [AST](https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume) umzuwandeln, diesen zu manipulieren und den AST dann wieder in eine serialisierte Datenstruktur zurückzuschreiben.  
+With the `SerializedEncoder` it is possible to convert a serialised data structure into an [AST](https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume), manipulate it and then write the AST back into a serialised data structure.  
 
-### Lasst uns ein paar Beispiele anschauen
+### Let's look at a few examples
 
 #### Integer
 
@@ -402,7 +399,7 @@ ArrayNode {
 }
 ```
 
-#### Objekte
+#### Objects
 
 ```php
 <?php
@@ -517,14 +514,14 @@ ObjectNode {
 }
 ```
 
-### Daten erzeugen / manipulieren
+### Create / manipulate data
 
 !!! info
-    Die verfügbaren Methoden der einzelnen Node-Implementierungen kannst Du Dir [im Repository anschauen](https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node).  
+    You can view the available methods of the individual node implementations [in the repository](https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node).  
 
-#### Skalare Werte
+#### Scalar values
 
-Skalare Werte zu erzeugen, ist einfach. Es muss nur eine neue Instanz des entsprechenden Datentyps erzeugt werden:
+Creating scalar values is easy. Only a new instance of the corresponding data type has to be created.
 
 ##### Integer
 
@@ -623,7 +620,7 @@ get the node value: 'how nice'
 
 #### Arrays
 
-Das Array sieht so aus:
+The array looks like this:
 
 ```php
 [
@@ -636,7 +633,7 @@ Das Array sieht so aus:
 ];
 ```
 
-##### get the node value for array key 0
+##### Get the node value for array key 0
 
 ```
 <?php
@@ -658,7 +655,7 @@ echo var_export($value, true) . PHP_EOL;
 'value1'
 ```
 
-##### get the node value for array key 'key2'
+##### Get the node value for array key 'key2'
 
 ```
 <?php
@@ -680,7 +677,7 @@ echo var_export($value, true) . PHP_EOL;
 'value2'
 ```
 
-##### get all array keys of the first array level
+##### Get all array keys of the first array level
 
 ```
 <?php
@@ -707,7 +704,7 @@ array (
 )
 ```
 
-##### replace 'value1' (key 0) with 'new value'
+##### Replace 'value1' (key 0) with 'new value'
 
 ```
 <?php
@@ -738,7 +735,7 @@ original data: a:3:{i:0;s:6:"value1";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0
 new data:      a:3:{i:0;s:9:"new value";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0;s:6:"value3";s:4:"key4";s:6:"value4";}}
 ```
 
-##### replace 'value4' (key 'key3' => 'key4') with 'newer value'
+##### Replace 'value4' (key 'key3' => 'key4') with 'newer value'
 
 ```
 <?php
@@ -769,9 +766,9 @@ original data: a:3:{i:0;s:6:"value1";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0
 new data:      a:3:{i:0;s:6:"value1";s:4:"key2";s:6:"value2";s:4:"key3";a:2:{i:0;s:6:"value3";s:4:"key4";s:11:"newer value";}}
 ```
 
-#### Objekte
+#### Objects
 
-Das Objekt sieht so aus:
+The object looks like this:
 
 ```php
 class SimpleObject
@@ -790,7 +787,7 @@ class SimpleObject
 
 ```
 
-##### get the node value for class member 'privateMember' ('value1')
+##### Get the node value for class member 'privateMember' ('value1')
 
 ```php
 <?php
@@ -813,7 +810,7 @@ echo var_export($value, true) . PHP_EOL;
 'value1'
 ```
 
-##### get the node value for class member 'protectedMember' ('value2')
+##### Get the node value for class member 'protectedMember' ('value2')
 
 ```php
 <?php
@@ -836,7 +833,7 @@ echo var_export($value, true) . PHP_EOL;
 'value2'
 ```
 
-##### get the node value for class member 'publicMember' ('value3')
+##### Get the node value for class member 'publicMember' ('value3')
 
 ```php
 <?php
@@ -859,7 +856,7 @@ echo var_export($value, true) . PHP_EOL;
 'value3'
 ```
 
-##### get all (direct) class member names
+##### Get all (direct) class member names
 
 ```
 <?php
@@ -887,7 +884,7 @@ array (
 )
 ```
 
-##### replace 'value3' ('publicMember') with 'newer value'
+##### Replace 'value3' ('publicMember') with 'newer value'
 
 ```php
 <?php

@@ -1,13 +1,11 @@
 # Predefined application profiles
 
-**todo: translate to en**
-
-In den pseudify ["Profile Templates"](https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles) befinden sich vordefinierte Profile für verschiedenen Applikationen wie TYPO3 und Wordpress.  
+The pseudify [profile templates](https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles) contains predefined profiles for various applications such as TYPO3 and Wordpress.  
 
 !!! note
-    Diese vordefinierten Profile sind nicht vollständig und werden ständig weiterentwickelt.  
+    These predefined profiles are not complete and are constantly being developed.  
 
-**Bitte steuert Verbesserungen bei!**  
+**Please contribute improvements!**  
 
-Ihr habt Profile für andere Softwareprodukte gebaut? Super, bitte contributed diese zum Projekt!  
-Wir und die Community freuen uns über jede Form von Beteiligung, die dazu beiträgt das Internet sicherer zu machen.  
+You have built profiles for other software products? Great, please contribute them to the project!  
+We and the community are happy about any form of participation that contributes to making the internet safer.  

@@ -1,6 +1,6 @@
 # Vordefinierte Applikationsprofile
 
-In den pseudify ["Profile Templates"](https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles) befinden sich vordefinierte Profile für verschiedenen Applikationen wie TYPO3 und Wordpress.  
+In den pseudify [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates/tree/0.0.1/src/Profiles) befinden sich vordefinierte Profile für verschiedenen Applikationen wie TYPO3 und Wordpress.  
 
 !!! note
     Diese vordefinierten Profile sind nicht vollständig und werden ständig weiterentwickelt.  
