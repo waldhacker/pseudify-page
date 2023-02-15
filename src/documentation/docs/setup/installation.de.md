@@ -18,7 +18,7 @@ Der docker container enthält alle benötigten Abhängigkeiten, um pseudify mit 
 
 !!! info "Profile Templates"
     Die [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates) beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.  
-    Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.
+    Sie sind die ideale Grundlage, um die Pseudonymisierung deiner Applikation zu modellieren.
 
 Download der Profile Templates:
 
@@ -68,7 +68,7 @@ docker run -it -v $(pwd):/data \
 
 !!! info "Profile Templates"
     Die [Profile Templates](https://github.com/waldhacker/pseudify-profile-templates) beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.  
-    Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.
+    Sie sind die ideale Grundlage, um die Pseudonymisierung deiner Applikation zu modellieren.
 
 Download der Profile Templates:
 

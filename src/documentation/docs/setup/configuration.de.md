@@ -196,10 +196,10 @@ Wird aufgelöst zu Verbindungsparameter: [`doctrine.dbal.connections.default.ser
 
 Doctrine wird für einige Anbieter mit verschiedenen Datenbankplattform-Implementierungen geliefert, um versionsspezifische Funktionen, Dialekte und Verhaltensweisen zu unterstützen.  
 Die Treiber erkennen automatisch die Plattformversion und instanziieren die entsprechende Plattformklasse.  
-Wenn Du die automatische Erkennung der Datenbankplattform deaktivieren und die Implementierung der Plattformversion explizit auswählen möchtest, kannst Du dies mit dem Wert in `PSEUDIFY_DATABASE_VERSION` erledigen.  
+Wenn du die automatische Erkennung der Datenbankplattform deaktivieren und die Implementierung der Plattformversion explizit auswählen möchtest, kannst du dies mit dem Wert in `PSEUDIFY_DATABASE_VERSION` erledigen.  
 
 !!! info
-    Wenn Du eine MariaDB-Datenbank verwendest, solltest Du dem Wert `PSEUDIFY_DATABASE_VERSION` den Präfix `mariadb-` voranstellen (Beispiel: mariadb-10.2).
+    Wenn du eine MariaDB-Datenbank verwendest, solltest du dem Wert `PSEUDIFY_DATABASE_VERSION` den Präfix `mariadb-` voranstellen (Beispiel: mariadb-10.2).
 
 #### Beispiel
 
@@ -225,7 +225,7 @@ PSEUDIFY_DATABASE_SSL_INSECURE=1
 
 ## Erweiterte Verbindungseinstellungen
 
-Wenn Du weitere Treiberoptionen konfigurieren musst, so kannst Du dies in der Datei [`config/configuration.yaml`](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L4) tun.  
+Wenn du weitere Treiberoptionen konfigurieren musst, so kannst du dies in der Datei [`config/configuration.yaml`](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L4) tun.  
 Beispiele und Informationen für Treiberoptionen finden sich in folgenden Dokumenten:
 
 * [Symfony DoctrineBundle - Doctrine DBAL Configuration](https://symfony.com/doc/current/reference/configuration/doctrine.html#doctrine-dbal-configuration)
@@ -277,7 +277,7 @@ pseudify pseudify:debug:table_schema --connection myCustomConnection
 
 ## Registrieren von benutzerdefinierten Datentypen
 
-Werden benutzerdefinierte Datentypen benötigt, so kannst Du diese auf Verbindungsebene in der Datei [`config/configuration.yaml`](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L5-L13) definieren.  
+Werden benutzerdefinierte Datentypen benötigt, so kannst du diese auf Verbindungsebene in der Datei [`config/configuration.yaml`](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L5-L13) definieren.  
 
 Beispielimplementationen für benutzerdefinierte Datentypen finden sich in folgenden Dateien:
 
@@ -314,7 +314,7 @@ pseudify cache:clear
 ## Registrieren von benutzerdefinierten Faker-Formatierern
 
 Die [FakerPHP/Faker Komponente](https://fakerphp.github.io/) bringt eine Menge vordefinierter Formatierer mit um diverse Datenformate zu generieren.  
-Wenn Du benutzerdefinierte Formatierer verwenden möchtest, so kannst Du die Implementierung am Beispiel des [BobRossLipsumProvider](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Faker/BobRossLipsumProvider.php) abschauen.  
+Wenn du benutzerdefinierte Formatierer verwenden möchtest, so kannst du die Implementierung am Beispiel des [BobRossLipsumProvider](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Faker/BobRossLipsumProvider.php) abschauen.  
 Der benutzerdefinierte Formatierer muss das Interface [`Waldhacker\Pseudify\Core\Faker\FakeDataProviderInterface`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Faker/FakeDataProviderInterface.php) implementieren, damit er ins System integriert wird.  
 Wie Formatierer Daten generieren können lässt sich am Besten anhand [der Provider im FakerPHP/Faker Projekt](https://github.com/FakerPHP/Faker/tree/v1.20.0/src/Faker/Provider) abschauen.  
 
@@ -327,7 +327,7 @@ pseudify cache:clear
 ## Registrieren von benutzerdefinierten Dekodierern / Enkodierern
 
 Das pseudify [`EncoderInterface`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/EncoderInterface.php) ist kompatibel zum [`EncoderInterface` und `DecoderInterface` der Symfony serializer Komponente](https://symfony.com/doc/current/components/serializer.html#encoders).  
-Wenn Du benutzerdefinierte Dekodierer / Enkodierer verwenden möchtest, so kannst Du die Implementierung am Beispiel des [Rot13Encoder](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Encoder/Rot13Encoder.php) abschauen.  
+Wenn du benutzerdefinierte Dekodierer / Enkodierer verwenden möchtest, so kannst du die Implementierung am Beispiel des [Rot13Encoder](https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Encoder/Rot13Encoder.php) abschauen.  
 Der benutzerdefinierte Dekodierer / Enkodierer muss das Interface [`Waldhacker\Pseudify\Core\Processor\Encoder\EncoderInterface`](https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/EncoderInterface.php) implementieren, damit er ins System integriert wird.  
 Wie Dekodierer / Enkodierer Daten dekodieren und encodieren können, lässt sich am Besten anhand [der Built-in Dekodierer / Enkodierer](https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder) abschauen.  
 
