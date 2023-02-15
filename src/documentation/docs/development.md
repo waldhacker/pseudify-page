@@ -1,20 +1,18 @@
 # Development
 
-**todo: translate to en**
-
 ## Website
 
-Der Quellcode der Webseite befindet sich im Repository [pseudify-page](https://github.com/waldhacker/pseudify-page).  
-Um die Webseite zu entwickeln, wird das Programm [ddev](https://ddev.readthedocs.io/en/stable/) benötigt.  
+The source code of the website is located in the repository [pseudify-page](https://github.com/waldhacker/pseudify-page).  
+To develop the website, the programme [ddev](https://ddev.readthedocs.io/en/stable/) is needed.  
 
-### Starten der Webseite
+### Launch the website
 
 ```shell
 ddev start
 ddev launch
 ```
 
-### Bauen der Webseite
+### Building the website
 
 ```shell
 # 0.1 = current version
@@ -23,10 +21,10 @@ ddev exec ../build/build.sh 0.1
 
 ## Core
 
-Der Quellcode von pseudify befindet sich im Repository [pseudify-core](https://github.com/waldhacker/pseudify-core).  
-Um pseudify zu entwickeln wird das Programm [ddev](https://ddev.readthedocs.io/en/stable/) benötigt.  
+The source code of pseudify is located in the repository [pseudify-core](https://github.com/waldhacker/pseudify-core).  
+To develop pseudify, the programme [ddev](https://ddev.readthedocs.io/en/stable/) is needed.  
 
-### Das PHAR Archiv bauen
+### Building the PHAR Archive
 
 ```shell
 docker run -it -v $(pwd):/data --workdir=/data \
@@ -39,15 +37,15 @@ docker run -it -v $(pwd):/data --workdir=/data \
     '
 ```
 
-### Das docker image bauen
+### Building the docker image
 
-Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv bauen".
+This step requires the execution of the commands under "Building the PHAR archive" as preliminary work.
 
 ```shell
 ./build/build-docker.sh
 ```
 
-### Bauen von pseudify
+### Building pseudify
 
 ```shell
 ddev start
