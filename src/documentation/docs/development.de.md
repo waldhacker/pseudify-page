@@ -12,7 +12,7 @@ ddev start
 ddev launch
 ```
 
-### Bauen der Webseite
+### Erstellen der Webseite
 
 ```shell
 # 0.1 = current version
@@ -24,7 +24,7 @@ ddev exec ../build/build.sh 0.1
 Der Quellcode von pseudify befindet sich im Repository [pseudify-core](https://github.com/waldhacker/pseudify-core).  
 Um pseudify zu entwickeln wird das Programm [ddev](https://ddev.readthedocs.io/en/stable/) benötigt.  
 
-### Das PHAR Archiv bauen
+### Das PHAR Archiv erstellen
 
 ```shell
 docker run -it -v $(pwd):/data --workdir=/data \
@@ -39,13 +39,13 @@ docker run -it -v $(pwd):/data --workdir=/data \
 
 ### Das docker image bauen
 
-Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv bauen".
+Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv erstellen".
 
 ```shell
 ./build/build-docker.sh
 ```
 
-### Bauen von pseudify
+### Erstellen von pseudify
 
 ```shell
 ddev start

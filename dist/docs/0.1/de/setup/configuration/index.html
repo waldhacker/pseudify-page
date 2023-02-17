@@ -168,9 +168,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Anwendung</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../usage/analyze/">Analysiere die Datenbank</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/analyze/">Analyse the database</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../usage/pseudonymize/">Pseudonymisiere die Datenbank</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/pseudonymize/">Pseudonymise the database</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../usage/complexDatatypes/">Komplexe Datentypen</a>
                   </li>
@@ -179,7 +179,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Sonstiges</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">Was sollte pseudonymisiert werden?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">What to pseudonymise?</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../development/">Entwicklung</a>
                   </li>
@@ -235,7 +235,7 @@ Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile T
 <p>Pseudify cached die Eingangsdaten, um pro Pseudonymisierungslauf gleiche Pseudonyme für gleiche Eingangsdaten erzeugen zu können.<br />
 Damit die zu pseudonymisierenden Eingangsdaten nicht im Klartext im Cache abgespeichert werden, werden sie zur Sicherheit mittels SHA-256 Hash-Algorithmus verarbeitet und dann abgespeichert.<br />
 Damit von den SHA-256 Hashwerten im Cache keine Rückschlüsse auf die Eingangsdaten gezogen werden können, <strong>wird dringend empfohlen den Wert von <code>APP_SECRET</code> auf einen möglichst langen zufälligen Wert zu setzen</strong>.<br />
-Der Wert von <code>APP_SECRET</code> <strong>ist als Geheimnis zu behandeln</strong>, so wie ein Passwort.  </p>
+Der Wert von <code>APP_SECRET</code> muss, ähnlich einem Passwort, <strong>geheimgehalten</strong> werden.  </p>
 <h4 id="beispiel">Beispiel</h4>
 <pre class="highlight"><code class="language-shell">APP_SECRET=6ba571b0a3e7150a4b7e5b918e81ce8f</code></pre>
 <h3 id="pseudify_faker_locale">PSEUDIFY_FAKER_LOCALE</h3>
@@ -273,7 +273,7 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysqli">mysqli</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql">pdo_pgsql</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql-pgsql">pdo_pgsql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-oci-oci8">oci8</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">pdo_sqlsrv</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">sqlsrv</a></li>
@@ -288,7 +288,7 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysqli">mysqli</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql">pdo_pgsql</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql-pgsql">pdo_pgsql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-oci-oci8">oci8</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">pdo_sqlsrv</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">sqlsrv</a></li>
@@ -304,7 +304,7 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlite">pdo_sqlite</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysqli">mysqli</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql">pdo_pgsql</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql-pgsql">pdo_pgsql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-oci-oci8">oci8</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">pdo_sqlsrv</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">sqlsrv</a></li>
@@ -320,7 +320,7 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlite">pdo_sqlite</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysqli">mysqli</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql">pdo_pgsql</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql-pgsql">pdo_pgsql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-oci-oci8">oci8</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">pdo_sqlsrv</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">sqlsrv</a></li>
@@ -329,13 +329,12 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_PASSWORD='super(!)sEcReT'</code></pre>
 <h3 id="pseudify_database_schema">PSEUDIFY_DATABASE_SCHEMA</h3>
 <p>Default: &lt;leer&gt;<br />
-Wird aufgelöst zu Verbindungsparameter: <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml#L10"><code>doctrine.dbal.connections.default.dbname</code></a> / <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml#L11"><code>doctrine.dbal.connections.default.path</code></a></p>
-<p>Der Name der Datenbank.<br />
-Bei folgenden Treibern entspricht <code>PSEUDIFY_DATABASE_SCHEMA</code> dem Datenbanknamen:</p>
+Wird aufgelöst zu Verbindungsparameter: <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml#L10"><code>doctrine.dbal.connections.default.dbname</code></a> oder <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml#L11"><code>doctrine.dbal.connections.default.path</code></a></p>
+<p>Bei folgenden Treibern entspricht <code>PSEUDIFY_DATABASE_SCHEMA</code> dem Datenbanknamen:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysqli">mysqli</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql">pdo_pgsql</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql-pgsql">pdo_pgsql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-oci-oci8">oci8</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">pdo_sqlsrv</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-sqlsrv-sqlsrv">sqlsrv</a></li>
@@ -355,7 +354,7 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysqli">mysqli</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql">pdo_pgsql</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-pgsql-pgsql">pdo_pgsql</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#pdo-oci-oci8">oci8</a></li>
 </ul>
 <h4 id="beispiel_8">Beispiel</h4>
@@ -363,12 +362,12 @@ Dieser Wert wird nur bei der Nutzung der folgenden Treiber verwendet:</p>
 <h3 id="pseudify_database_version">PSEUDIFY_DATABASE_VERSION</h3>
 <p>Default: &lt;leer&gt;<br />
 Wird aufgelöst zu Verbindungsparameter: <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml#L13"><code>doctrine.dbal.connections.default.server_version</code></a></p>
-<p>Doctrine wird mit verschiedenen Datenbankplattform-Implementierungen für einige Anbieter geliefert, um versionsspezifische Funktionen, Dialekte und Verhaltensweisen zu unterstützen.<br />
+<p>Doctrine wird für einige Anbieter mit verschiedenen Datenbankplattform-Implementierungen geliefert, um versionsspezifische Funktionen, Dialekte und Verhaltensweisen zu unterstützen.<br />
 Die Treiber erkennen automatisch die Plattformversion und instanziieren die entsprechende Plattformklasse.<br />
-Wenn Du die automatische Erkennung der Datenbankplattform deaktivieren und die Implementierung der Plattformversion explizit auswählen möchtest, kannst Du dies mit dem Wert in <code>PSEUDIFY_DATABASE_VERSION</code> erledigen.  </p>
+Wenn du die automatische Erkennung der Datenbankplattform deaktivieren und die Implementierung der Plattformversion explizit auswählen möchtest, kannst du dies mit dem Wert in <code>PSEUDIFY_DATABASE_VERSION</code> erledigen.  </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Wenn Du eine MariaDB-Datenbank verwendest, solltest Du dem Wert <code>PSEUDIFY_DATABASE_VERSION</code> den Präfix <code>mariadb-</code> voranstellen (Beispiel: mariadb-10.2).</p>
+<p>Wenn du eine MariaDB-Datenbank verwendest, solltest du dem Wert <code>PSEUDIFY_DATABASE_VERSION</code> den Präfix <code>mariadb-</code> voranstellen (Beispiel: mariadb-10.2).</p>
 </div>
 <h4 id="beispiel_9">Beispiel</h4>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_VERSION=8.0</code></pre>
@@ -383,7 +382,7 @@ Wird aufgelöst zu Verbindungsparameter: <a href="https://github.com/waldhacker/
 </ul>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_SSL_INSECURE=1</code></pre>
 <h2 id="erweiterte-verbindungseinstellungen">Erweiterte Verbindungseinstellungen</h2>
-<p>Wenn Du weitere Treiberoptionen konfigurieren musst, so kannst Du dies in der Datei <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L4"><code>config/configuration.yaml</code></a> tun.<br />
+<p>Wenn du weitere Treiberoptionen konfigurieren musst, so kannst du dies in der Datei <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L4"><code>config/configuration.yaml</code></a> tun.<br />
 Beispiele und Informationen für Treiberoptionen finden sich in folgenden Dokumenten:</p>
 <ul>
 <li><a href="https://symfony.com/doc/current/reference/configuration/doctrine.html#doctrine-dbal-configuration">Symfony DoctrineBundle - Doctrine DBAL Configuration</a></li>
@@ -401,14 +400,14 @@ In der Datei <a href="https://github.com/waldhacker/pseudify-profile-templates/b
       myCustomConnection:
         driver: sqlsrv
         # ...</code></pre>
-<p>Die konfigurierten Verbindungen können mit dem Parameter <code>--connection</code> verwendet werden</p>
+<p>Die konfigurierten Verbindungen können mit dem Parameter <code>--connection</code> verwendet werden.</p>
 <pre class="highlight"><code class="language-shell">pseudify pseudify:pseudonymize --connection myCustomConnection myPseudonymizationProfileName</code></pre>
 <pre class="highlight"><code class="language-shell">pseudify pseudify:debug:pseudonymize --connection myCustomConnection myPseudonymizationProfileName</code></pre>
 <pre class="highlight"><code class="language-shell">pseudify pseudify:analyze --connection myCustomConnection myAnalysisProfileName</code></pre>
 <pre class="highlight"><code class="language-shell">pseudify pseudify:debug:analyze --connection myCustomConnection myAnalysisProfileName</code></pre>
 <pre class="highlight"><code class="language-shell">pseudify pseudify:debug:table_schema --connection myCustomConnection</code></pre>
 <h2 id="registrieren-von-benutzerdefinierten-datentypen">Registrieren von benutzerdefinierten Datentypen</h2>
-<p>Werden benutzerdefinierte Datentypen benötigt, so kannst Du diese auf Verbindungsebene in der Datei <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L5-L13"><code>config/configuration.yaml</code></a> definieren.  </p>
+<p>Werden benutzerdefinierte Datentypen benötigt, so kannst du diese auf Verbindungsebene in der Datei <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml#L5-L13"><code>config/configuration.yaml</code></a> definieren.  </p>
 <p>Beispielimplementationen für benutzerdefinierte Datentypen finden sich in folgenden Dateien:</p>
 <ul>
 <li><a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Types/TYPO3/EnumType.php">src/Types/TYPO3/EnumType.php</a></li>
@@ -431,21 +430,21 @@ In der Datei <a href="https://github.com/waldhacker/pseudify-profile-templates/b
 <li><a href="https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types-in-the-schematool">Symfony DoctrineBundle - Registering custom Mapping Types in the SchemaTool</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/types.html#custom-mapping-types">Doctrine DBAL - Custom Mapping Types</a></li>
 </ul>
-<p>Nach dem Hinzufügen benutzerdefinierter Datentypen muss der Cache geleert werden </p>
+<p>Nach dem Hinzufügen benutzerdefinierter Datentypen muss der Cache geleert werden. </p>
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <h2 id="registrieren-von-benutzerdefinierten-faker-formatierern">Registrieren von benutzerdefinierten Faker-Formatierern</h2>
 <p>Die <a href="https://fakerphp.github.io/">FakerPHP/Faker Komponente</a> bringt eine Menge vordefinierter Formatierer mit um diverse Datenformate zu generieren.<br />
-Wenn Du benutzerdefinierte Formatierer verwenden möchtest, so kannst Du die Implementierung am Beispiel des <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Faker/BobRossLipsumProvider.php">BobRossLipsumProvider</a> abschauen.<br />
+Wenn du benutzerdefinierte Formatierer verwenden möchtest, so kannst du die Implementierung am Beispiel des <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Faker/BobRossLipsumProvider.php">BobRossLipsumProvider</a> abschauen.<br />
 Der benutzerdefinierte Formatierer muss das Interface <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Faker/FakeDataProviderInterface.php"><code>Waldhacker\Pseudify\Core\Faker\FakeDataProviderInterface</code></a> implementieren, damit er ins System integriert wird.<br />
 Wie Formatierer Daten generieren können lässt sich am Besten anhand <a href="https://github.com/FakerPHP/Faker/tree/v1.20.0/src/Faker/Provider">der Provider im FakerPHP/Faker Projekt</a> abschauen.  </p>
-<p>Nach dem Hinzufügen benutzerdefinierter Faker-Formatierern muss der Cache geleert werden </p>
+<p>Nach dem Hinzufügen benutzerdefinierter Faker-Formatierern muss der Cache geleert werden. </p>
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <h2 id="registrieren-von-benutzerdefinierten-dekodierern-enkodierern">Registrieren von benutzerdefinierten Dekodierern / Enkodierern</h2>
 <p>Das pseudify <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/EncoderInterface.php"><code>EncoderInterface</code></a> ist kompatibel zum <a href="https://symfony.com/doc/current/components/serializer.html#encoders"><code>EncoderInterface</code> und <code>DecoderInterface</code> der Symfony serializer Komponente</a>.<br />
-Wenn Du benutzerdefinierte Dekodierer / Enkodierer verwenden möchtest, so kannst Du die Implementierung am Beispiel des <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Encoder/Rot13Encoder.php">Rot13Encoder</a> abschauen.<br />
+Wenn du benutzerdefinierte Dekodierer / Enkodierer verwenden möchtest, so kannst du die Implementierung am Beispiel des <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/src/Encoder/Rot13Encoder.php">Rot13Encoder</a> abschauen.<br />
 Der benutzerdefinierte Dekodierer / Enkodierer muss das Interface <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/EncoderInterface.php"><code>Waldhacker\Pseudify\Core\Processor\Encoder\EncoderInterface</code></a> implementieren, damit er ins System integriert wird.<br />
-Wie Dekodierer / Enkodierer Daten dekodieren und encodieren können lässt sich am Besten anhand <a href="https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder">der Built-in Dekodierer / Enkodierer</a> abschauen.  </p>
-<p>Nach dem hinzufügen benutzerdefinierter Dekodierer / Enkodierer muss der Cache geleert werden </p>
+Wie Dekodierer / Enkodierer Daten dekodieren und encodieren können, lässt sich am Besten anhand <a href="https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder">der Built-in Dekodierer / Enkodierer</a> abschauen.  </p>
+<p>Nach dem hinzufügen benutzerdefinierter Dekodierer / Enkodierer muss der Cache geleert werden. </p>
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -453,7 +452,7 @@ Wie Dekodierer / Enkodierer Daten dekodieren und encodieren können lässt sich 
 Dies stellt sicher, dass Debug-Kommandos wie <code>pseudify:debug:analyze</code> die Namen der Dekodierer / Enkodierer gut darstellen können.  </p>
 </div>
 <h2 id="zugriff-auf-host-datenbankserver-aus-dem-docker-container-heraus">Zugriff auf Host-Datenbankserver aus dem docker Container heraus</h2>
-<p>Möchte man auf Datenbankserver, welche auf dem Host-System laufen, aus dem docker Container heraus zugreifen, so kann dies auf unterschiedlichen Wegen umgesetzt werden.<br />
+<p>Möchte man auf Datenbankserver, welche auf dem Host-System laufen, aus dem docker Container heraus zugreifen, so kann dies auf unterschiedlichen Wegen geschehen.<br />
 Nachfolgend werden 3 beschrieben.</p>
 <h3 id="add-host-variante">add-host Variante</h3>
 <p>Füge dem <code>docker run</code> Befehl den Parameter <code>--add-host=host.docker.internal:host-gateway</code> hinzu um innerhalb des docker Containers die IP-Adresse des docker gateways auf dem Host-System unter dem Hostnamen <code>host.docker.internal</code> zur Verfügung zu stellen.<br />
@@ -485,7 +484,7 @@ Beide Container werden mit demselben docker Netzwerk verbunden und können somit
 <h4 id="beispiel_12">Beispiel</h4>
 <p><a href="https://docs.docker.com/engine/reference/commandline/network_create/">Erzeugen des gemeinsamen docker Netzwerks</a> (falls noch keines vorhanden ist) mit dem Namen <code>pseudify-net</code>:</p>
 <pre class="highlight"><code class="language-shell">docker network create pseudify-net</code></pre>
-<p>Started des Datenbankservers am Beispiel <a href="https://hub.docker.com/_/mariadb">des MariaDB Containers</a>.<br />
+<p>Starten des Datenbankservers am Beispiel <a href="https://hub.docker.com/_/mariadb">des MariaDB Containers</a>.<br />
 Der Datenbankserver wird gestartet und in das Netzwerk <code>pseudify-net</code> aufgenommen (<code>--network pseudify-net</code>). Dem Container wird der Name <code>mariadb_10_5</code> gegeben (<code>--name mariadb_10_5</code>), unter welchem die Datenbank dann für den pseudify Container erreichbar sein wird.  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -508,7 +507,7 @@ cp tests/mariadb/10.5/.env .env</code></pre>
 <pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data --network=pseudify-net \
   ghcr.io/waldhacker/pseudify pseudify:debug:table_schema</code></pre>
 <h2 id="uberblick-uber-die-konfiguration">Überblick über die Konfiguration</h2>
-<p>Es existieren Kommandos, um die konfiguration des Systems zu überprüfen</p>
+<p>Es existieren Kommandos, um die Konfiguration des Systems zu überprüfen.</p>
 <h3 id="pseudifyinformation">pseudify:information</h3>
 <p>Das Kommando <code>pseudify pseudify:information</code> listet:</p>
 <ul>
@@ -667,8 +666,8 @@ Connection details
   Used built-in database driver           pdo_mysql (8.1.14)                       
  --------------------------------------- -----------------------------------------</code></pre>
 <h3 id="debugconfig-doctrinebundle">debug:config DoctrineBundle</h3>
-<p>Das Kommando listet die zusammengefasste Datenbankkonfiguration auf, welche aus <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml">der Core-Konfiguration</a><br />
-und <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml">der benutzerdefinierten Konfiguration</a> besteht.</p>
+<p>Das Kommando listet die zusammengefasste Datenbankkonfiguration auf, welche aus der <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/config/packages/doctrine.yaml">Core-Konfiguration</a><br />
+und der <a href="https://github.com/waldhacker/pseudify-profile-templates/blob/0.0.1/config/configuration.yaml">benutzerdefinierten Konfiguration</a> besteht.</p>
 <pre class="highlight"><code class="language-shell">$ pseudify debug:config DoctrineBundle
 
 Current configuration for "DoctrineBundle"
@@ -728,7 +727,7 @@ Variables
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../usage/analyze/" class="btn btn-neutral float-right" title="Analysiere die Datenbank">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../usage/analyze/" class="btn btn-neutral float-right" title="Analyse the database">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>

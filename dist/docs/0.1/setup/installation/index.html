@@ -51,7 +51,7 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#docker-image-empfohlen">docker Image (empfohlen)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#docker-image-recommended">docker Image (recommended)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#phar-archiv">PHAR Archiv</a>
     </li>
@@ -62,9 +62,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Usage</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../usage/analyze/">Analyze the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/analyze/">Analyse the database</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../usage/pseudonymize/">Pseudonymize the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/pseudonymize/">Pseudonymise the database</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../usage/complexDatatypes/">Complex datatypes</a>
                   </li>
@@ -73,7 +73,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Miscellaneous</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">What to pseudonymize?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">What to pseudonymise?</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../development/">Development</a>
                   </li>
@@ -121,50 +121,49 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<p><strong>todo: translate to en</strong></p>
-<p>Pseudify kann in 2 Varianten verwendet werden</p>
+<p>Pseudify can be used in 2 variants</p>
 <ul>
-<li>mittels docker container (empfohlen)</li>
-<li>mittels phar Archiv</li>
+<li>via docker container (recommended)</li>
+<li>via phar archive</li>
 </ul>
-<h2 id="docker-image-empfohlen">docker Image (empfohlen)</h2>
+<h2 id="docker-image-recommended">docker Image (recommended)</h2>
 <div class="admonition info">
-<p class="admonition-title">Abhängigkeiten</p>
-<p>Folgende Komponenten müssen installiert werden:</p>
+<p class="admonition-title">Dependencies</p>
+<p>The following components must be installed:</p>
 <ul>
 <li><a href="https://docs.docker.com/get-docker/">docker</a></li>
 </ul>
 </div>
-<p>Der docker container enthält alle benötigten Abhängigkeiten, um pseudify mit allen unterstützten Datenbanktypen auszuführen.  </p>
+<p>The docker container contains all the dependencies needed to run pseudify with all supported database types.  </p>
 <ul>
-<li>Starte mit den Profile Templates</li>
+<li>Start with the profile templates</li>
 </ul>
 <div class="admonition info">
-<p class="admonition-title">Profile Templates</p>
-<p>Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile Templates</a> beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.<br />
-Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.</p>
+<p class="admonition-title">Profile templates</p>
+<p>The <a href="https://github.com/waldhacker/pseudify-profile-templates">profile templates</a> contain the basic configuration for pseudify and provide basic profiles for various applications.<br />
+They are the ideal basis for modelling the pseudonymisation of your application.</p>
 </div>
-<p>Download der "Profile Templates":</p>
+<p>Download the profile templates:</p>
 <pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
   composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .</code></pre>
 <ul>
-<li>Die .env erzeugen und editieren</li>
+<li>Create and edit the .env</li>
 </ul>
 <pre class="highlight"><code class="language-shell">cp .env.example .env</code></pre>
 <ul>
-<li>Testen ob alles funktioniert</li>
+<li>Test if everything works</li>
 </ul>
 <pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data \
   ghcr.io/waldhacker/pseudify pseudify:information</code></pre>
 <h2 id="phar-archiv">PHAR Archiv</h2>
 <div class="admonition info">
-<p class="admonition-title">Abhängigkeiten</p>
-<p>Wird das PHAR Archiv verwendet, so müssen die benötigten Abhängigkeiten manuell installiert werden.<br />
-Folgende Komponenten müssen installiert werden:</p>
+<p class="admonition-title">Dependencies</p>
+<p>If the PHAR archive is used, the required dependencies must be installed manually.<br />
+The following components must be installed:</p>
 <ul>
 <li>PHP 8.1</li>
 </ul>
-<p>Folgende PHP-Erweiterungen müssen installiert werden, je nachdem welche Datenbanktypen verwendet werden:</p>
+<p>The following PHP extensions must be installed depending on which database types are used:</p>
 <ul>
 <li>pdo_mysql (A MySQL driver that uses the pdo_mysql PDO extension)</li>
 <li>mysqli (A MySQL driver that uses the mysqli extension)</li>
@@ -186,33 +185,33 @@ Folgende Komponenten müssen installiert werden:</p>
 </ul>
 </div>
 <ul>
-<li>Starte mit den Profile Templates</li>
+<li>Start with the profile templates</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Profile Templates</p>
-<p>Die <a href="https://github.com/waldhacker/pseudify-profile-templates">Profile Templates</a> beinhalten die Grundkonfiguration für pseudify und liefern Basisprofile für diverse Applikationen.<br />
-Sie sind die ideale Grundlage, um die Pseudonymisierung Deiner Applikation zu modellieren.</p>
+<p>The <a href="https://github.com/waldhacker/pseudify-profile-templates">profile templates</a> contain the basic configuration for pseudify and provide basic profiles for various applications.<br />
+They are the ideal basis for modelling the pseudonymisation of your application.</p>
 </div>
-<p>Download der "Profile Templates":</p>
+<p>Download the profile templates:</p>
 <pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
   composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .</code></pre>
 <ul>
-<li>Das PHAR Archiv in denselben Ordner herunterladen, in dem die pseudify Profile aus dem vorherigen Schritt installiert wurden.</li>
+<li>Download the PHAR archive to the same folder where the pseudify profiles from the previous step were installed.</li>
 </ul>
 <pre class="highlight"><code class="language-shell">curl -sLo pseudify https://github.com/waldhacker/pseudify-core/releases/latest/download/pseudify.phar
 chmod u+x pseudify</code></pre>
 <ul>
-<li>Die .env erzeugen und editieren</li>
+<li>Create and edit the .env</li>
 </ul>
 <pre class="highlight"><code class="language-shell">cp .env.example .env</code></pre>
 <ul>
-<li>Testen ob alles funktioniert</li>
+<li>Test if everything works</li>
 </ul>
 <pre class="highlight"><code class="language-shell">./pseudify pseudify:information</code></pre>
 <div class="admonition info">
-<p class="admonition-title">alternativer Installationsort</p>
-<p>Das pseudify PHAR Archiv kann auch an einem anderen Ort (z.B. global unter <code>/usr/bin/pseudify</code>) installiert werden.<br />
-Mit dem Parameter <code>--data</code> kann pseudify der Pfad zu den pseudify Profilen, welche verwendet werden sollen, mitgeteilt werden.<br />
+<p class="admonition-title">Alternative installation location</p>
+<p>The pseudify PHAR archive can also be installed in another location (e.g. globally under <code>/usr/bin/pseudify</code>).<br />
+The parameter <code>--data</code> can be used to tell pseudify the path to the pseudify profiles to be used.<br />
 <pre class="highlight"><code class="language-shell">/usr/bin/pseudify --data /home/project/path/to/pseudify-profile-templates pseudify:information</code></pre></p>
 </div>
               
