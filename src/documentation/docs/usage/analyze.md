@@ -1167,7 +1167,7 @@ This signals to you that the data will first be decoded using the HexEncoder.
 Under `special data decoders` the `DataProcessing` is listed with the identification `decode conditional log data`.  
 This signals to you that after decoding the data, it will also be processed using the specified `DataProcessing`.  
 
-##### Normalize Json Data
+##### Normalize JSON Data
 
 If the data to be searched is in JSON format in the database, 
 it should be normalised to make it fully searchable by pseudify.  

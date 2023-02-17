@@ -56,9 +56,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Anwendung</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../analyze/">Analysiere die Datenbank</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../analyze/">Analyse the database</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../pseudonymize/">Pseudonymisiere die Datenbank</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../pseudonymize/">Pseudonymise the database</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Komplexe Datentypen</a>
     <ul class="current">
@@ -137,7 +137,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Sonstiges</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">Was sollte pseudonymisiert werden?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">What to pseudonymise?</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../development/">Entwicklung</a>
                   </li>
@@ -207,8 +207,8 @@ echo serialize(new SimpleObject('baz1', 'baz2', 'baz3'));
 der <a href="https://www.php.net/manual/de/language.oop5.autoload.php">PHP autoloader</a> Zugriff auf die entsprechenden Quellcodedateien hat, in welcher das Objekt definiert ist.<br />
 Pseudify muss aber ohne den Quellcode irgendwelcher Applikationen lauffähig sein.  </p>
 <p>Wie können wir nun gezielt z.B. den Wert der Eigenschaft <code>publicMember</code> (<code>baz3</code>) pseudonymisieren, ohne fehleranfällige Suchen-und-Ersetzen Strategien auf den Text anwenden zu müssen (z.B. mit wilden regulären Ausdrücken)?  </p>
-<p><strong>Für diesen Anwendungsfall bietet Dir pseudify den <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php"><code>SerializedEncoder</code></a>!</strong>  </p>
-<p>Mit dem <code>SerializedEncoder</code> ist es Dir möglich eine serialisierte Datenstruktur in einen <a href="https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume">AST</a> umzuwandeln, diesen zu manipulieren und den AST dann wieder in eine serialisierte Datenstruktur zurückzuschreiben.  </p>
+<p><strong>Für diesen Anwendungsfall bietet dir pseudify den <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Processor/Encoder/SerializedEncoder.php"><code>SerializedEncoder</code></a>!</strong>  </p>
+<p>Mit dem <code>SerializedEncoder</code> ist es möglich eine serialisierte Datenstruktur in einen <a href="https://de.wikipedia.org/wiki/Syntaxbaum#Abstrakte_Syntaxb%C3%A4ume">AST</a> umzuwandeln, diesen zu manipulieren und den AST dann wieder in eine serialisierte Datenstruktur zurückzuschreiben.  </p>
 <h3 id="lasst-uns-ein-paar-beispiele-anschauen">Lasst uns ein paar Beispiele anschauen</h3>
 <h4 id="integer">Integer</h4>
 <pre class="highlight"><code class="language-php">&lt;?php
@@ -614,10 +614,10 @@ ObjectNode {
 <h3 id="daten-erzeugen-manipulieren">Daten erzeugen / manipulieren</h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Die verfügbaren Methoden der einzelnen Node-Implementierungen kannst Du Dir <a href="https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node">im Repository anschauen</a>.  </p>
+<p>Die verfügbaren Methoden der einzelnen Node-Implementierungen kannst du dir <a href="https://github.com/waldhacker/pseudify-core/tree/0.0.1/src/src/Processor/Encoder/Serialized/Node">im Repository anschauen</a>.  </p>
 </div>
 <h4 id="skalare-werte">Skalare Werte</h4>
-<p>Skalare Werte zu erzeugen, ist einfach. Es muss nur eine neue Instanz des entsprechenden Datentyps erzeugt werden:</p>
+<p>Skalare Werte zu erzeugen, ist einfach. Es muss nur eine neue Instanz des entsprechenden Datentyps erzeugt werden.</p>
 <h5 id="integer_1">Integer</h5>
 <pre class="highlight"><code class="language-php">&lt;?php
 
@@ -900,7 +900,7 @@ new data:      O:86:"Waldhacker\Pseudify\Core\Tests\Unit\Processor\Encoder\Seria
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../pseudonymize/" class="btn btn-neutral float-left" title="Pseudonymisiere die Datenbank"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pseudonymize/" class="btn btn-neutral float-left" title="Pseudonymise the database"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../predefinedApplicationProfiles/" class="btn btn-neutral float-right" title="Vordefinierte Applikationsprofile">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 

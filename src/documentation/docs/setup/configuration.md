@@ -338,7 +338,7 @@ pseudify cache:clear
 ```
 
 !!! note
-    User-defined decoders / encoders should follow the `<Format>Encoder` naming convention (e.g. `HexEncoder`, `Red13Encoder` etc.).
+    User-defined decoders / encoders should follow the `<Format>Encoder` naming convention (e.g. `HexEncoder`, `Rot13Encoder` etc.).
     This ensures that debug commands like `pseudify:debug:analyse` can represent the names of the decoders / encoders well.  
 
 ## Access to host database servers from the docker container
