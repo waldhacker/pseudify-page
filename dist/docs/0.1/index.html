@@ -48,7 +48,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unterstutzte-datenbanken">Unterstützte Datenbanken</a>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-databases">Supported databases</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#mysql">MySQL</a>
     </li>
@@ -78,9 +78,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Usage</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="usage/analyze/">Analyze the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="usage/analyze/">Analyse the database</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="usage/pseudonymize/">Pseudonymize the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="usage/pseudonymize/">Pseudonymise the database</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="usage/complexDatatypes/">Complex datatypes</a>
                   </li>
@@ -89,7 +89,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Miscellaneous</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="whatToPseudonymize/">What to pseudonymize?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="whatToPseudonymize/">What to pseudonymise?</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="development/">Development</a>
                   </li>
@@ -137,31 +137,30 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="overview">Overview</h1>
-<p><strong>todo: translate to en</strong></p>
 <h2 id="features">Features</h2>
-<p>&#127881; Analysiere und pseudonymisiere unterstützte Datenbanken von beliebigen Applikationen<br />
-&#127881; Finde versteckte personenbezogene Daten<br />
-&#127881; Datenintegrität: gleiche Eingangsdaten erzeugen gleiche Pseudonyme über alle Datenbankspalten hinweg<br />
-&#127881; Analysiere und pseudonymisiere einfach enkodierte Daten<br />
-&#127881; Analysiere und pseudonymisiere mehrfach enkodierte Daten<br />
-&#127881; Analysiere und pseudonymisiere komplexe Datenstrukturen wie JSON oder serialisierte PHP Daten<br />
-&#127881; Analysiere und pseudonymisiere dynamische Daten<br />
-&#127881; 12 Built-in Dekodierer / Enkodierer<br />
-&#127881; Erweiterbarkeit mit eigenen Dekodierern / Enkodierern<br />
-&#127881; 100+ Built-in lokalisierbare Fake-Datenformate dank FakerPHP<br />
-&#127881; Erweiterbarkeit mit eigenen Fake-Datenformaten<br />
-&#127881; Unterstützung von 7 Built-in Datenbankplattformen dank Doctrine DBAL<br />
-&#127881; Erweiterbarkeit mit eigenen Datenbankplattformen<br />
-&#127881; Modellierung der Profile in PHP  </p>
-<h2 id="unterstutzte-datenbanken">Unterstützte Datenbanken</h2>
+<p>&#127881; Analyse and pseudonymise supported databases of any application<br />
+&#127881; Find hidden personal data<br />
+&#127881; Data integrity: same input data generate same pseudonyms across all database columns<br />
+&#127881; Analyse and pseudonymise single encoded data<br />
+&#127881; Analyse and pseudonymise multiple encoded data<br />
+&#127881; Analyse and pseudonymise complex data structures such as JSON or serialised PHP data<br />
+&#127881; Analyse and pseudonymise dynamic data<br />
+&#127881; 12 Built-in decoders / encoders<br />
+&#127881; Extensibility with own decoders / encoders<br />
+&#127881; 100+ integrated localisable fake data formats thanks to FakerPHP<br />
+&#127881; Extensibility with own fake data formats<br />
+&#127881; 7 integrated database platforms are supported via Doctrine DBAL<br />
+&#127881; Extensibility with own database platforms<br />
+&#127881; Modelling of the profiles in PHP  </p>
+<h2 id="supported-databases">Supported databases</h2>
 <h3 id="mysql">MySQL</h3>
 <table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -197,16 +196,16 @@
 </tr>
 </tbody>
 </table>
-<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<p>&#x2A; supported in principle, but not tested</p>
 <hr />
 <h3 id="mariadb">MariaDB</h3>
 <table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -266,9 +265,9 @@
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -328,16 +327,16 @@
 </tr>
 </tbody>
 </table>
-<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<p>&#x2A; supported in principle, but not tested</p>
 <hr />
 <h3 id="ms-sql-server">MS SQL Server</h3>
 <table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -373,16 +372,16 @@
 </tr>
 </tbody>
 </table>
-<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<p>&#x2A; supported in principle, but not tested</p>
 <hr />
 <h3 id="sqlite">SQLite</h3>
 <table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -412,9 +411,9 @@
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -444,16 +443,16 @@
 </tr>
 </tbody>
 </table>
-<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
-<p>--</p>
+<p>&#x2A; supported in principle, but not tested</p>
+<hr />
 <h3 id="ibm-db2">IBM DB2</h3>
 <table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th align="center">doctrine dbal support</th>
+<th align="center">pseudify support</th>
+<th align="center">driver in docker image</th>
 </tr>
 </thead>
 <tbody>
@@ -477,7 +476,7 @@
 </tr>
 </tbody>
 </table>
-<p>&#x2A; theoretisch funktional, wurde aber nicht getestet</p>
+<p>&#x2A; supported in principle, but not tested</p>
               
             </div>
           </div><footer>

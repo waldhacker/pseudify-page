@@ -56,9 +56,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Usage</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../usage/analyze/">Analyze the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/analyze/">Analyse the database</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../usage/pseudonymize/">Pseudonymize the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/pseudonymize/">Pseudonymise the database</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usage/complexDatatypes/">Complex datatypes</a>
                   </li>
@@ -67,25 +67,25 @@
               </ul>
               <p class="caption"><span class="caption-text">Miscellaneous</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../whatToPseudonymize/">What to pseudonymize?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../whatToPseudonymize/">What to pseudonymise?</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Development</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#website">Website</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#starten-der-webseite">Starten der Webseite</a>
+    <li class="toctree-l3"><a class="reference internal" href="#launch-the-website">Launch the website</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bauen-der-webseite">Bauen der Webseite</a>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-website">Building the website</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#core">Core</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#das-phar-archiv-bauen">Das PHAR Archiv bauen</a>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-phar-archive">Building the PHAR Archive</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#das-docker-image-bauen">Das docker image bauen</a>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-docker-image">Building the docker image</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bauen-von-pseudify">Bauen von pseudify</a>
+    <li class="toctree-l3"><a class="reference internal" href="#building-pseudify">Building pseudify</a>
     </li>
         </ul>
     </li>
@@ -135,20 +135,19 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="development">Development</h1>
-<p><strong>todo: translate to en</strong></p>
 <h2 id="website">Website</h2>
-<p>Der Quellcode der Webseite befindet sich im Repository <a href="https://github.com/waldhacker/pseudify-page">pseudify-page</a>.<br />
-Um die Webseite zu entwickeln, wird das Programm <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> benötigt.  </p>
-<h3 id="starten-der-webseite">Starten der Webseite</h3>
+<p>The source code of the website is located in the repository <a href="https://github.com/waldhacker/pseudify-page">pseudify-page</a>.<br />
+To develop the website, the programme <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> is needed.  </p>
+<h3 id="launch-the-website">Launch the website</h3>
 <pre class="highlight"><code class="language-shell">ddev start
 ddev launch</code></pre>
-<h3 id="bauen-der-webseite">Bauen der Webseite</h3>
+<h3 id="building-the-website">Building the website</h3>
 <pre class="highlight"><code class="language-shell"># 0.1 = current version
 ddev exec ../build/build.sh 0.1</code></pre>
 <h2 id="core">Core</h2>
-<p>Der Quellcode von pseudify befindet sich im Repository <a href="https://github.com/waldhacker/pseudify-core">pseudify-core</a>.<br />
-Um pseudify zu entwickeln wird das Programm <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> benötigt.  </p>
-<h3 id="das-phar-archiv-bauen">Das PHAR Archiv bauen</h3>
+<p>The source code of pseudify is located in the repository <a href="https://github.com/waldhacker/pseudify-core">pseudify-core</a>.<br />
+To develop pseudify, the programme <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> is needed.  </p>
+<h3 id="building-the-phar-archive">Building the PHAR Archive</h3>
 <pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data --workdir=/data \
   php:8.1-cli-alpine \
     sh -c '\
@@ -157,10 +156,10 @@ Um pseudify zu entwickeln wird das Programm <a href="https://ddev.readthedocs.io
       &amp;&amp; /bin/bash -c "build/build-phar.sh" \
       &amp;&amp; chown -R '$(id -u)':'$(id -g)' .build/ \
     '</code></pre>
-<h3 id="das-docker-image-bauen">Das docker image bauen</h3>
-<p>Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv bauen".</p>
+<h3 id="building-the-docker-image">Building the docker image</h3>
+<p>This step requires the execution of the commands under "Building the PHAR archive" as preliminary work.</p>
 <pre class="highlight"><code class="language-shell">./build/build-docker.sh</code></pre>
-<h3 id="bauen-von-pseudify">Bauen von pseudify</h3>
+<h3 id="building-pseudify">Building pseudify</h3>
 <pre class="highlight"><code class="language-shell">ddev start
 ddev exec composer install
 
@@ -176,7 +175,7 @@ ddev exec bin/pseudify pseudify:debug:table_schema</code></pre>
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../whatToPseudonymize/" class="btn btn-neutral float-left" title="What to pseudonymize?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../whatToPseudonymize/" class="btn btn-neutral float-left" title="What to pseudonymise?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../versions/" class="btn btn-neutral float-right" title="Versions">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 

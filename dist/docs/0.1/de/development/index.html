@@ -56,9 +56,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Anwendung</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../usage/analyze/">Analysiere die Datenbank</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/analyze/">Analyse the database</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../usage/pseudonymize/">Pseudonymisiere die Datenbank</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/pseudonymize/">Pseudonymise the database</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usage/complexDatatypes/">Komplexe Datentypen</a>
                   </li>
@@ -67,7 +67,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Sonstiges</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../whatToPseudonymize/">Was sollte pseudonymisiert werden?</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../whatToPseudonymize/">What to pseudonymise?</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Entwicklung</a>
     <ul class="current">
@@ -75,17 +75,17 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#starten-der-webseite">Starten der Webseite</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bauen-der-webseite">Bauen der Webseite</a>
+    <li class="toctree-l3"><a class="reference internal" href="#erstellen-der-webseite">Erstellen der Webseite</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#core">Core</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#das-phar-archiv-bauen">Das PHAR Archiv bauen</a>
+    <li class="toctree-l3"><a class="reference internal" href="#das-phar-archiv-erstellen">Das PHAR Archiv erstellen</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#das-docker-image-bauen">Das docker image bauen</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bauen-von-pseudify">Bauen von pseudify</a>
+    <li class="toctree-l3"><a class="reference internal" href="#erstellen-von-pseudify">Erstellen von pseudify</a>
     </li>
         </ul>
     </li>
@@ -141,13 +141,13 @@ Um die Webseite zu entwickeln, wird das Programm <a href="https://ddev.readthedo
 <h3 id="starten-der-webseite">Starten der Webseite</h3>
 <pre class="highlight"><code class="language-shell">ddev start
 ddev launch</code></pre>
-<h3 id="bauen-der-webseite">Bauen der Webseite</h3>
+<h3 id="erstellen-der-webseite">Erstellen der Webseite</h3>
 <pre class="highlight"><code class="language-shell"># 0.1 = current version
 ddev exec ../build/build.sh 0.1</code></pre>
 <h2 id="core">Core</h2>
 <p>Der Quellcode von pseudify befindet sich im Repository <a href="https://github.com/waldhacker/pseudify-core">pseudify-core</a>.<br />
 Um pseudify zu entwickeln wird das Programm <a href="https://ddev.readthedocs.io/en/stable/">ddev</a> benötigt.  </p>
-<h3 id="das-phar-archiv-bauen">Das PHAR Archiv bauen</h3>
+<h3 id="das-phar-archiv-erstellen">Das PHAR Archiv erstellen</h3>
 <pre class="highlight"><code class="language-shell">docker run -it -v $(pwd):/data --workdir=/data \
   php:8.1-cli-alpine \
     sh -c '\
@@ -157,9 +157,9 @@ Um pseudify zu entwickeln wird das Programm <a href="https://ddev.readthedocs.io
       &amp;&amp; chown -R '$(id -u)':'$(id -g)' .build/ \
     '</code></pre>
 <h3 id="das-docker-image-bauen">Das docker image bauen</h3>
-<p>Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv bauen".</p>
+<p>Dieser Schritt benötigt als Vorarbeit die Ausführung der Befehle unter "Das PHAR Archiv erstellen".</p>
 <pre class="highlight"><code class="language-shell">./build/build-docker.sh</code></pre>
-<h3 id="bauen-von-pseudify">Bauen von pseudify</h3>
+<h3 id="erstellen-von-pseudify">Erstellen von pseudify</h3>
 <pre class="highlight"><code class="language-shell">ddev start
 ddev exec composer install
 
@@ -175,7 +175,7 @@ ddev exec bin/pseudify pseudify:debug:table_schema</code></pre>
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../whatToPseudonymize/" class="btn btn-neutral float-left" title="Was sollte pseudonymisiert werden?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../whatToPseudonymize/" class="btn btn-neutral float-left" title="What to pseudonymise?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../versions/" class="btn btn-neutral float-right" title="Versionen">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
