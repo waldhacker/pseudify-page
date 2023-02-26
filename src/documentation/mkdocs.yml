@@ -44,7 +44,7 @@ plugins:
             'Complex datatypes': 'Komplexe Datentypen'
             'Predefined application profiles': 'Vordefinierte Applikationsprofile'
             'Miscellaneous': 'Sonstiges'
-            'What to pseudonymize?': 'Was sollte pseudonymisiert werden?'
+            'What to pseudonymise?': 'Was sollte pseudonymisiert werden?'
             'Development': 'Entwicklung'
             'Versions': 'Versionen'
             'License': 'Lizenz'
