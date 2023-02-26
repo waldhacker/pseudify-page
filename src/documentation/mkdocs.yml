@@ -17,6 +17,7 @@ theme:
 markdown_extensions:
     - admonition
     - attr_list
+    - footnotes
     - nl2br
     - pymdownx.details
     - pymdownx.superfences
