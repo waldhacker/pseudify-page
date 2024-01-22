@@ -1,11 +1,11 @@
 <div  style="display:flex; justify-content:right;" role="navigation" aria-label="languages navigation">
   <i class="fa fa-globe" style="margin-right:5px;" aria-hidden="true"></i>
   {% if "i18n" in config.plugins %}
-    {% for lang, display in config.plugins.i18n.config.languages.items() -%}
-      {%- if config.plugins.i18n.config.default_language == lang %}
-        <div style="display: inline-block; margin-right:5px;"><a href="/docs/{{ config.theme.current_version }}/">{{ display.name }}</a></div>
+    {% for lang in config.plugins.i18n.config.languages -%}
+      {%- if lang.default %}
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/{{ config.theme.current_version }}/">{{ lang.name }}</a></div>
       {%- else %}
-        <div style="display: inline-block; margin-right:5px;"><a href="/docs/{{ config.theme.current_version }}/{{ lang }}/">{{ display.name }}</a></div>
+        <div style="display: inline-block; margin-right:5px;"><a href="/docs/{{ config.theme.current_version }}/{{ lang.locale }}/">{{ lang.name }}</a></div>
       {%- endif %}
     {% endfor %}
   {% endif %}

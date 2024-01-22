@@ -25,30 +25,32 @@ plugins:
     - callouts
     - search
     - i18n:
-        default_language: en
+        reconfigure_search: true
         languages:
-            en:
+            -
+                locale: en
                 name: EN
-                build: false
-            de:
+                build: true
+                default: true
+            -
+                locale: de
                 name: DE
                 build: true
-        nav_translations:
-          de:
-            'Introduction': 'Einführung'
-            'Overview': 'Überblick'
-            'Configuration': 'Konfiguration'
-            'Usage': 'Anwendung'
-            'Analyze the database': 'Analysiere die Datenbank'
-            'Pseudonymize the database': 'Pseudonymisiere die Datenbank'
-            'Complex datatypes': 'Komplexe Datentypen'
-            'Predefined application profiles': 'Vordefinierte Applikationsprofile'
-            'Miscellaneous': 'Sonstiges'
-            'What to pseudonymise?': 'Was sollte pseudonymisiert werden?'
-            'Development': 'Entwicklung'
-            'Versions': 'Versionen'
-            'License': 'Lizenz'
-            'About the project': 'Über das Projekt'
+                nav_translations:
+                    'Introduction': 'Einführung'
+                    'Overview': 'Überblick'
+                    'Configuration': 'Konfiguration'
+                    'Usage': 'Anwendung'
+                    'Analyse the database': 'Analysiere die Datenbank'
+                    'Pseudonymise the database': 'Pseudonymisiere die Datenbank'
+                    'Complex datatypes': 'Komplexe Datentypen'
+                    'Predefined application profiles': 'Vordefinierte Applikationsprofile'
+                    'Miscellaneous': 'Sonstiges'
+                    'What to pseudonymise?': 'Was sollte pseudonymisiert werden?'
+                    'Development': 'Entwicklung'
+                    'Versions': 'Versionen'
+                    'License': 'Lizenz'
+                    'About the project': 'Über das Projekt'
 nav:
     - 'Introduction':
         - 'Overview': 'index.md'

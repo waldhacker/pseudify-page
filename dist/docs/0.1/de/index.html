@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="de" >
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,7 +8,7 @@
     <title>Überblick - pseudify.me</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = "/docs/0.1/de/";
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
   <script async="async" defer="defer" data-domain="pseudify.me" src="https://anna.pseudify.me/js/plausible.js"></script>
 
 </head>
@@ -36,7 +35,7 @@
           <a href="./" class="icon icon-home"> pseudify.me
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -78,9 +77,9 @@
               </ul>
               <p class="caption"><span class="caption-text">Anwendung</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="usage/analyze/">Analyse the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="usage/analyze/">Analysiere die Datenbank</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="usage/pseudonymize/">Pseudonymise the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="usage/pseudonymize/">Pseudonymisiere die Datenbank</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="usage/complexDatatypes/">Komplexe Datentypen</a>
                   </li>
@@ -157,42 +156,42 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>MySQL 5.1</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MySQL 5.1</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MySQL 5.5</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MySQL 5.5</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MySQL 5.6</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MySQL 5.6</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MySQL 5.7</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MySQL 5.7</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MySQL 8.0</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MySQL 8.0</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 </tbody>
 </table>
@@ -202,60 +201,60 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>MariaDB 10.2</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.2</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.3</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.3</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.4</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.4</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.5</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.5</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.6</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.6</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.7</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.7</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.8</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.8</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>MariaDB 10.9</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>MariaDB 10.9</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 </tbody>
 </table>
@@ -264,66 +263,66 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>PostgreSQL 9.4</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 9.4</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 9.5</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 9.5</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 9.6</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 9.6</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 10</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 10</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 11</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 11</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 12</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 12</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 13</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 13</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 14</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 14</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>PostgreSQL 15</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>PostgreSQL 15</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 </tbody>
 </table>
@@ -333,42 +332,42 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>SQL Server 2014</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>SQL Server 2014</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>SQL Server 2016</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>SQL Server 2016</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>SQL Server 2017</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>SQL Server 2017</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>SQL Server 2019</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>SQL Server 2019</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>SQL Server 2022</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>SQL Server 2022</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 </tbody>
 </table>
@@ -378,30 +377,30 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>SQLite 1.x</strong></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>SQLite 1.x</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>SQLite 2.x</strong></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>SQLite 2.x</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>SQLite 3.x</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:green">&#x2714;</PDO_ODBCspan></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: left;"><strong>SQLite 3.x</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</PDO_ODBCspan></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
 </tr>
 </tbody>
 </table>
@@ -410,36 +409,36 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>Oracle Database 11</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>Oracle Database 11</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>Oracle Database 12</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>Oracle Database 12</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>Oracle Database 19</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>Oracle Database 19</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>Oracle Database 21</strong></td>
-<td align="center"><span style="color:green">&#x2714;</span></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>Oracle Database 21</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 </tbody>
 </table>
@@ -449,30 +448,30 @@
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="center">doctrine dbal Unterstützung</th>
-<th align="center">pseudify Unterstützung</th>
-<th align="center">Treiber im docker image</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal Unterstützung</th>
+<th style="text-align: center;">pseudify Unterstützung</th>
+<th style="text-align: center;">Treiber im docker image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>DB2 9.x</strong></td>
-<td align="center"><span style="color:red">&#x2753;</span></td>
-<td align="center"><span style="color:red">&#x2753;</span></td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>DB2 9.x</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x2753;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x2753;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>DB2 10.x</strong></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>DB2 10.x</strong></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 <tr>
-<td align="left"><strong>DB2 11.x</strong></td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:grey">&#x2714;</span> &#x2A;</td>
-<td align="center"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: left;"><strong>DB2 11.x</strong></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
 </tr>
 </tbody>
 </table>
@@ -514,14 +513,15 @@
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

@@ -56,7 +56,7 @@ docker run -it -v $(pwd)/build/development/userdata/:/app -u $(id -u):$(id -g) \
 
 cp build/development/userdata/pseudify-profile-templates/tests/mariadb/10.5/.env build/development/userdata/pseudify-profile-templates/.env
 
-ddev exec 'rm -f ~/.pgpass ~/.my.cnf && mariadb -h mariadb_10_5 -uroot -p"pseudify(!)w4ldh4ck3r" pseudify_utf8mb4 < ../build/development/userdata/pseudify-profile-templates/tests/mariadb/10.5/pseudify_utf8mb4.sql'
+ddev exec 'rm -f ~/.pgpass ~/.my.cnf && mariadb -h mariadb_10_5 -uroot -p"pseudify(!)w4ldh4ck3r" mysql < ../build/development/userdata/pseudify-profile-templates/tests/mariadb/10.5/pseudify_utf8mb4.sql'
 
 ddev exec bin/pseudify pseudify:debug:table_schema
 ```

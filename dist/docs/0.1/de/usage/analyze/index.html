@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="de" >
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/0.1/de/usage/analyze/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Analyse the database - pseudify.me</title>
+    <title>Analysiere die Datenbank - pseudify.me</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Analyse the database";
+        var mkdocs_page_name = "Analysiere die Datenbank";
         var mkdocs_page_input_path = "usage/analyze.de.md";
         var mkdocs_page_url = "/docs/0.1/de/usage/analyze/";
       </script>
     
-    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
   <script async="async" defer="defer" data-domain="pseudify.me" src="https://anna.pseudify.me/js/plausible.js"></script>
 
 </head>
@@ -36,7 +35,7 @@
           <a href="../../" class="icon icon-home"> pseudify.me
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -56,7 +55,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Anwendung</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Analyse the database</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Analysiere die Datenbank</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#die-analyse-modellieren">Die Analyse modellieren</a>
         <ul>
@@ -114,7 +113,7 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../pseudonymize/">Pseudonymise the database</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../pseudonymize/">Pseudonymisiere die Datenbank</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../complexDatatypes/">Komplexe Datentypen</a>
                   </li>
@@ -160,7 +159,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../" class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Anwendung &raquo;</li>
-      <li>Analyse the database</li>
+      <li>Analysiere die Datenbank</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/usage/analyze.de.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -1528,7 +1527,7 @@ In diesem Fall lohnt es sich, die Ausgabe in eine Datei zu schreiben.</p>
 Dafür kann das Kommando <code>pseudify:analyze</code> mit dem Parameter <code>--verbose</code> aufgerufen werden:</p>
 <pre class="highlight"><code class="language-shell">pseudify pseudify:analyze &lt;profil-name&gt; --verbose</code></pre>
 <p>Nun werden die Quelldaten aufgelistet (wh_log.ip (<code>1321:57fc:460b:d4d0:d83f:c200:4b:f1c8</code>)) und die Fundstelle (wh_meta_data.meta_data (...ip";s:37:"<code>1321:57fc:460b:d4d0:d83f:c200:4b:f1c8</code>";}";}s:4:...))</p>
-<p><a href="../../img/analyze-debug.png" target="_blank"><img alt="" src="../../img/analyze-debug.png" /></a></p>
+<p><a href="../../img/analyze-debug.png" target="_blank"><img alt="" src="../../../img/analyze-debug.png" /></a></p>
 <p>Die Anzahl der Zeichen, die vor und nach der Fundstelle ausgegeben werden, können mit der Methode <a href="https://github.com/waldhacker/pseudify-core/blob/0.0.1/src/src/Profile/Model/Analyze/TableDefinition.php#L386"><code>setTargetDataFrameCuttingLength()</code></a> definiert werden.<br />
 Standardmäßig werden 10 Zeichen vor und nach einer Fundstelle ausgegeben.<br />
 Wird der Wert auf 0 gesetzt, so wird vor und nach der Fundstelle nichts abgeschnitten und du bekommst den vollständigen Datenbankinhalt ausgegeben.  </p>
@@ -1562,7 +1561,7 @@ class TestAnalyzeProfile implements ProfileInterface
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../setup/configuration/" class="btn btn-neutral float-left" title="Konfiguration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../pseudonymize/" class="btn btn-neutral float-right" title="Pseudonymise the database">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pseudonymize/" class="btn btn-neutral float-right" title="Pseudonymisiere die Datenbank">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -1597,14 +1596,15 @@ class TestAnalyzeProfile implements ProfileInterface
     
   </span>
 </div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme_extra.js" defer></script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="../../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

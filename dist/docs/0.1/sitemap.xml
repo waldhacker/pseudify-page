@@ -1,99 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://www.pseudify.me/docs/current/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/about/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/about/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/about/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/about/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/about/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/about/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/development/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/development/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/development/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/development/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/development/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/development/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/license/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/license/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/license/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/license/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/license/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/license/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/versions/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/versions/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/versions/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/versions/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/versions/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/versions/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/whatToPseudonymize/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/whatToPseudonymize/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/whatToPseudonymize/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/whatToPseudonymize/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/whatToPseudonymize/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/whatToPseudonymize/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/setup/configuration/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/setup/configuration/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/setup/configuration/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/setup/configuration/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/setup/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/setup/configuration/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/setup/installation/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/setup/installation/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/setup/installation/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/setup/installation/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/setup/installation/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/setup/installation/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/usage/analyze/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/analyze/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/analyze/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/usage/analyze/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/analyze/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/analyze/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/usage/complexDatatypes/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/complexDatatypes/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/complexDatatypes/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/usage/complexDatatypes/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/complexDatatypes/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/complexDatatypes/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/usage/predefinedApplicationProfiles/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/predefinedApplicationProfiles/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/predefinedApplicationProfiles/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/usage/predefinedApplicationProfiles/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/predefinedApplicationProfiles/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/predefinedApplicationProfiles/"/>
     </url>
     <url>
-         <loc>https://www.pseudify.me/docs/current/usage/pseudonymize/</loc>
-         <lastmod>2023-02-26</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/pseudonymize/"/>
-         <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/pseudonymize/"/>
-         
+        <loc>https://www.pseudify.me/docs/current/usage/pseudonymize/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/pseudonymize/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/pseudonymize/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/about/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/about/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/development/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/development/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/development/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/license/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/license/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/license/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/versions/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/versions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/versions/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/whatToPseudonymize/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/whatToPseudonymize/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/whatToPseudonymize/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/setup/configuration/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/setup/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/setup/configuration/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/setup/installation/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/setup/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/setup/installation/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/usage/analyze/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/analyze/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/analyze/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/usage/complexDatatypes/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/complexDatatypes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/complexDatatypes/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/usage/predefinedApplicationProfiles/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/predefinedApplicationProfiles/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/predefinedApplicationProfiles/"/>
+    </url>
+    <url>
+        <loc>https://www.pseudify.me/docs/current/de/usage/pseudonymize/</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.pseudify.me/docs/current/de/usage/pseudonymize/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.pseudify.me/docs/current/usage/pseudonymize/"/>
     </url>
 </urlset>
