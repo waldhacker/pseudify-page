@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/2.0/whatToPseudonymize/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>What to pseudonymise? - pseudify.me</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "What to pseudonymise?";
+        var mkdocs_page_input_path = "whatToPseudonymize.md";
+        var mkdocs_page_url = "/docs/2.0/whatToPseudonymize/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/configuration/">Configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Usage</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/">Analyse and pseudonymize the database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">What to pseudonymise?</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-any-information">1. Any Information</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-relating-to">2. Relating to</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-an-identified-or-identifiable">3. An identified or identifiable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-natural-person">4. Natural person</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limits-of-the-scope-of-application">Limits of the scope of application</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-of-personal-data">Example of personal data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#direct-and-indirect-information">Direct and indirect information</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#formats-or-carriers-of-the-information">Formats or carriers of the information</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#links">Links</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/">Development</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../versions/">Versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../license/">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../about/">About the project</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Miscellaneous</li>
+      <li class="breadcrumb-item active">What to pseudonymise?</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/whatToPseudonymize.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="what-to-pseudonymize">What to pseudonymize?<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></h1>
+<p>As a general rule, all personal data should be pseudonymised. According to Directive 95/46/EC of the European Union (hereinafter referred to as the "Data Protection Directive"), personal data shall mean <em>"any information relating to an identified or identifiable natural person."</em> An identifiable person is one who can be identified, directly or indirectly. This can be done by means of an identification number, but also by means of one or more specific characteristics which are an expression of physical, physiological, mental, economic, cultural or social identity. This makes it clear that special care must be taken not only to pseudonymise obviously personal information, but also information that can enable the identification of a person via secondary characteristics, e.g. locations or behaviour patterns.<br />
+In general terms, the Data Protection Directive aims to ensure the protection of fundamental rights and freedoms of individuals, in particular privacy, with regard to the processing of personal data.</p>
+<p>The definition of "personal data" consists of four elements. A more detailed analysis of these is instructive for understanding what is meant by "personal data". These four elements are:</p>
+<pre><code>1. any information
+2. relating to
+3. an identified or identifiable
+4. natural person
+</code></pre>
+<h3 id="1-any-information">1. Any Information</h3>
+<p>With the wording "all information", the Data Protection Directive refers to the fact that the term "personal data" is to be understood as broadly as possible, i.e. it requires a generous interpretation. "Personal data" can thus be any information about a person. This can be objective information, such as body size or medical findings, but also subjective information, such as opinions or assessments by and about a person. Assessments from companies about customers such as: "Titius is a reliable borrower" or "Titius is a good employee and deserves a promotion" are examples of this. This information does not necessarily have to be true to be considered personal data.</p>
+<h3 id="2-relating-to">2. Relating to</h3>
+<p>In general, information refers to a person when it is information about that person. In many situations, a reference can be easily established. The information in personnel files or medical records clearly refers to a specific person. The same applies to video or audio recordings. However, there are also many situations in which it is not easy to determine whether certain information refers to a person. In principle, in these cases, "data relates to an<br />
+individual if it refers to the identity, characteristics or behaviour of an individual or if<br />
+such information is used to determine or influence the way in which that person is<br />
+treated or evaluated<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>."</p>
+<p>An example of this would be the location monitoring of taxis to improve the quality of service. Even if this monitoring is solely to improve the quality of service, it can have an indirect impact on drivers. If a taxi company's taxis are tracked by GPS at their headquarters in order to assign each customer to the taxi closest to them, which would save time and fuel, it is in principle the vehicles' data that is of interest and not the drivers'. Thus, the purpose of the data collection is not to assess or monitor whether drivers are taking the shortest routes or obeying speed limits. Nevertheless, such collection could be made with this system. Thus, it is in principle possible that this data processing system may have a significant impact on individuals and thus the related data may be classified as "personal data". Therefore, the data collected should be subject to data protection rules.</p>
+<h3 id="3-an-identified-or-identifiable">3. An identified or identifiable</h3>
+<p>A natural person is considered an "identified person" if he or she is distinguished from all other members in a group of persons, i.e. he or she is clearly identifiable. If there are several persons with the same name in a data collection and no further information is available that makes a person uniquely identifiable, these persons are thus not considered to be "specified persons", since it cannot be clearly determined to which natural person the corresponding data record refers. An "identifiable person" in this context is therefore a natural person for whom it is in principle possible to establish his or her identity.</p>
+<p>In this respect, the Data Protection Directive identifies in Article 2 general "characteristics" of "personal data". Such data exist when a natural person "can be identified, directly or indirectly, in particular by reference to an identification number or to one or more factors specific to his physical, physiological, mental, economic, cultural or social identity". A person can be identified directly by his or her name or indirectly by a telephone number, car registration number or insurance number. Equally, however, this is also possible through a combination of essential criteria, such as place of residence, occupation or age group, which makes it possible to narrow down the group to which the person belongs. This shows that the information needed for identification depends on the context of the situation. While a frequently occurring family name is not sufficient to identify a person within a national population, within a school class it may well be sufficient to successfully identify a person.</p>
+<p>The category "indirectly identified or identifiable persons" thus refers to identification by means of unique combinations. The scope of these combinations does not matter. Depending on the context, a person can be determined by means of a few characteristics or a very large quantity of them is required. Even if the existing data do not allow an immediate conclusion to be drawn about specific persons, these persons can still be identifiable because the existing information in combination with other information could make a clear identification of these persons possible. It is irrelevant whether this additional information is stored by the data controller, is not stored or is not available to the data controller at all.</p>
+<p>"Whereas to determine whether a person is identifiable", as defined in the Data Protection Directive, "account should be<br />
+taken of all the means likely reasonably to be used either by the controller or by any other person to identify the said person." This means that the mere hypothetical possibility to identify a person is not sufficient to consider the person identifiable. If this possibility does not exist or is negligible, then the person is not to be classified as "identifiable" and the corresponding information is not considered "personal data". However, this classification must be seen as a dynamic process. What is not possible at the current time, with the current state of the technology, may well be feasible at a later date. Consequently, the potential development of the technical possibility should be taken into account in relation to the time period during which the data is stored. For example, if the data is kept for one month and identification is almost impossible during this period, the data is not considered "personal data". However, if the retention period is 10 years and identification could become possible during this period, this possibility should be taken into account by the data controller. In case of a future possibility of identification, the data shall be considered as personal data from that moment on.</p>
+<h3 id="4-natural-person">4. Natural person</h3>
+<p>The provisions of the Data Protection Directive apply to natural persons. This means that the right to the protection of personal data applies generally to all people and not just to nationals or residents of a particular country. A more precise definition of what constitutes a legal personality is found in the civil law of individual states. In general, it refers to the capacity to enter into a legal relationship, which begins at birth and ends at death. Personal data is therefore data that relates to specific or identifiable living persons.</p>
+<p>Since it is not always possible to determine whether a person is actually no longer alive, in practice, for the sake of simplicity, data on deceased persons should be treated in the same way as data on living persons, rather than processing the two groups separately. Furthermore, information about deceased persons can also relate to living persons. For example, information about a hereditary disease of the deceased father can enable conclusions to be drawn about his children. Therefore, if information about deceased persons relates to living persons at the same time and is personal data, personal data about deceased persons may indirectly fall under the protection of the data protection regulation.</p>
+<p>Since the definition of "personal data" refers in principle only to human beings, i.e. natural persons, legal persons do not fall within the scope of the Data Protection Directive and its protection therefore does not apply to them. This general provision is limited for cases where the information on the legal person allows a reference to a natural person. In such cases, the data must be considered personal data. An example of this would be when the name of a legal person (name of a company) is derived from the name of a natural person.</p>
+<p>Some EU Member States (Italy, Austria or Luxembourg) have extended the scope of the Data Protection Directive to the processing of information on legal persons.</p>
+<p>As in the case of deceased persons, it may be easier in practice to process all information in accordance with the Data Protection Rules, rather than differentiating between legal and natural persons.</p>
+<h2 id="limits-of-the-scope-of-application">Limits of the scope of application</h2>
+<p>Although the definitions of "personal data" and "processing" in the Data Protection Directive are intentionally broad, it does not follow that every case in which it would hypothetically be possible to identify specific individuals is in fact a case to which the provisions of the Data Protection Directive apply. Such restrictions may exist, for example, if the data are not processed automatically and in a non-structured form. Likewise, the purpose of use may constitute a restriction of the Data Protection Directive, for example, if data are used by a natural person exclusively for personal or family activities.</p>
+<p>Even if the processing of personal data falls within the scope of the Data Protection Directive, not all of its provisions necessarily apply to the specific situation. A number of provisions of the Directive provide a high degree of flexibility to strike a balance between the protection of data subjects' rights and the legitimate interests of controllers, third parties and the public interest, if any.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<p>The data protection of the Data Protection Directive therefore refers to the protection against forms of processing that are typical of "easy access to the data" and the risks that go along with it. For example, if in a dataset the name of individuals is replaced by a unique code (e.g. name → X4321), there is a certain risk of identification in case access to the key used for encryption is obtained. Therefore, such possibilities must be included. In principle, the guideline in this respect can be: "whether the persons can be identified taking into account all the means likely reasonably to be used by the controller or any other person". Examples of such a consideration would be the risk of a hacking attack, the likelihood that an individual of the organisation responsible for the data set could disclose the key, or the feasibility of indirect identification. These considerations then determine whether the information should be classified as "personal data".<br />
+If the codes are not unique, but, for example, the same code number is used for different persons in different cities and for data from different years (i.e. the coding is only differentiated to the extent that it is possible to distinguish persons in one year in one city), the persons could only be identified if it is known to which year and to which city the data refer. However, if this additional information is no longer available and cannot be recovered with reasonable effort, the data could be considered as not relating to identifiable persons and consequently the data protection provision would not apply.</p>
+<p>As has been shown, there are situations in which information is not to be classified as "personal data". This is the case if the information does not relate to an individual or if the individual is not considered to be identified or identifiable. If the information does not fall under the definition of "personal data", the Data Protection Directive does not apply.</p>
+<p>However, if the Data Protection Directive does not apply, national data protection laws may apply in certain circumstances.</p>
+<h2 id="example-of-personal-data">Example of personal data</h2>
+<h3 id="direct-and-indirect-information">Direct and indirect information</h3>
+<ul>
+<li>name and first name</li>
+<li>date of birth or age</li>
+<li>place of birth</li>
+<li>home address</li>
+<li>e-mail address</li>
+<li>identification numbers<ul>
+<li>national insurance number</li>
+<li>tax identification number</li>
+<li>health insurance number</li>
+<li>identity card number</li>
+<li>matriculation number</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>ethnic and cultural origin</li>
+<li>political, religious and philosophical beliefs</li>
+<li>health</li>
+<li>sexuality</li>
+<li>trade union membership</li>
+<li>location data</li>
+<li>IP address</li>
+<li>cookie identifier</li>
+<li>advertising identifier of your phone</li>
+<li>credit card data</li>
+<li>bank details<ul>
+<li>account numbers</li>
+<li>credit information</li>
+<li>account balances</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>property characteristics<ul>
+<li>vehicle and property ownership</li>
+<li>land register entries</li>
+<li>vehicle registration plates</li>
+<li>registration data</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>customer number</li>
+<li>information affecting private and family life in the strict sense of the term</li>
+<li>all kinds of activities, such as those related to employment, economic or social behaviour</li>
+<li>biometric data<ul>
+<li>biological characteristics</li>
+<li>physiological characteristics</li>
+<li>facial features</li>
+<li>gender</li>
+<li>skin, hair and eye colour</li>
+<li>stature</li>
+<li>clothing size</li>
+<li>fingerprints</li>
+<li>eye retina</li>
+<li>face shape</li>
+<li>voice</li>
+<li>Hand geometry</li>
+<li>vein structure</li>
+<li>reproducible actions</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>special skills or other behavioural characteristics<ul>
+<li>handwritten signature</li>
+<li>keystroke</li>
+<li>characteristic gait</li>
+<li>manner of speaking</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>data on consumers, patients, customers, employees, etc.</li>
+<li>information on drug prescriptions<ul>
+<li>identification number of the medicinal product</li>
+<li>name</li>
+<li>active substance content</li>
+<li>manufacturer</li>
+<li>sales price</li>
+<li>new pack or refill</li>
+<li>reasons for use</li>
+<li>reasons for not using generics</li>
+<li>first and last name of prescribing doctor</li>
+<li>telephone number</li>
+<li>Whether in the form of an individual prescription or in the form of samples recognisable from several prescriptions. This information, even if the patient is anonymous, can be considered personal data about the doctor issuing the prescription.</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>value judgements<ul>
+<li>School and work certificates</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+<h3 id="formats-or-carriers-of-the-information">Formats or carriers of the information</h3>
+<ul>
+<li>information in alphabetical, numerical, graphic, photographic, aural or any other form</li>
+<li>information on paper and digital information</li>
+<li>Sound and image data in particular are to be considered personal data because they may constitute information about a natural person.</li>
+</ul>
+<h2 id="links">Links</h2>
+<p><a href="https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en">EU Commission → What is personal data?</a><br />
+<a href="https://commission.europa.eu/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data_en">EU Commission → What personal data is considered sensitive?</a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The following information is based on <a href="https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2007/wp136_en.pdf">Opinion 4/2007 on the concept of personal data</a> of the Article 29 Working Party of the European Union.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The text on this page is intended only as an overview and introduction to the topic of "personal data" and its protection and is not a legally binding treatise. In this sense, the author assumes no liability and makes no claim to completeness or accuracy.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Working Party document No WP 105: "Working document on data protection issues related to RFID<br />
+technology", adopted on 19.1.2005, p. 8. For detailed information see <a href="https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2007/wp136_en.pdf">Opinion 4/2007 on the concept of personal data</a>, S. 9ff&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>For further information see: <a href="https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2007/wp136_en.pdf">Opinion 4/2007 on the concept of personal data</a> of the Article 29 Working Party of the European Union, S. 5&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../usage/" class="btn btn-neutral float-left" title="Analyse and pseudonymize the database"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../development/" class="btn btn-neutral float-right" title="Development">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../usage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../development/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

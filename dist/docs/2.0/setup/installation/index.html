@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/2.0/setup/installation/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Installation - pseudify.me</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation";
+        var mkdocs_page_input_path = "setup/installation.md";
+        var mkdocs_page_url = "/docs/2.0/setup/installation/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-pseudonymization-setup">The pseudonymization setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-install-package">Get the install package</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#run-pseudify">Run pseudify</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-analyze-setup">The analyze setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-install-package_1">Get the install package</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#start-pseudify-without-ai-support">Start pseudify without AI support:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#start-pseudify-with-ai-support">Start pseudify with AI support:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#launch-the-gui">Launch the GUI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shutdown-without-ai-support">Shutdown (without AI support):</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shutdown-with-ai-support">Shutdown (with AI support):</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Usage</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Analyse and pseudonymize the database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../whatToPseudonymize/">What to pseudonymise?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../development/">Development</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../versions/">Versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../license/">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">About the project</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Setup</li>
+      <li class="breadcrumb-item active">Installation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/setup/installation.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installation">Installation</h1>
+<p>Pseudify can be used in 2 variants that offer different features:</p>
+<ul>
+<li>Variant 1: The <code>pseudonymization setup</code> intended for continuous integration/continuous delivery (CI/CD) systems. This variant can only run pseudonymization tasks.</li>
+<li>Variant 2: The <code>analysis setup</code> that offers you a GUI for modeling the pseudonymization profile and additionally a locally hosted AI model for advanced PII detection.</li>
+</ul>
+<h2 id="the-pseudonymization-setup">The pseudonymization setup</h2>
+<div class="admonition info">
+<p class="admonition-title">Dependencies</p>
+<p>The following components must be installed:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">docker</a></li>
+</ul>
+</div>
+<h3 id="get-the-install-package">Get the install package</h3>
+<p>Go to some empty directory.<br />
+Download the <a href="https://github.com/waldhacker/pseudify-ai/releases/latest/">"install package"</a> and unpack the <code>userdata</code> in the current directory:  </p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)":/install -w /install -u $(id -u):$(id -g) alpine/curl /bin/sh -c "\
+    curl -fsSL https://github.com/waldhacker/pseudify-ai/releases/latest/download/install-package.tar.gz -o install-package.tar.gz \
+    &amp;&amp; tar -xzf ./install-package.tar.gz ./userdata \
+    &amp;&amp; rm -f ./install-package.tar.gz \
+"</code></pre>
+<h3 id="run-pseudify">Run pseudify</h3>
+<p>Now you can test whether pseudify is running correctly:</p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:information</code></pre>
+<p>If you need to know how to manage database access look at the <a href="../configuration/#manage-database-access">configuration</a> chapter.</p>
+<h2 id="the-analyze-setup">The analyze setup</h2>
+<div class="admonition warning">
+<p class="admonition-title">For local use only</p>
+<p>The GUI is designed as as a single user app and intended for local usage on a development machine.<br />
+This is important for security reasons.<br />
+<strong>NEVER EVER</strong> host the analyze setup on a publicly accessible server.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Dependencies</p>
+<p>The following components must be installed:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">docker</a></li>
+<li><a href="https://docs.docker.com/compose/install/">docker compose</a></li>
+</ul>
+<p>If you want to use the AI support, you need to install:</p>
+<ul>
+<li><a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/">CUDA drivers</a></li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html">NVIDIA Container Toolkit</a></li>
+</ul>
+</div>
+<h3 id="get-the-install-package_1">Get the install package</h3>
+<p>Go to some empty directory.<br />
+Download the <a href="https://github.com/waldhacker/pseudify-ai/releases/latest/">"install package"</a> and unpack it in the current directory:  </p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)":/install -w /install -u $(id -u):$(id -g) alpine/curl /bin/sh -c "\
+    curl -fsSL https://github.com/waldhacker/pseudify-ai/releases/latest/download/install-package.tar.gz -o install-package.tar.gz \
+    &amp;&amp; tar -xzf ./install-package.tar.gz \
+    &amp;&amp; rm -f ./install-package.tar.gz \
+"</code></pre>
+<h3 id="start-pseudify-without-ai-support">Start pseudify without AI support:</h3>
+<pre class="highlight"><code class="language-shell">$ docker compose up -d</code></pre>
+<h3 id="start-pseudify-with-ai-support">Start pseudify with AI support:</h3>
+<pre class="highlight"><code class="language-shell">$ docker compose -f docker-compose.yml -f docker-compose.llm-addon.yml up -d
+$ docker exec -it pseudify_ollama bash -c 'ollama pull $OLLAMA_MODEL'</code></pre>
+<h3 id="launch-the-gui">Launch the GUI</h3>
+<p>Now go to your browser an open <a href="http://127.0.0.1:9669">http://127.0.0.1:9669</a> to access the GUI.  </p>
+<p>If you need to know how to manage database access look at the <a href="../configuration/#manage-database-access">configuration</a> chapter.</p>
+<h3 id="shutdown-without-ai-support">Shutdown (without AI support):</h3>
+<pre class="highlight"><code class="language-shell">$ docker compose down</code></pre>
+<h3 id="shutdown-with-ai-support">Shutdown (with AI support):</h3>
+<pre class="highlight"><code class="language-shell">$ docker compose -f docker-compose.yml -f docker-compose.llm-addon.yml down</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../.." class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../configuration/" class="btn btn-neutral float-right" title="Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

@@ -1,104 +1,100 @@
 # Installation
 
-Pseudify can be used in 2 variants
+Pseudify can be used in 2 variants that offer different features:
 
-* via docker container (recommended)
-* via phar archive
+* Variant 1: The `pseudonymization setup` intended for continuous integration/continuous delivery (CI/CD) systems. This variant can only run pseudonymization tasks.
+* Variant 2: The `analysis setup` that offers you a GUI for modeling the pseudonymization profile and additionally a locally hosted AI model for advanced PII detection.
 
-## docker Image (recommended)
+## The pseudonymization setup
 
 !!! info "Dependencies"
     The following components must be installed:
 
     * [docker](https://docs.docker.com/get-docker/)
 
-The docker container contains all the dependencies needed to run pseudify with all supported database types.  
+### Get the install package
 
-* Start with the profile templates
-
-!!! info "Profile templates"
-    The [profile templates](https://github.com/waldhacker/pseudify-profile-templates) contain the basic configuration for pseudify and provide basic profiles for various applications.  
-    They are the ideal basis for modelling the pseudonymisation of your application.
-
-Download the profile templates:
+Go to some empty directory.  
+Download the ["install package"](https://github.com/waldhacker/pseudify-ai/releases/latest/) and unpack the `userdata` in the current directory:  
 
 ```shell
-docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
-  composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .
+$ docker run --rm -it -v "$(pwd)":/install -w /install -u $(id -u):$(id -g) alpine/curl /bin/sh -c "\
+    curl -fsSL https://github.com/waldhacker/pseudify-ai/releases/latest/download/install-package.tar.gz -o install-package.tar.gz \
+    && tar -xzf ./install-package.tar.gz ./userdata \
+    && rm -f ./install-package.tar.gz \
+"
 ```
 
-* Create and edit the .env
+### Run pseudify
+
+Now you can test whether pseudify is running correctly:
 
 ```shell
-cp .env.example .env
+$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:information
 ```
 
-* Test if everything works
+If you need to know how to manage database access look at the [configuration](configuration.md#manage-database-access) chapter.
 
-```shell
-docker run -it -v $(pwd):/data \
-  ghcr.io/waldhacker/pseudify pseudify:information
-```
 
-## PHAR Archiv
+## The analyze setup
+
+!!! warning "For local use only"
+    The GUI is designed as as a single user app and intended for local usage on a development machine.
+    This is important for security reasons.
+    **NEVER EVER** host the analyze setup on a publicly accessible server.
 
 !!! info "Dependencies"
-    If the PHAR archive is used, the required dependencies must be installed manually.
     The following components must be installed:
 
-    * PHP 8.1
+    * [docker](https://docs.docker.com/get-docker/)
+    * [docker compose](https://docs.docker.com/compose/install/)
 
-    The following PHP extensions must be installed depending on which database types are used:
+    If you want to use the AI support, you need to install:
 
-    * pdo_mysql (A MySQL driver that uses the pdo_mysql PDO extension)
-    * mysqli (A MySQL driver that uses the mysqli extension)
-    * pdo_pgsql (A PostgreSQL driver that uses the pdo_pgsql PDO extension)
-    * pdo_sqlite (An SQLite driver that uses the pdo_sqlite PDO extension)
-    * sqlite3 (An SQLite driver that uses the sqlite3 extension)
-    * pdo_sqlsrv (A Microsoft SQL Server driver that uses pdo_sqlsrv PDO)
-        * [Microsoft ODBC Driver for SQL Server](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15)
-    * sqlsrv (A Microsoft SQL Server driver that uses the sqlsrv PHP extension)
-        * [Microsoft ODBC Driver for SQL Server](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15)
-    * pdo_oci (An Oracle driver that uses the pdo_oci PDO extension (not recommended by doctrine))
-    * oci8 (An Oracle driver that uses the oci8 PHP extension)
-    * pdo_ibm (An DB2 driver that uses the pdo_ibm PHP extension)
-    * ibm_db2 (An DB2 driver that uses the ibm_db2 extension)
+    * [CUDA drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/)
+    * [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
-* Start with the profile templates
+### Get the install package
 
-!!! info "Profile Templates"
-    The [profile templates](https://github.com/waldhacker/pseudify-profile-templates) contain the basic configuration for pseudify and provide basic profiles for various applications.  
-    They are the ideal basis for modelling the pseudonymisation of your application.
-
-Download the profile templates:
+Go to some empty directory.  
+Download the ["install package"](https://github.com/waldhacker/pseudify-ai/releases/latest/) and unpack it in the current directory:  
 
 ```shell
-docker run -it -v $(pwd):/app -u $(id -u):$(id -g) \
-  composer create-project --no-dev --remove-vcs waldhacker/pseudify-profile-templates .
+$ docker run --rm -it -v "$(pwd)":/install -w /install -u $(id -u):$(id -g) alpine/curl /bin/sh -c "\
+    curl -fsSL https://github.com/waldhacker/pseudify-ai/releases/latest/download/install-package.tar.gz -o install-package.tar.gz \
+    && tar -xzf ./install-package.tar.gz \
+    && rm -f ./install-package.tar.gz \
+"
 ```
 
-* Download the PHAR archive to the same folder where the pseudify profiles from the previous step were installed.
+### Start pseudify without AI support:
 
 ```shell
-curl -sLo pseudify https://github.com/waldhacker/pseudify-core/releases/latest/download/pseudify.phar
-chmod u+x pseudify
+$ docker compose up -d
 ```
 
-* Create and edit the .env
+### Start pseudify with AI support:
 
 ```shell
-cp .env.example .env
+$ docker compose -f docker-compose.yml -f docker-compose.llm-addon.yml up -d
+$ docker exec -it pseudify_ollama bash -c 'ollama pull $OLLAMA_MODEL'
 ```
 
-* Test if everything works
+### Launch the GUI
+
+Now go to your browser an open [http://127.0.0.1:9669](http://127.0.0.1:9669) to access the GUI.  
+
+If you need to know how to manage database access look at the [configuration](configuration.md#manage-database-access) chapter.
+
+### Shutdown (without AI support):
 
 ```shell
-./pseudify pseudify:information
+$ docker compose down
 ```
 
-!!! info "Alternative installation location"
-    The pseudify PHAR archive can also be installed in another location (e.g. globally under `/usr/bin/pseudify`).
-    The parameter `--data` can be used to tell pseudify the path to the pseudify profiles to be used.
-    ```shell
-    /usr/bin/pseudify --data /home/project/path/to/pseudify-profile-templates pseudify:information
-    ```
+### Shutdown (with AI support):
+
+```shell
+$ docker compose -f docker-compose.yml -f docker-compose.llm-addon.yml down
+```

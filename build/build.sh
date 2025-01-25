@@ -6,7 +6,7 @@
 # **********************************************
 
 if [ "$BASH" = "" ]; then echo "Error: you are not running this script within the bash."; exit 1; fi
-if [ ! -x "$(command -v mkdocs)" ]; then echo "Error: mkdocs is not installed."; exit 1; fi
+if [ ! -x "$(command -v /pseudify/bin/mkdocs)" ]; then echo "Error: mkdocs is not installed."; exit 1; fi
 if [ ! -x "$(command -v php)" ]; then echo "Error: php is not installed."; exit 1; fi
 if [ ! -x "$(command -v yarn)" ]; then echo "Error: yarn is not installed."; exit 1; fi
 
@@ -27,9 +27,9 @@ function build
     local CURRENT_DOCS_VERSION=${1:?}
 
     cd "$_ROOT_DIRECTORY/src/documentation"
-    mkdocs build
+    /pseudify/bin/mkdocs build
     cd "$_ROOT_DIRECTORY/src/public/docs/"
-    ln -s "$CURRENT_DOCS_VERSION" current
+    ln -snf "$CURRENT_DOCS_VERSION" current
 
     cd "$_ROOT_DIRECTORY/src/"
     yarn encore production
@@ -37,7 +37,7 @@ function build
     bin/console dump-static-site --output-directory ../dist
     cd "$_ROOT_DIRECTORY/dist/docs/"
     rm -f current
-    ln -s "$CURRENT_DOCS_VERSION" current
+    ln -snf "$CURRENT_DOCS_VERSION" current
     cd "$_ROOT_DIRECTORY/dist/docs/current/"
     sed -i 's#/docs/[0-9]\+\.[0-9]\+/#/docs/current/#g' sitemap.xml
     gzip -kf sitemap.xml

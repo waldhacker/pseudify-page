@@ -9,18 +9,18 @@ use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface;
 
 class IndexController extends AbstractController
 {
-    public function __construct(private EntrypointLookupCollectionInterface $entrypointLookupCollection)
+    public function __construct(private readonly EntrypointLookupCollectionInterface $entrypointLookupCollection)
     {
     }
 
-    #[Route('/', name: 'app_index_en')]
+    #[\Symfony\Component\Routing\Attribute\Route('/', name: 'app_index_en')]
     public function en(): Response
     {
         $result = $this->render('index.html.twig', [
             'locale' => [
-              'full' => 'en_US.UTF-8',
-              'two_letter' => 'en',
-              'json_ld' => 'en-US',
+                'full' => 'en_US.UTF-8',
+                'two_letter' => 'en',
+                'json_ld' => 'en-US',
             ],
             'last_modified' => (new \DateTimeImmutable('now', new \DateTimeZone('Europe/Berlin')))->format('Y-m-d'),
         ]);
@@ -30,27 +30,10 @@ class IndexController extends AbstractController
         return $result;
     }
 
-    #[Route('/de', name: 'app_index_de')]
-    public function de(): Response
-    {
-        $result =  $this->render('index.html.twig', [
-            'locale' => [
-              'full' => 'de_DE.UTF-8',
-              'two_letter' => 'de',
-              'json_ld' => 'de-DE',
-            ],
-            'last_modified' => (new \DateTimeImmutable('now', new \DateTimeZone('Europe/Berlin')))->format('Y-m-d'),
-        ]);
-
-        $this->entrypointLookupCollection->getEntrypointLookup()->reset();
-
-        return $result;
-    }
-
-    #[Route('/sitemap.xml', name: 'app_index_sitemap')]
+    #[\Symfony\Component\Routing\Attribute\Route('/sitemap.xml', name: 'app_index_sitemap')]
     public function sitemap(): Response
     {
-        $result =  $this->render('sitemap.xml.twig', [
+        $result = $this->render('sitemap.xml.twig', [
             'last_modified' => (new \DateTimeImmutable('now', new \DateTimeZone('Europe/Berlin')))->format('Y-m-d'),
         ]);
 

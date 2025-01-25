@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/2.0/usage/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Analyse and pseudonymize the database - pseudify.me</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Analyse and pseudonymize the database";
+        var mkdocs_page_input_path = "usage.md";
+        var mkdocs_page_url = "/docs/2.0/usage/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/configuration/">Configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Usage</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Analyse and pseudonymize the database</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#system-overview">System overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#available-profiles-to-analyze-and-pseudonymize-the-database">Available profiles to analyze and pseudonymize the database</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-values-from-the-env-file">The values from the .env file.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#registered-condition-expression-functions">Registered condition expression functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#registered-data-encoders-deoders">Registered data encoders / deoders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#registered-doctrine-type-implementations">Registered doctrine type implementations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#connection-details-per-connection">Connection details per connection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#available-database-drivers">Available database drivers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-and-edit-profiles">Create and edit profiles</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#identifier">Identifier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#about-low-level-profiles-php">About low-level profiles (PHP)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#save-profile">Save profile</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modelling-the-pseudonymization">Modelling the pseudonymization</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-profile-configuration">Basic profile configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#identifier_1">Identifier</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#profile-description">Profile description</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#application-name">Application name</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#application-description">Application description</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-frame-cutting-length">Data frame cutting length</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#search-strings">Search strings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#global-excluded-column-types">Global excluded column types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exclude-tables">Exclude tables</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#table-configuration">Table configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#table-description">Table description</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#column-configuration">Column configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#define-column-data-encodings">Define column data encodings</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#scalar-data">Scalar data</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#complex-and-conditional-encodings">Complex and conditional encodings</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#neasted-encodings">Neasted encodings</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#define-column-data-meanings">Define column data meanings</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#path">Path</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#faker-type">Faker type</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#conditional-meanings">Conditional meanings</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#the-scope-option">The scope option</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#column-description">Column description</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auto-configuration">Auto configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#using-the-commandline">Using the commandline</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analyze-database-data">Analyze database data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-commandline_1">Using the commandline</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#output-extended-information">Output extended information</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#advanced-options">Advanced options</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pseudonymize-database-data">Pseudonymize database data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-commandline-recommended-for-cicd-usage">Using the commandline (recommended for CI/CD usage)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#dry-run">Dry run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#advanced-options_1">Advanced options</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#parallel-execution">Parallel execution</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../whatToPseudonymize/">What to pseudonymise?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/">Development</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../versions/">Versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../license/">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../about/">About the project</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Usage</li>
+      <li class="breadcrumb-item active">Analyse and pseudonymize the database</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/usage.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="analyse-and-pseudonymize-the-database">Analyse and pseudonymize the database</h1>
+<h2 id="system-overview">System overview</h2>
+<p>The menu item 'Information' provides an overview of the system configuration.</p>
+<p><a class="glightbox" href="../img/usage/information/menu-information.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/menu-information.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>The provided information is equivalent to that obtained with the command line command <a href="../setup/configuration/#pseudifyinformation"><code>pseudify pseudify:information</code></a>.</p>
+<h3 id="available-profiles-to-analyze-and-pseudonymize-the-database">Available profiles to analyze and pseudonymize the database</h3>
+<p><a class="glightbox" href="../img/usage/information/information-profiles.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-profiles.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="the-values-from-the-env-file">The values from the .env file.</h3>
+<p><a class="glightbox" href="../img/usage/information/information-env-properties.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-env-properties.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="registered-condition-expression-functions">Registered condition expression functions</h3>
+<p><a class="glightbox" href="../img/usage/information/information-condition-expression-functions.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-condition-expression-functions.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="registered-data-encoders-deoders">Registered data encoders / deoders</h3>
+<p><a class="glightbox" href="../img/usage/information/information-encoders.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-encoders.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="registered-doctrine-type-implementations">Registered doctrine type implementations</h3>
+<p><a class="glightbox" href="../img/usage/information/information-db-type-implementations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-db-type-implementations.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="connection-details-per-connection">Connection details per connection</h3>
+<p><a class="glightbox" href="../img/usage/information/information-connection-information.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-connection-information.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="available-database-drivers">Available database drivers</h3>
+<p><a class="glightbox" href="../img/usage/information/information-db-drivers.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/information/information-db-drivers.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h2 id="create-and-edit-profiles">Create and edit profiles</h2>
+<p>The menu item 'Profiles &gt; Load / Create' let you create profiles or load existing ones.</p>
+<p><a class="glightbox" href="../img/usage/profile/menu-profile-load.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/menu-profile-load.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>No profile exists at the beginning, so one must be created.</p>
+<p><a class="glightbox" href="../img/usage/profile/profile-create-no-profile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/profile-create-no-profile.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="identifier">Identifier</h3>
+<p>A unique name that identifies the profile.</p>
+<h3 id="description">Description</h3>
+<p>A short description for the profile.</p>
+<p><a class="glightbox" href="../img/usage/profile/profile-create.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/profile-create.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>Existing profiles can be selected from a list so that they can then be used.<br />
+If <a href="../setup/configuration/#multiple-connection-configurations">multiple connections are configured</a>, the connections can also be selected.</p>
+<p><a class="glightbox" href="../img/usage/profile/profile-choose.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/profile-choose.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>If you want to unload the profile then click the button <code>Unload profile</code>.</p>
+<p><a class="glightbox" href="../img/usage/profile/profile-selected.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/profile-selected.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="about-low-level-profiles-php">About <code>low-level profiles (PHP)</code></h3>
+<p>Previous versions of pseudify were only able to work with PHP based profiles.<br />
+While it is not possible to edit such profiles using the GUI, it is still possible to use these profiles with the command line commands <a href="#using-the-commandline_1"><code>pseudify:analyze</code></a> and <a href="#using-the-commandline-recommended-for-cicd-usage"><code>pseudify:pseudonymize</code></a>.<br />
+This profiles should be placed within the install package directory <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Profiles/"><code>userdata/src/Profiles/</code></a>.<br />
+The creation of such profiles can be found in the documentation of older pseudify versions:  </p>
+<ul>
+<li><a href="/docs/0.1/usage/analyze/#model-an-analyze-profile">Model an "Analyze Profile"</a></li>
+<li><a href="/docs/0.1/usage/pseudonymize/#model-the-pseudonymisation">Model the pseudonymisation</a></li>
+</ul>
+<h2 id="save-profile">Save profile</h2>
+<p>The menu item 'Profiles &gt; Save' let you save profile changes.</p>
+<p><a class="glightbox" href="../img/usage/profile/menu-profile-save.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/menu-profile-save.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>Klick the Button <code>Save profile</code> to persist unsaved changes to the YAML file.</p>
+<p><a class="glightbox" href="../img/usage/profile/profile-save.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/profile/profile-save.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>If there are unsaved profile changes, the GUI shows you this with an icon on each page. It can be seen at the top right.</p>
+<p><a class="glightbox" href="../img/usage/unsaved-changes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/unsaved-changes.png" style="height: 50px; margin-bottom: 1em;" /></a></p>
+<h2 id="modelling-the-pseudonymization">Modelling the pseudonymization</h2>
+<h3 id="basic-profile-configuration">Basic profile configuration</h3>
+<p>The menu item 'Configuration &gt; Basic configuration' let you configure basic analyze and pseudonymization settings.</p>
+<p><a class="glightbox" href="../img/usage/configuration/menu-configuration-basic.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/menu-configuration-basic.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h4 id="identifier_1">Identifier</h4>
+<p>A unique name that identifies the profile.</p>
+<h4 id="profile-description">Profile description</h4>
+<p>A short description for the profile.</p>
+<h4 id="application-name">Application name</h4>
+<p>The name of the application to which the database belongs. For example 'TYPO3' or 'Shopware'.<br />
+The application name is important if the <a href="../setup/installation/#start-pseudify-with-ai-support">AI feature</a> is used. It helps the AI to better understand the meaning of database data.<br />
+If you don't use the AI feature, you don't need to fill this property.  </p>
+<h4 id="application-description">Application description</h4>
+<p>The description of the application to which the database belongs.<br />
+The application description is important if the <a href="../setup/installation/#start-pseudify-with-ai-support">AI feature</a> is used. It helps the AI to better understand the meaning of database data.<br />
+The more detailed the description, the better the AI can analyze database data.<br />
+If you don't use the AI feature, you don't need to fill this property.  </p>
+<h4 id="data-frame-cutting-length">Data frame cutting length</h4>
+<p>Read <a href="#output-extended-information"><code>Output extended information</code></a> for details.</p>
+<h4 id="search-strings">Search strings</h4>
+<p>Pseudify uses database data as a search source to find them in other hidden places in the database.<br />
+However, it is also possible to use user-defined source data.<br />
+As an alternative to static values, it is possible to use regular expressions for the search.<br />
+A regular expression must be identified by the prefix <code>regex:</code> and follow the <a href="https://www.php.net/manual/en/pcre.pattern.php">PCRE regex syntax</a>.<br />
+For example, <code>regex:(?:[0-9]{1,3}\.){3}[0-9]{1,3}</code> can be used to search for IPv4 addresses.  </p>
+<h4 id="global-excluded-column-types">Global excluded column types</h4>
+<p>You can exclude columns with certain data types from the analysis to shorten the search time.<br />
+For example, in most cases it does not make sense to search database columns of the type `integer'.<br />
+Data types can be excluded for certain tables or for all tables.<br />
+As soon as data types are excluded at the table level, the globally excluded data types are not additionally excluded for this table.<br />
+Excluded column types are also ignored during pseudonymization.  </p>
+<h4 id="exclude-tables">Exclude tables</h4>
+<p>You can exclude entire tables from the analysis to shorten the search time.<br />
+Excluded tables are also ignored during pseudonymization.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-basic.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-basic.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="table-configuration">Table configuration</h3>
+<p>Under the menu item 'Configuration &gt; Table configuration', you can configure the analysis and  settings on a table basis.</p>
+<p><a class="glightbox" href="../img/usage/configuration/menu-configuration-table.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/menu-configuration-table.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>All tables are listed.<br />
+If you click on the table entry, the associated columns are listed.<br />
+A table can be excluded from analysis and pseudonymization using the eye icon and configured using the gear icon.<br />
+A column can be excluded from analysis and pseudonymization using the eye icon and configured using the gear icon.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-tables.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-tables.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h4 id="table-description">Table description</h4>
+<p>The description of the table.<br />
+The description is important if the <a href="../setup/installation/#start-pseudify-with-ai-support">AI feature</a> is used. It helps the AI to better understand the meaning of database data.<br />
+The more detailed the description, the better the AI can analyze database data.<br />
+If you don't use the AI feature, you don't need to fill this property.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-table.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-table.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="column-configuration">Column configuration</h3>
+<p>The column configuration is the central component for analysis and pseudonymization.<br />
+The following is defined here:  </p>
+<ol>
+<li>how must the data in the column be decoded so that personally identifiable information (<code>meanings</code>) can be found in them?</li>
+<li>what kind of personally identifiable information (<code>meaning</code>) are contained in the decoded columns and how can they be pseudonymized?</li>
+</ol>
+<p>In the case of scalar, i.e. non-encoded data, this is relatively easy to determine.<br />
+However, there are also cases in which the data must first be decoded.<br />
+There are different variants:</p>
+<ol>
+<li>all column data is encoded with the same method, e.g. all data is encoded with base64.  </li>
+<li>the column data is encoded using different methods and the decision which method to use to decode the data depends on the data in other columns.</li>
+<li>variant 1 and 2 with the difference that the data is encoded several times. e.g. the data must first be decoded using base64 and then decompressed using gzip.</li>
+<li>variant 1, 2 and 3 with the difference that the columns contain structured data such as JSON, CSV or serialized PHP data after decoding. This data must be decoded in such a way that the contained data structure can be accessed in order to access the personally identifiable information it contains.</li>
+<li>variant 1, 2, 3 and 4 with the difference that the decoded structured data in turn contains other structured data, e.g. CSV data is contained in a property of a JSON object.</li>
+</ol>
+<p>All these variants can be handled with pseudify using the column configuration.  </p>
+<p>We will now go through the variants in a short tutorial:</p>
+<h4 id="define-column-data-encodings">Define column data encodings</h4>
+<h5 id="scalar-data">Scalar data</h5>
+<p>This is the simplest variant.<br />
+As you can see, no decoding is necessary as the 'Decoded data' column contains scalar data.<br />
+The 'Data paths' column does not contain any values, as the decoded data is not structured data.<br />
+If you click on the magnifying glass icon in the <code>Meanings</code> column, pseudify will try to guess the meaning of the decoded data and make suggestions.<br />
+If the <a href="../setup/installation/#start-pseudify-with-ai-support">AI feature</a> is used, the guessing is done using AI.<br />
+These suggestions can now be used to <a href="#define-column-data-meanings">define the meaning of the data</a>.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-scalar-data.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-scalar-data.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h5 id="complex-and-conditional-encodings">Complex and conditional encodings</h5>
+<p>As you can see, the data appears to be encoded because it does not look like human-readable data.</p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-1.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>If you click on the magnifying glass symbol in the <code>Decoded data</code> column, pseudify will try to guess the encoding of the data and make suggestions.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-2.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>In the column configuration, we now add a decoding by clicking the <code>Add encoding</code> button.<br />
+Various properties can be defined here.<br />
+For now, we only want to create a simple decoding and therefore click on the <code>Add encoder</code> button and select the suggested decoding using 'Hex'.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-3.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>The data appears to be decoded, but still not in a human-readable format. It seems that the data is still encoded.<br />
+If you click on the magnifying glass icon in the <code>Decoded data</code> column, pseudify will try to guess the encoding of the data and make suggestions.<br />
+It will guess that the data format looks like base64.</p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-4.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We therefore create another decoding by clicking on the <code>Add encoder</code> button and select the suggested decoding using 'Base64'.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-5.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>In the first two columns we now see JSON data and in the other columns nothing meaningful seems to have been decoded.</p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-6.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>Let's take a look at the surrounding data in the data set, the <code>Context</code>.<br />
+To do this, we activate the <code>Context</code> column by clicking on <code>Context</code> at the top of the row of buttons.<br />
+The data appears to be decoded correctly in the datasets for which the <code>log_type</code> column contains the value <code>foo</code>.<br />
+The datasets in which the <code>log_type</code> column contains the value <code>bar</code> appear to be coded using other methods.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-7.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We first restrict our encoding to all datasets for which the <code>log_type</code> column contains the value <code>foo</code>.<br />
+To do this, we create a <code>condition</code> by clicking on the <code>Add condition</code> button.<br />
+Here we write <code>column('log_type') == 'foo'</code> and save the configuration.  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>All usable expression functions can be viewed in the configuration overview under <a href="#registered-condition-expression-functions"><code>Registered condition expression functions</code></a>.<br />
+More information about the expression syntax can be found in the <a href="https://symfony.com/doc/6.4/reference/formats/expression_language.html">symfony expression language documentation</a>.</p>
+</div>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-8.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We can see that our encoding now only decodes the datasets where the <code>log_type</code> column contains the value <code>foo</code>.<br />
+The other datasets are not decoded.<br />
+For these datasets, a further <code>Encoding</code> with the correspondingly modified condition <code>column('log_type') == 'bar'</code> can be generated.<br />
+The <code>encoders</code> that decode these columns correctly can then be defined there.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-9.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We can see that our column contains structured data that needs to be decoded further.<br />
+If you click on the magnifying glass icon in the <code>Decoded data</code> column, pseudify will try to guess the encoding of the data and make suggestions.<br />
+It will guess that the data format looks like JSON.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-10.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We therefore create another decoding by clicking on the <code>Add encoder</code> button and select the suggested decoding using 'Json'.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-11.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We see that the column <code>Data paths</code> (column 2 in the screenshot) now shows us data. Using these paths, we can then <a href="#define-column-data-meanings">define the meanings of these data paths</a>.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-conditional-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-conditional-12.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h5 id="neasted-encodings">Neasted encodings</h5>
+<p>It can happen that structured data such as JSON contains other structured data that contains personally identifiable information that we want to access.<br />
+The example shows that the column was decoded several times in order to decode serialized PHP data at the end.</p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-path-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-path-1.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>You can see that the data path <code>key2.session_data</code> contains a character string, which in turn corresponds to serialized PHP data. We want to be able to access this in a structured way in order to be able to pseudonymize the IP address it contains.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-path-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-path-2.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>We therefore add another decoder for serialized PHP data and write the data path <code>key2.session_data</code> in its <code>Path</code> option.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-path-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-path-3.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>Now the data path <code>key2.session_data</code> is interpreted as serialized PHP data. This data can now be accessed.</p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-decode-path-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-decode-path-4.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <code>Path</code> option in a decoder always refers to the decoded data generated by the <strong>previously</strong> added decoder.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is currently not possible to decode multiple data paths in parallel. It is currently only possible to continue decoding one branch at a time in structured data.<br />
+If more complex decoding is required, the <a href="#about-low-level-profiles-php"><code>low-level profiles (PHP)</code></a> must be used.</p>
+</div>
+<h4 id="define-column-data-meanings">Define column data meanings</h4>
+<p>Meanings are synonymous with personally identifiable information.<br />
+A meaning has 2 functions:</p>
+<ol>
+<li>All defined meanings are used in the analysis process to search for them in the rest of the database. In this way, unknown occurrences of this data can be identified and then also defined as a meaning.  </li>
+<li>In the pseudonymization process, all defined meanings are exchanged for pseudonyms.  </li>
+</ol>
+<p>In the example, we can see that the 'Data paths' column (column 2 in the screenshot) shows us data paths for the decoded data structure.<br />
+We can now use these paths to define meanings.<br />
+If the original data or the decoded data is scalar data, nothing will be visible in the 'Data paths' column, because in these cases pseudify can pseudonymize the decoded data directly.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-meaning-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-meaning-1.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>A meaning can now be defined for each data path by clicking the <code>Add meaning</code> button.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-meaning-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-meaning-2.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h5 id="path">Path</h5>
+<p>The data path for which the meaning is to apply must be entered here.<br />
+In the case of scalar data, this option must remain empty.  </p>
+<h5 id="faker-type">Faker type</h5>
+<p>Here you can select one of the available faker formats against which the decoded data is to be replaced during pseudonymization.<br />
+Pseudify uses <a href="https://fakerphp.github.io/">the FakerPHP/Faker component</a> to be able to fake various data formats.<br />
+It is also possible to <a href="../setup/configuration/#registering-custom-faker-formatters">define custom ones</a>.  </p>
+<hr />
+<p>After saving, the <code>Meanings</code> column shows which data would be replaced during pseudonymization (<code>originalValue</code>) and what a pseudonym would look like as an example (<code>fakedValue</code>).  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-meaning-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-meaning-3.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h5 id="conditional-meanings">Conditional meanings</h5>
+<p>As in the case of encodings, it may also be necessary to place conditions on meanings.<br />
+The example shows that the <code>ip</code> data path can contain both ipv4 and ipv6 addresses.<br />
+If it is important that these different address formats are retained during pseudonymization, then the meaning must be defined using conditions in such a way that one meaning fakes an ipv4 address<br />
+if the original data looks like an ipv4 address and the another meaning must do the same for ipv6 data formats.</p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-meaning-conditional-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-meaning-conditional-1.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>To do this, 2 meanings are now defined for the same data path <code>ip</code> and placed under conditions.<br />
+The first Meaning is given the condition <code>isIpV6(value('ip'))</code> and the second Meaning is given the condition <code>isIpV4(value('ip'))</code>.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-meaning-conditional-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-meaning-conditional-2.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>After saving, you can see that the data is now faked in such a way that the original ipv4 and ipv6 data formats are retained.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-meaning-conditional-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-meaning-conditional-3.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h5 id="the-scope-option">The <code>scope</code> option</h5>
+<p>To preserve data integrity, pseudify is designed to always return the same pseudonym for the same input data during a pseudonymisation run.<br />
+This means that during the execution of a pseudonymisation using <code>pseudify pseudify:pseudonymize test-profile</code>, all <code>userName</code> meanings will generate e.g. the pseudonym <code>Klaus</code> for the input data <code>Stan</code>.<br />
+A new pseudonymisation of the original database using <code>pseudify pseudify:pseudonymize test-profile</code> will generate e.g. the pseudonym <code>Roger</code> for all <code>userName</code> meanings for the input data <code>Stan</code> and not <code>Klaus</code> as in the first pseudonymisation run.  </p>
+<p>This ensures two things:</p>
+<ol>
+<li>Within a pseudonymisation run, the same original data is always replaced with the same pseudonym.<br />
+   (The value "Stan" from Table 1 and Table 2 is replaced with "Klaus" in Table 1 and Table 2).</li>
+<li>Between different pseudonymisation runs, the same original data generate different pseudonyms.<br />
+   (In the first pseudonymisation, the value "Stan" from Table 1 and Table 2 is replaced with "Klaus" in both tables,<br />
+   in the second pseudonymisation, the value "Stan" from Table 1 and Table 2 is replaced with the value "Roger" in both tables, and so on).</li>
+</ol>
+<p>If for some reason you want to change this behaviour, you can define the option <code>scope</code>.<br />
+With this option you can instruct pseudify to create different pseudonyms per <code>scope</code> for the same input data.  </p>
+<h4 id="column-description">Column description</h4>
+<p>The description of the column.<br />
+The description is important if the <a href="../setup/installation/#start-pseudify-with-ai-support">AI feature</a> is used. It helps the AI to better understand the meaning of database data.<br />
+The more detailed the description, the better the AI can analyze database data.<br />
+If you don't use the AI feature, you don't need to fill this property.  </p>
+<h3 id="auto-configuration">Auto configuration</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Save unsaved profile changes before running this action.  </p>
+</div>
+<p>The menu item 'Configuration &gt; Autoconfiguration' attempts to guess the encodings and meanings for each database table and each database column.<br />
+<a class="glightbox" href="../img/usage/configuration/menu-configuration-autoconfiguration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/menu-configuration-autoconfiguration.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>The autoconfiguration goes through all tables and their columns and tries to decode the columns and then guess a meaning in them.<br />
+However, it is currently only able to decode simple encodings. If a column is encoded several times with different encodings, the autoconfiguration will not deliver correct results.<br />
+But expect wrong results in any case. The autoconfiguration is intended to provide a rough introduction to the configuration. You should check all table column configurations after an autoconfiguration.<br />
+If you have <a href="../setup/installation/#start-pseudify-with-ai-support">activated the AI feature</a>, the autoconfiguration also attempts to recognize the application and the table and column descriptions for you.  </p>
+<p>The autoconfiguration only guesses the encoding if no encodings have yet been defined for the column.<br />
+The same rules for the meaning.  </p>
+<p><a class="glightbox" href="../img/usage/configuration/configuration-autoconfiguration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/configuration/configuration-autoconfiguration.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h4 id="using-the-commandline">Using the commandline</h4>
+<h2 id="analyze-database-data">Analyze database data</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Save unsaved profile changes before running this action.  </p>
+</div>
+<p>The menu item 'Pseudonymize &gt; Analyze' executes the command <a href="#using-the-commandline_1"><code>pseudify:analyze</code></a> and displays the result in the browser.</p>
+<p><a class="glightbox" href="../img/usage/analyze/menu-analyze.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/analyze/menu-analyze.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<p>The analysis process is used to determine in which “unlit corners” of the database personally identifiable information (PII) is hidden.<br />
+We therefore use the personally identifiable information already known to us, which we have defined as <code>meanings</code>, to find them in the rest of the database.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In order to be able to display the command output, pseudify writes output to the file <code>userdata/var/log/analyze.log</code>.<br />
+This file may contain sensitive data.<br />
+Pseudify deletes this file after an analysis, but things can be wrong. You should ensure that there are no leftovers.  </p>
+</div>
+<p><a class="glightbox" href="../img/usage/analyze/analyze.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/analyze/analyze.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="using-the-commandline_1">Using the commandline</h3>
+<p>An analyze can be executed with the command <code>pseudify:analyse &lt;profile-name&gt;</code>.</p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:analyze test-profile</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In order to be able to analyze the database data fast, pseudify writes database content to the file system path <code>userdata/var/cache/pseudify/database/</code>.<br />
+This data contain sensitive data.<br />
+Pseudify deletes this data after an analysis, but things can be wrong. You should ensure that there are no leftovers in this file system path after an analysis.  </p>
+</div>
+<p>The summary of the analysis lists which source data (column <code>data</code>) from which source database column (column <code>source</code>) can be found in which database columns (column <code>seems to be in</code>).<br />
+If there is a <code>__custom__.__custom__</code> in the <code>source</code> column, this means that the source data does not come from a database column, but was defined using <a href="#search-strings"><code>search strings</code></a>.<br />
+If you were not previously aware that certain source data can be found in a database column under <code>seems to be in</code>, then you can now take a closer look at these database columns and define the data as <a href="#define-column-data-meanings"><code>meanings</code></a>.</p>
+<h4 id="output-extended-information">Output extended information</h4>
+<p>For debugging or refining the analysis, it may be useful to see what data pseudify found in the database data.<br />
+To do this, the command <code>pseudify:analyse</code> can be called with the parameter <code>--verbose</code>:</p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:analyze &lt;profil-name&gt; --verbose</code></pre>
+<p>Now the source data is listed in the column <code>source</code> like <code>1321:57fc:460b:d4d0:d83f:c200:4b:f1c8</code>.<br />
+The column <code>example</code> contains the finding like '...ip";s:37:"<code>1321:57fc:460b:d4d0:d83f:c200:4b:f1c8</code>";}";}s:4:...'.<br />
+The number of characters that are output before and after the finding can be defined with the <a href="#data-frame-cutting-length"><code>Data frame cutting length</code></a> option.<br />
+By default, 10 characters are output before and after a finding.<br />
+If the value is set to 0, nothing is cut off before and after the finding and the complete column content is output.  </p>
+<h4 id="advanced-options">Advanced options</h4>
+<ul>
+<li><code>--connection &lt;connection-name&gt;</code>: Read <a href="../setup/configuration/#multiple-connection-configurations">Multiple connection configurations</a></li>
+</ul>
+<h2 id="pseudonymize-database-data">Pseudonymize database data</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Save unsaved profile changes before running this action.  </p>
+</div>
+<p>The menu item 'Pseudonymize &gt; Pseudonymize' executes the command <a href="#using-the-commandline-recommended-for-cicd-usage"><code>pseudify:pseudonymize</code></a> and displays the result in the browser.</p>
+<p><a class="glightbox" href="../img/usage/pseudonymize/menu-pseudonymize.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/pseudonymize/menu-pseudonymize.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In order to be able to display the command output, pseudify writes output to the file <code>userdata/var/log/pseudonymize.log</code>.<br />
+This file may contain sensitive data.<br />
+Pseudify deletes this file after an pseudonymization, but things can be wrong. You should ensure that there are no leftovers.  </p>
+</div>
+<p><a class="glightbox" href="../img/usage/pseudonymize/pseudonymize.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/usage/pseudonymize/pseudonymize.png" style="height: 150px; margin-bottom: 1em;" /></a></p>
+<h3 id="using-the-commandline-recommended-for-cicd-usage">Using the commandline (recommended for CI/CD usage)</h3>
+<p>A pseudonymization can be executed with the command <code>pseudify:pseudonymize &lt;profile-name&gt;</code>.<br />
+After the pseudonymization, the word <code>done</code> is displayed.<br />
+That's it.</p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:pseudonymize test-profile</code></pre>
+<h4 id="dry-run">Dry run</h4>
+<p>You can test your pseudonymization without overwriting the data in the database. With the parameter <code>--dry-run</code> all SQL statements are logged to the file <code>userdata/var/log/pseudify_dry_run.log</code> that pseudify would execute.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The original data and the pseudonymized data are not logged one-to-one.<br />
+Valid SQL would be <code>UPDATE wh_user SET username = 'tavares.satterfield' WHERE username = 'karl13'</code>.<br />
+However, <code>--dry-run</code> additionally lists the name of the <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/query-builder.html#binding-parameters-to-placeholders">internally used placeholder</a> (e.g. <code>:dcValue1:</code>, <code>:dcValue2:</code> ...) before the data, which can simplify debugging.  </p>
+</div>
+<h4 id="advanced-options_1">Advanced options</h4>
+<ul>
+<li><code>--connection &lt;connection-name&gt;</code>: Read <a href="../setup/configuration/#multiple-connection-configurations">Multiple connection configurations</a></li>
+</ul>
+<h5 id="parallel-execution">Parallel execution</h5>
+<p>If your database is very large, you can speed up the pseudonymization process by performing it in parallel with the option <code>--parallel</code>.</p>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:pseudonymize test-profile --parallel</code></pre>
+<p>It is not possible to say in general whether serial or parallel processing is faster. You have to try it out.<br />
+Parallel processing can be configured with 2 parameters:</p>
+<ul>
+<li><code>--concurrency &lt;number&gt;</code>: How many parallel processes. Default: 10</li>
+<li><code>--items-per-process &lt;number&gt;</code>: How many rows to processes each parallel execution. Default: 5000</li>
+</ul>
+<pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
+    ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:pseudonymize test-profile --parallel --concurrency 10 --items-per-process  5000</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../setup/configuration/" class="btn btn-neutral float-left" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../whatToPseudonymize/" class="btn btn-neutral float-right" title="What to pseudonymise?">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../setup/configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../whatToPseudonymize/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

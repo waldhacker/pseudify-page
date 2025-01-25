@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/2.0/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Overview - pseudify.me</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/docs/2.0/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> pseudify.me
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pseudify-ai-the-database-pseudonymizer">pseudify AI - the database pseudonymizer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#supported-databases">Supported databases</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#mysql">MySQL</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mariadb">MariaDB</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#postgresql">PostgreSQL</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ms-sql-server">MS SQL Server</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sqlite">SQLite</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#oracle">Oracle</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ibm-db2">IBM DB2</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="setup/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="setup/configuration/">Configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Usage</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="usage/">Analyse and pseudonymize the database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="whatToPseudonymize/">What to pseudonymise?</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="development/">Development</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="versions/">Versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="license/">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="about/">About the project</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">pseudify.me</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Introduction</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a class="glightbox" href="img/logo.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="img/logo.svg" /></a></p>
+<h1 id="overview">Overview</h1>
+<h2 id="pseudify-ai-the-database-pseudonymizer">pseudify AI - the database pseudonymizer</h2>
+<p><strong>Pseudify</strong> is a AI powered toolbox that helps you to pseudonymize database data.<br />
+You can find hidden personally identifiable information (PII) in your database and you can pseudonymize them.  </p>
+<h3 id="features">Features</h3>
+<p>&#127881; Analyze and pseudonymize supported databases from any application<br />
+&#127881; Find hidden personally identifiable information (PII) with or without AI support<br />
+&#127881; Data integrity: same input data generates same pseudonyms across all database columns<br />
+&#127881; Analyze and pseudonymize easily encoded data<br />
+&#127881; Analyze and pseudonymize multi-encoded data<br />
+&#127881; Analyze and pseudonymize complex data structures like JSON or serialized PHP data<br />
+&#127881; Analyze and pseudonymize dynamic data<br />
+&#127881; 12 built-in decoders / encoders<br />
+&#127881; Extensibility with custom decoders / encoders<br />
+&#127881; 100+ built-in localizable fake data formats thanks to <a href="https://fakerphp.github.io/">FakerPHP</a><br />
+&#127881; Extensibility with own fake data formats<br />
+&#127881; Support for 7 built-in database platforms thanks to <a href="https://www.doctrine-project.org/projects/dbal.html">Doctrine DBAL</a><br />
+&#127881; Extensibility with own database platforms<br />
+&#127881; Modeling of profiles with a powerful GUI  </p>
+<h3 id="supported-databases">Supported databases</h3>
+<h4 id="mysql">MySQL</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>MySQL 5.1</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 5.5</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 5.6</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 5.7</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 8.0</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 8.1</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 8.2</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 8.3</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 8.4</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 9.0</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MySQL 9.1</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; supported in principle, but not tested</p>
+<hr />
+<h4 id="mariadb">MariaDB</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.2</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.3</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.4</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.5</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.6</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.7</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.8</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.9</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.10</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 10.11</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.0</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.1</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.2</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.3</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.4</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.5</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.6</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MariaDB 11.7</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="postgresql">PostgreSQL</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 8</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 9</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 10</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 11</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 12</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 13</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 14</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 15</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 16</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PostgreSQL 17</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; supported in principle, but not tested</p>
+<hr />
+<h4 id="ms-sql-server">MS SQL Server</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SQL Server 2014</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SQL Server 2016</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SQL Server 2017</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SQL Server 2019</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SQL Server 2022</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; supported in principle, but not tested</p>
+<hr />
+<h4 id="sqlite">SQLite</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SQLite 1.x</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SQLite 2.x</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SQLite 3.x</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</PDO_ODBCspan></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="oracle">Oracle</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Oracle Database 11</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oracle Database 12</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oracle Database 18</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oracle Database 19</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oracle Database 21</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oracle Database 23</strong></td>
+<td style="text-align: center;"><span style="color:green">&#x2714;</span></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; supported in principle, but not tested</p>
+<hr />
+<h4 id="ibm-db2">IBM DB2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">doctrine dbal support</th>
+<th style="text-align: center;">pseudify support</th>
+<th style="text-align: center;">driver in docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>DB2 9</strong></td>
+<td style="text-align: center;"><span style="color:red">&#x2753;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x2753;</span></td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DB2 10</strong></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DB2 11</strong></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DB2 12</strong></td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:grey">&#x2714;</span> &#x2A;</td>
+<td style="text-align: center;"><span style="color:red">&#x274C;</span></td>
+</tr>
+</tbody>
+</table>
+<p>&#x2A; supported in principle, but not tested</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="setup/installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>waldhacker UG (haftungsbeschränkt)</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/waldhacker/pseudify-page/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+      <span><a href="setup/installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
