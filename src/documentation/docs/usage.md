@@ -366,6 +366,11 @@ This ensures two things:
 If for some reason you want to change this behaviour, you can define the option `scope`.  
 With this option you can instruct pseudify to create different pseudonyms per `scope` for the same input data.  
 
+#### Empty all column records
+
+If this option is activated, all records in this column are set to the default value of the column during pseudonymization.  
+In this case, all encodings and meanings have no function and are ignored.  
+
 #### Column description
 
 The description of the column.  

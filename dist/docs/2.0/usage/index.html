@@ -141,6 +141,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#empty-all-column-records">Empty all column records</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#column-description">Column description</a>
     </li>
         </ul>
@@ -460,6 +462,9 @@ A new pseudonymisation of the original database using <code>pseudify pseudify:ps
 </ol>
 <p>If for some reason you want to change this behaviour, you can define the option <code>scope</code>.<br />
 With this option you can instruct pseudify to create different pseudonyms per <code>scope</code> for the same input data.  </p>
+<h4 id="empty-all-column-records">Empty all column records</h4>
+<p>If this option is activated, all records in this column are set to the default value of the column during pseudonymization.<br />
+In this case, all encodings and meanings have no function and are ignored.  </p>
 <h4 id="column-description">Column description</h4>
 <p>The description of the column.<br />
 The description is important if the <a href="../setup/installation/#start-pseudify-with-ai-support">AI feature</a> is used. It helps the AI to better understand the meaning of database data.<br />
