@@ -367,7 +367,7 @@ The drivers automatically detect the platform version and instantiate the approp
 If you want to disable automatic database platform detection and explicitly select the platform version implementation, you can do this with the value in <code>PSEUDIFY_DATABASE_VERSION</code>.  </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>If you are using a MariaDB database, you should prefix the value <code>PSEUDIFY_DATABASE_VERSION</code> with <code>mariadb-</code> (example: mariadb-10.2).</p>
+<p>If you are using a MariaDB database, you should prefix the value <code>PSEUDIFY_DATABASE_VERSION</code> with <code>mariadb-</code> (example: mariadb-10.11.0).</p>
 </div>
 <h5 id="example_8">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_VERSION=8.0</code></pre>
@@ -498,27 +498,27 @@ The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a hr
 <p><a href="https://docs.docker.com/engine/reference/commandline/network_create/">Create a docker network</a> with the name <code>pseudify-net</code> (if none already exists):</p>
 <pre class="highlight"><code class="language-shell">$ docker network create pseudify-net</code></pre>
 <p>Start a database server using the network <code>pseudify-net</code> (<code>--network pseudify-net</code>).<br>
-The database container is given the name <code>mariadb_10_5</code> (<code>--name mariadb_10_5</code>).<br>
-Therefore the option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to <code>mariadb_10_5</code>.   </p>
+The database container is given the name <code>mariadb_10_11</code> (<code>--name mariadb_10_11</code>).<br>
+Therefore the option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to <code>mariadb_10_11</code>.   </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For the import of the test database (<code>-v "$(pwd)"/database-data:/docker-entrypoint-initdb.d</code>) to work correctly, the command must be executed in the main directory of the install package.</p>
 </div>
 <pre class="highlight"><code class="language-shell">$ docker run --rm --detach \
     --network pseudify-net \
-    --name mariadb_10_5 \
+    --name mariadb_10_11 \
     --env MARIADB_USER=pseudify \
     --env MARIADB_PASSWORD='P53ud1fy(!)w4ldh4ck3r' \
     --env MARIADB_ROOT_PASSWORD='P53ud1fy(!)w4ldh4ck3r' \
     --env MARIADB_DATABASE=pseudify_utf8mb4 \
     -v "$(pwd)"/database-data:/docker-entrypoint-initdb.d \
-    mariadb:10.5</code></pre>
+    mariadb:10.11</code></pre>
 <p>Then run pseudify like:</p>
 <pre class="highlight"><code class="language-shell">$ docker run --rm -it --add-host=host.docker.internal:host-gateway -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
     ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:debug:table_schema</code></pre>
 <h4 id="pseudify-is-running-using-docker-compose-analyze-setup_1">pseudify is running using docker compose (<code>analyze setup</code>)</h4>
 <p>You can use the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml">docker-compose.database.yml</a> and adapt it to your needs.<br>
-The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to database <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml#L7">service name</a> like <code>mariadb_10_5</code>.   </p>
+The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to database <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml#L7">service name</a> like <code>mariadb_10_11</code>.   </p>
 <p>Then start pseudify like:</p>
 <pre class="highlight"><code class="language-shell">$ docker compose -f docker-compose.yml -f docker-compose.database.yml up -d</code></pre>
 <h2 id="debug-the-configuration">Debug the configuration</h2>
