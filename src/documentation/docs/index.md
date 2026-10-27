@@ -41,6 +41,13 @@ You can find hidden personally identifiable information (PII) in your database a
 |**MySQL 8.4**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 |**MySQL 9.0**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 |**MySQL 9.1**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 9.2**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 9.3**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 9.4**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 9.5**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 9.6**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 9.7**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**MySQL 26.10**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>     |<span style="color:green">&#x2714;</span>|
 
 &#x2A; supported in principle, but not tested
 
@@ -68,6 +75,12 @@ You can find hidden personally identifiable information (PII) in your database a
 |**MariaDB 11.5** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
 |**MariaDB 11.6** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
 |**MariaDB 11.7** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
+|**MariaDB 11.8** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
+|**MariaDB 12.0** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
+|**MariaDB 12.1** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
+|**MariaDB 12.2** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
+|**MariaDB 12.3** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
+|**MariaDB 13.0** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>|
 
 ---
 
@@ -85,6 +98,7 @@ You can find hidden personally identifiable information (PII) in your database a
 |**PostgreSQL 15** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 |**PostgreSQL 16** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 |**PostgreSQL 17** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**PostgreSQL 18** |<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 
 &#x2A; supported in principle, but not tested
 
@@ -96,9 +110,10 @@ You can find hidden personally identifiable information (PII) in your database a
 |:------------------|:---------------------------------------:|:---------------------------------------------:|:---------------------------------------:|
 |**SQL Server 2014**|<span style="color:green">&#x2714;</span>|<span style="color:grey">&#x2714;</span> &#x2A;|<span style="color:green">&#x2714;</span>|
 |**SQL Server 2016**|<span style="color:green">&#x2714;</span>|<span style="color:grey">&#x2714;</span> &#x2A;|<span style="color:green">&#x2714;</span>|
-|**SQL Server 2017**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**SQL Server 2017**|<span style="color:green">&#x2714;</span>|<span style="color:grey">&#x2714;</span> &#x2A;|<span style="color:green">&#x2714;</span>|
 |**SQL Server 2019**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 |**SQL Server 2022**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
+|**SQL Server 2025**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>      |<span style="color:green">&#x2714;</span>|
 
 &#x2A; supported in principle, but not tested
 
@@ -110,7 +125,7 @@ You can find hidden personally identifiable information (PII) in your database a
 |:-------------|:---------------------------------------:|:-----------------------------------------------:|:---------------------------------------:|
 |**SQLite 1.x**|<span style="color:red">&#x274C;</span>  |<span style="color:red">&#x274C;</span>          |<span style="color:red">&#x274C;</span>  |
 |**SQLite 2.x**|<span style="color:red">&#x274C;</span>  |<span style="color:red">&#x274C;</span>          |<span style="color:red">&#x274C;</span>  |
-|**SQLite 3.x**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</PDO_ODBCspan>|<span style="color:green">&#x2714;</span>|
+|**SQLite 3.x**|<span style="color:green">&#x2714;</span>|<span style="color:green">&#x2714;</span>        |<span style="color:green">&#x2714;</span>|
 
 ---
 

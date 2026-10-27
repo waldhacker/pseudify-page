@@ -208,7 +208,7 @@ The drivers automatically detect the platform version and instantiate the approp
 If you want to disable automatic database platform detection and explicitly select the platform version implementation, you can do this with the value in `PSEUDIFY_DATABASE_VERSION`.  
 
 !!! info
-    If you are using a MariaDB database, you should prefix the value `PSEUDIFY_DATABASE_VERSION` with `mariadb-` (example: mariadb-10.2).
+    If you are using a MariaDB database, you should prefix the value `PSEUDIFY_DATABASE_VERSION` with `mariadb-` (example: mariadb-10.11.0).
 
 ##### Example
 
@@ -411,8 +411,8 @@ $ docker network create pseudify-net
 ```
 
 Start a database server using the network `pseudify-net` (`--network pseudify-net`).  
-The database container is given the name `mariadb_10_5` (`--name mariadb_10_5`).  
-Therefore the option `PSEUDIFY_DATABASE_HOST` in the install package file [userdata/.env](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env) must be set to `mariadb_10_5`.   
+The database container is given the name `mariadb_10_11` (`--name mariadb_10_11`).  
+Therefore the option `PSEUDIFY_DATABASE_HOST` in the install package file [userdata/.env](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env) must be set to `mariadb_10_11`.   
 
 !!! note
     For the import of the test database (`-v "$(pwd)"/database-data:/docker-entrypoint-initdb.d`) to work correctly, the command must be executed in the main directory of the install package.
@@ -420,13 +420,13 @@ Therefore the option `PSEUDIFY_DATABASE_HOST` in the install package file [userd
 ```shell
 $ docker run --rm --detach \
     --network pseudify-net \
-    --name mariadb_10_5 \
+    --name mariadb_10_11 \
     --env MARIADB_USER=pseudify \
     --env MARIADB_PASSWORD='P53ud1fy(!)w4ldh4ck3r' \
     --env MARIADB_ROOT_PASSWORD='P53ud1fy(!)w4ldh4ck3r' \
     --env MARIADB_DATABASE=pseudify_utf8mb4 \
     -v "$(pwd)"/database-data:/docker-entrypoint-initdb.d \
-    mariadb:10.5
+    mariadb:10.11
 ```
 
 Then run pseudify like:
@@ -439,7 +439,7 @@ $ docker run --rm -it --add-host=host.docker.internal:host-gateway -v "$(pwd)/us
 #### pseudify is running using docker compose (`analyze setup`)
 
 You can use the install package file [docker-compose.database.yml](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml) and adapt it to your needs.  
-The option `PSEUDIFY_DATABASE_HOST` in the install package file [userdata/.env](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env) must be set to database [service name](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml#L7) like `mariadb_10_5`.   
+The option `PSEUDIFY_DATABASE_HOST` in the install package file [userdata/.env](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env) must be set to database [service name](https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml#L7) like `mariadb_10_11`.   
 
 Then start pseudify like:
 

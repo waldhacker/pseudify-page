@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="waldhacker UG (haftungsbeschränkt)" /><link rel="canonical" href="https://www.pseudify.me/docs/2.0/setup/configuration/" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
+<!DOCTYPE html><html class="writer-html5" lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="author" content="waldhacker UG (haftungsbeschränkt)"><link rel="canonical" href="https://www.pseudify.me/docs/2.0/setup/configuration/">
+      <link rel="shortcut icon" href="../../img/favicon.ico">
     <title>Configuration - pseudify.me</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/theme_extra.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
     
       <script>
         // Current page data
@@ -22,11 +20,12 @@
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
- <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -36,8 +35,8 @@
       <div class="wy-side-nav-search">
           <a href="../.." class="icon icon-home"> pseudify.me
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here">
   </form>
 </div>
       </div>
@@ -209,15 +208,15 @@
           <a href="https://github.com/waldhacker/pseudify-page/edit/main/src/documentation/docs/setup/configuration.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
-  <hr/>
+  <hr>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
                 <h1 id="configuration">Configuration</h1>
 <h2 id="the-install-package">The install package</h2>
-<p>The installation package contains everything necessary for the proper operation of pseudify.<br />
-This includes the configuration files to connect pseudify to a database and examples of how pseudify can be functionally extended.<br />
+<p>The installation package contains everything necessary for the proper operation of pseudify.<br>
+This includes the configuration files to connect pseudify to a database and examples of how pseudify can be functionally extended.<br>
 The files are to be understood as start templates that you can adapt to your own requirements.</p>
 <p>Content:</p>
 <ul>
@@ -237,19 +236,19 @@ The files are to be understood as start templates that you can adapt to your own
 </ul>
 <h2 id="configuration-options">Configuration options</h2>
 <h3 id="env">.env</h3>
-<p>The basic configuration of pseudify takes place using values in an <code>.env</code> file.<br />
+<p>The basic configuration of pseudify takes place using values in an <code>.env</code> file.<br>
 The <a href="https://github.com/waldhacker/pseudify-ai/releases/latest/"><code>install package</code></a> contain an <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env.example">exemplary .env file</a> which can be used as a basis for your own configuration.  </p>
 <h4 id="pseudify_faker_locale">PSEUDIFY_FAKER_LOCALE</h4>
 <p>Default: en_US</p>
-<p>Pseudify uses the <a href="https://fakerphp.github.io/">FakerPHP/Faker component</a> to generate the pseudonyms.<br />
-The component allows <a href="https://fakerphp.github.io/#language-specific-formatters">the generation of language-specific values</a>.<br />
+<p>Pseudify uses the <a href="https://fakerphp.github.io/">FakerPHP/Faker component</a> to generate the pseudonyms.<br>
+The component allows <a href="https://fakerphp.github.io/#language-specific-formatters">the generation of language-specific values</a>.<br>
 Supported values of <code>PSEUDIFY_FAKER_LOCALE</code> can be found in the <a href="https://github.com/FakerPHP/Faker/tree/v1.20.0/src/Faker/Provider">FakerPHP/Faker Repository</a>.  </p>
 <h5 id="example">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_FAKER_LOCALE=de_DE</code></pre>
 <h4 id="pseudify_database_driver">PSEUDIFY_DATABASE_DRIVER</h4>
-<p>Default: pdo_mysql<br />
+<p>Default: pdo_mysql<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L5"><code>doctrine.dbal.connections.default.driver</code></a></p>
-<p>The value of <code>PSEUDIFY_DATABASE_DRIVER</code> must be <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#driver">a supported driver of the Doctrine DBAL component</a>.<br />
+<p>The value of <code>PSEUDIFY_DATABASE_DRIVER</code> must be <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#driver">a supported driver of the Doctrine DBAL component</a>.<br>
 The pseudify docker container comes with the following driver support:</p>
 <ul>
 <li>pdo_mysql (A MySQL driver that uses the pdo_mysql PDO extension</li>
@@ -267,9 +266,9 @@ The pseudify docker container comes with the following driver support:</p>
 <h5 id="example_1">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_DRIVER=pdo_mysql</code></pre>
 <h4 id="pseudify_database_host">PSEUDIFY_DATABASE_HOST</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L6"><code>doctrine.dbal.connections.default.host</code></a></p>
-<p>The host name under which the database server can be reached.<br />
+<p>The host name under which the database server can be reached.<br>
 This value is only used when using the following drivers:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
@@ -282,9 +281,9 @@ This value is only used when using the following drivers:</p>
 <h5 id="example_2">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_HOST=host.docker.internal</code></pre>
 <h4 id="pseudify_database_port">PSEUDIFY_DATABASE_PORT</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L7"><code>doctrine.dbal.connections.default.port</code></a></p>
-<p>The port under which the database server can be reached.<br />
+<p>The port under which the database server can be reached.<br>
 This value is only used when using the following drivers:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
@@ -297,9 +296,9 @@ This value is only used when using the following drivers:</p>
 <h5 id="example_3">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_PORT=3306</code></pre>
 <h4 id="pseudify_database_user">PSEUDIFY_DATABASE_USER</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L8"><code>doctrine.dbal.connections.default.user</code></a></p>
-<p>The user name of the database.<br />
+<p>The user name of the database.<br>
 This value is only used when using the following drivers:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#pdo-sqlite">pdo_sqlite</a></li>
@@ -313,9 +312,9 @@ This value is only used when using the following drivers:</p>
 <h5 id="example_4">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_USER=pseudify</code></pre>
 <h4 id="pseudify_database_password">PSEUDIFY_DATABASE_PASSWORD</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L9"><code>doctrine.dbal.connections.default.password</code></a></p>
-<p>The password of the database.<br />
+<p>The password of the database.<br>
 This value is only used when using the following drivers:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#pdo-sqlite">pdo_sqlite</a></li>
@@ -329,7 +328,7 @@ This value is only used when using the following drivers:</p>
 <h5 id="example_5">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_PASSWORD='super(!)sEcReT'</code></pre>
 <h4 id="pseudify_database_schema">PSEUDIFY_DATABASE_SCHEMA</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L10"><code>doctrine.dbal.connections.default.dbname</code></a> or <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L11"><code>doctrine.dbal.connections.default.path</code></a></p>
 <p>For the following drivers, <code>PSEUDIFY_DATABASE_SCHEMA</code> corresponds to the database name:</p>
 <ul>
@@ -348,9 +347,9 @@ Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudif
 <h5 id="example_6">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_SCHEMA=wordpress_prod</code></pre>
 <h4 id="pseudify_database_charset">PSEUDIFY_DATABASE_CHARSET</h4>
-<p>Default: utf8mb4<br />
+<p>Default: utf8mb4<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L12"><code>doctrine.dbal.connections.default.charset</code></a></p>
-<p>The character set used during the connection to the database.<br />
+<p>The character set used during the connection to the database.<br>
 This value is only used when using the following drivers:</p>
 <ul>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/3.9/reference/configuration.html#pdo-mysql">pdo_mysql</a></li>
@@ -361,10 +360,10 @@ This value is only used when using the following drivers:</p>
 <h5 id="example_7">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_CHARSET=utf8mb4</code></pre>
 <h4 id="pseudify_database_version">PSEUDIFY_DATABASE_VERSION</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L13"><code>doctrine.dbal.connections.default.server_version</code></a></p>
-<p>Doctrine comes with different database platform implementations for some vendors to support version-specific features, dialects and behaviours.<br />
-The drivers automatically detect the platform version and instantiate the appropriate platform class.<br />
+<p>Doctrine comes with different database platform implementations for some vendors to support version-specific features, dialects and behaviours.<br>
+The drivers automatically detect the platform version and instantiate the appropriate platform class.<br>
 If you want to disable automatic database platform detection and explicitly select the platform version implementation, you can do this with the value in <code>PSEUDIFY_DATABASE_VERSION</code>.  </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -373,7 +372,7 @@ If you want to disable automatic database platform detection and explicitly sele
 <h5 id="example_8">Example</h5>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_VERSION=8.0</code></pre>
 <h4 id="pseudify_database_ssl_insecure">PSEUDIFY_DATABASE_SSL_INSECURE</h4>
-<p>Default: &lt;empty&gt;<br />
+<p>Default: &lt;empty&gt;<br>
 Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L15"><code>doctrine.dbal.connections.default.options.TrustServerCertificate</code></a></p>
 <p>If the value of <code>PSEUDIFY_DATABASE_SSL_INSECURE</code> is set to <code>1</code>, no check of the TLS certificate of the database server is performed.</p>
 <p>This value is only used when using the following drivers:</p>
@@ -383,7 +382,7 @@ Resolves to connection parameter: <a href="https://github.com/waldhacker/pseudif
 </ul>
 <pre class="highlight"><code class="language-shell">PSEUDIFY_DATABASE_SSL_INSECURE=1</code></pre>
 <h3 id="advanced-connection-settings">Advanced connection settings</h3>
-<p>If you need to configure other driver options, you can do so in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/config/configuration.yaml#L8"><code>userdata/config/configuration.yaml</code></a>.<br />
+<p>If you need to configure other driver options, you can do so in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/config/configuration.yaml#L8"><code>userdata/config/configuration.yaml</code></a>.<br>
 Examples and information for driver options can be found in the following documents:</p>
 <ul>
 <li><a href="https://symfony.com/doc/6.4/reference/configuration/doctrine.html#doctrine-dbal-configuration">Symfony DoctrineBundle - Doctrine DBAL Configuration</a></li>
@@ -392,8 +391,8 @@ Examples and information for driver options can be found in the following docume
 <p>After changes of the connection settings, the cache must be cleared </p>
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <h4 id="multiple-connection-configurations">Multiple connection configurations</h4>
-<p>It is possible to configure multiple connections.<br />
-The <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L4">connection named <code>default</code></a> is used as the default connection.<br />
+<p>It is possible to configure multiple connections.<br>
+The <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml#L4">connection named <code>default</code></a> is used as the default connection.<br>
 In the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/config/configuration.yaml#L8"><code>userdata/config/configuration.yaml</code></a> further connections can be configured under a different name.</p>
 <pre class="highlight"><code class="language-yaml">doctrine:
   dbal:
@@ -440,17 +439,17 @@ In the install package file <a href="https://github.com/waldhacker/pseudify-ai/b
 <p>After adding custom data types, the cache must be cleared. </p>
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <h3 id="registering-custom-faker-formatters">Registering custom faker formatters</h3>
-<p>The <a href="https://fakerphp.github.io/">FakerPHP/Faker component</a> comes with a lot of predefined formatters to generate various data formats.<br />
-If you want to use custom formatters, you can look at the implementation of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Faker/BobRossLipsumProvider.php">BobRossLipsumProvider</a> example.<br />
-The custom formatter must implement the interface <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Faker/FakeDataProviderInterface.php"><code>Waldhacker\Pseudify\Core\Faker\FakeDataProviderInterface</code></a> to be integrated into the system.<br />
+<p>The <a href="https://fakerphp.github.io/">FakerPHP/Faker component</a> comes with a lot of predefined formatters to generate various data formats.<br>
+If you want to use custom formatters, you can look at the implementation of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Faker/BobRossLipsumProvider.php">BobRossLipsumProvider</a> example.<br>
+The custom formatter must implement the interface <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Faker/FakeDataProviderInterface.php"><code>Waldhacker\Pseudify\Core\Faker\FakeDataProviderInterface</code></a> to be integrated into the system.<br>
 The best way to see how formatters can generate data is to look at <a href="https://github.com/FakerPHP/Faker/tree/v1.20.0/src/Faker/Provider">the providers in the FakerPHP/Faker project</a>.  </p>
 <p>After adding custom faker formatters, the cache must be cleared.  </p>
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <h3 id="registering-custom-decoders-encoders">Registering custom decoders / encoders</h3>
-<p>If you want to use custom decoders / encoders, you can see an implementation in the example of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Encoder/Rot13Encoder.php">Rot13Encoder</a>.<br />
-The custom decoder / encoder must implement the interface <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Processor/Encoder/EncoderInterface.php"><code>Waldhacker\Pseudify\Core\Processor\Encoder\EncoderInterface</code></a> to be integrated into the system.<br />
-The best way to see how decoders / encoders can decode and encode data is to look at <a href="https://github.com/waldhacker/pseudify-ai/tree/2.0.0/src/src/Processor/Encoder">the built-in decoders/encoders</a> like the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Processor/Encoder/Base64Encoder.php">Base64Encoder</a>.<br />
-If you want your decoder / encoder to be configurable via the GUI, your encoder / decoder must provide a form type that defines the configuration form.<br />
+<p>If you want to use custom decoders / encoders, you can see an implementation in the example of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Encoder/Rot13Encoder.php">Rot13Encoder</a>.<br>
+The custom decoder / encoder must implement the interface <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Processor/Encoder/EncoderInterface.php"><code>Waldhacker\Pseudify\Core\Processor\Encoder\EncoderInterface</code></a> to be integrated into the system.<br>
+The best way to see how decoders / encoders can decode and encode data is to look at <a href="https://github.com/waldhacker/pseudify-ai/tree/2.0.0/src/src/Processor/Encoder">the built-in decoders/encoders</a> like the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Processor/Encoder/Base64Encoder.php">Base64Encoder</a>.<br>
+If you want your decoder / encoder to be configurable via the GUI, your encoder / decoder must provide a form type that defines the configuration form.<br>
 Look at the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Processor/Encoder/Base64Encoder.php#L101">Base64Encoder</a> which provides the <a href="http://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/src/Gui/Form/ProfileDefinition/Column/Encoder/Base64EncoderType.php#L40">Base64EncoderType</a> to get an idea how to provide a configuration form.  </p>
 <p>Additional information for user-defined form types can be found in the following document:</p>
 <ul>
@@ -460,22 +459,22 @@ Look at the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/sr
 <pre class="highlight"><code class="language-shell">pseudify cache:clear</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>User-defined decoders / encoders should follow the <code>&lt;Format&gt;Encoder</code> naming convention (e.g. <code>HexEncoder</code>, <code>Rot13Encoder</code> etc.).<br />
+<p>User-defined decoders / encoders should follow the <code>&lt;Format&gt;Encoder</code> naming convention (e.g. <code>HexEncoder</code>, <code>Rot13Encoder</code> etc.).<br>
 This ensures that debug commands like <code>pseudify:debug:analyse</code> can represent the names of the decoders / encoders well.  </p>
 </div>
 <h3 id="register-custom-condition-expressions">Register custom condition expressions</h3>
-<p>If you want to use custom condition expressions, you can see an implementation in the example of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Processing/ConditionExpressionProvider.php#L34-L41">ConditionExpressionProvider</a>.<br />
+<p>If you want to use custom condition expressions, you can see an implementation in the example of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/src/Processing/ConditionExpressionProvider.php#L34-L41">ConditionExpressionProvider</a>.<br>
 You need to define an description and an <a href="https://symfony.com/doc/6.4/components/expression_language.html#registering-functions"><code>Symfony\Component\ExpressionLanguage\ExpressionFunction</code></a> implementation which implements the <code>evaluator</code>.</p>
 <p>Additional information for user-defined expressions can be found in the following document:</p>
 <ul>
 <li><a href="https://symfony.com/doc/6.4/components/expression_language.html#extending-the-expressionlanguage">Symfony ExpressionLanguage - Extending the ExpressionLanguage</a></li>
 </ul>
 <h2 id="manage-database-access">Manage database access</h2>
-<p>Database access can be managed in various ways.<br />
+<p>Database access can be managed in various ways.<br>
 Some variants are presented below.  </p>
 <h3 id="access-a-database-running-on-your-host-system">Access a database running on your host system</h3>
 <h4 id="pseudify-is-running-as-a-standalone-binary-pseudonymization-setup">Pseudify is running as a standalone binary (<code>pseudonymization setup</code>)</h4>
-<p>Add the parameter <code>--add-host=host.docker.internal:host-gateway</code> to the <code>docker run</code> command.<br />
+<p>Add the parameter <code>--add-host=host.docker.internal:host-gateway</code> to the <code>docker run</code> command.<br>
 The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to <code>host.docker.internal</code>.   </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -498,8 +497,8 @@ The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a hr
 <h4 id="pseudify-is-running-as-a-standalone-binary-pseudonymization-setup_1">pseudify is running as a standalone binary (<code>pseudonymization setup</code>)</h4>
 <p><a href="https://docs.docker.com/engine/reference/commandline/network_create/">Create a docker network</a> with the name <code>pseudify-net</code> (if none already exists):</p>
 <pre class="highlight"><code class="language-shell">$ docker network create pseudify-net</code></pre>
-<p>Start a database server using the network <code>pseudify-net</code> (<code>--network pseudify-net</code>).<br />
-The database container is given the name <code>mariadb_10_5</code> (<code>--name mariadb_10_5</code>).<br />
+<p>Start a database server using the network <code>pseudify-net</code> (<code>--network pseudify-net</code>).<br>
+The database container is given the name <code>mariadb_10_5</code> (<code>--name mariadb_10_5</code>).<br>
 Therefore the option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to <code>mariadb_10_5</code>.   </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -518,7 +517,7 @@ Therefore the option <code>PSEUDIFY_DATABASE_HOST</code> in the install package 
 <pre class="highlight"><code class="language-shell">$ docker run --rm -it --add-host=host.docker.internal:host-gateway -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
     ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:debug:table_schema</code></pre>
 <h4 id="pseudify-is-running-using-docker-compose-analyze-setup_1">pseudify is running using docker compose (<code>analyze setup</code>)</h4>
-<p>You can use the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml">docker-compose.database.yml</a> and adapt it to your needs.<br />
+<p>You can use the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml">docker-compose.database.yml</a> and adapt it to your needs.<br>
 The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/.env">userdata/.env</a> must be set to database <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/docker-compose.database.yml#L7">service name</a> like <code>mariadb_10_5</code>.   </p>
 <p>Then start pseudify like:</p>
 <pre class="highlight"><code class="language-shell">$ docker compose -f docker-compose.yml -f docker-compose.database.yml up -d</code></pre>
@@ -538,7 +537,7 @@ The option <code>PSEUDIFY_DATABASE_HOST</code> in the install package file <a hr
 <li>information about the doctrine driver implementations used and the system driver used (<code>Connection details</code>).</li>
 </ul>
 <h3 id="debugconfig-doctrinebundle">debug:config DoctrineBundle</h3>
-<p>The command lists the combined database configuration, which consists of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml">core configuration</a><br />
+<p>The command lists the combined database configuration, which consists of the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/src/config/packages/doctrine.yaml">core configuration</a><br>
 and the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/config/configuration.yaml">user-defined configuration from the install package</a>.</p>
 <h3 id="debugdotenv">debug:dotenv</h3>
 <p>The command lists the values from the <code>.env</code> file.</p>
@@ -550,7 +549,7 @@ and the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/c
         <a href="../../usage/" class="btn btn-neutral float-right" title="Analyse and pseudonymize the database">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
-  <hr/>
+  <hr>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
@@ -575,10 +574,10 @@ and the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/c
         </span>
     
     
-      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../installation/" style="color: #fcfcfc">« Previous</a></span>
     
     
-      <span><a href="../../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../usage/" style="color: #fcfcfc">Next »</a></span>
     
   </span>
 </div>
@@ -593,6 +592,7 @@ and the <a href="https://github.com/waldhacker/pseudify-ai/blob/2.0.0/userdata/c
         });
     </script>
 
+
+
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
-</html>
+</script></body></html>
