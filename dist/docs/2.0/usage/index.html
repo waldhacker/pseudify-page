@@ -138,6 +138,8 @@
     </li>
     <li class="toctree-l5"><a class="reference internal" href="#the-scope-option">The scope option</a>
     </li>
+    <li class="toctree-l5"><a class="reference internal" href="#the-unique-option">The unique option</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#empty-all-column-records">Empty all column records</a>
@@ -461,6 +463,20 @@ A new pseudonymisation of the original database using <code>pseudify pseudify:ps
 </ol>
 <p>If for some reason you want to change this behaviour, you can define the option <code>scope</code>.<br>
 With this option you can instruct pseudify to create different pseudonyms per <code>scope</code> for the same input data.  </p>
+<h5 id="the-unique-option">The <code>unique</code> option</h5>
+<p>By default, when the property <code>unique</code> is omitted or set to <code>false</code>, a pseudonymisation run keeps the established same-input→same-output behaviour described under <a href="#the-scope-option"><code>scope</code></a>.<br>
+Different original values may still receive the same fake value. That is usually fine.<br>
+It becomes a problem when the target database column has a <code>UNIQUE</code> constraint (for example an email column), because colliding fake values then make the update fail.</p>
+<p>When you set <code>unique: true</code> on a meaning's <code>property</code>, pseudify still maps the same input to the same output within one run.<br>
+In addition, different original values that use the same meaning setup receive distinct fake values.<br>
+The same meaning setup means the same <code>scope</code>, the same faker formatter (<code>type</code>), and the same formatter arguments.<br>
+If two meanings differ in any of these parts, each keeps its own set of distinct fake values.</p>
+<p>For example, with <code>unique: true</code> and <code>type: safeEmail</code>, the original addresses <code>alice@example.com</code> and <code>bob@example.com</code> become two different fake addresses in the same run, while every further occurrence of <code>alice@example.com</code> keeps the same fake address that was chosen for Alice.</p>
+<p>In a YAML profile the property looks like this:</p>
+<pre class="highlight"><code class="language-yaml">property:
+  type: safeEmail
+  unique: true</code></pre>
+<p>In the profile UI you can enable the same behaviour with the switch on the meaning property.</p>
 <h4 id="empty-all-column-records">Empty all column records</h4>
 <p>If this option is activated, all records in this column are set to the default value of the column during pseudonymization.<br>
 In this case, all encodings and meanings have no function and are ignored.  </p>
@@ -560,7 +576,7 @@ However, <code>--dry-run</code> additionally lists the name of the <a href="http
 <li><code>--connection &lt;connection-name&gt;</code>: Read <a href="../setup/configuration/#multiple-connection-configurations">Multiple connection configurations</a></li>
 </ul>
 <h5 id="parallel-execution">Parallel execution</h5>
-<p>If your database is very large, you can speed up the pseudonymization process by performing it in parallel with the option <code>--parallel</code>.</p>
+<p>If your database is very large, you can speed up the pseudonymization process by performing it in parallel with the option <code>--parallel</code>.  </p>
 <pre class="highlight"><code class="language-shell">$ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
     ghcr.io/waldhacker/pseudify-ai:2.0 pseudify:pseudonymize test-profile --parallel</code></pre>
 <p>It is not possible to say in general whether serial or parallel processing is faster. You have to try it out.<br>

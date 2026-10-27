@@ -366,6 +366,29 @@ This ensures two things:
 If for some reason you want to change this behaviour, you can define the option `scope`.  
 With this option you can instruct pseudify to create different pseudonyms per `scope` for the same input data.  
 
+##### The `unique` option
+
+By default, when the property `unique` is omitted or set to `false`, a pseudonymisation run keeps the established same-input→same-output behaviour described under [`scope`](#the-scope-option).  
+Different original values may still receive the same fake value. That is usually fine.  
+It becomes a problem when the target database column has a `UNIQUE` constraint (for example an email column), because colliding fake values then make the update fail.
+
+When you set `unique: true` on a meaning's `property`, pseudify still maps the same input to the same output within one run.  
+In addition, different original values that use the same meaning setup receive distinct fake values.  
+The same meaning setup means the same `scope`, the same faker formatter (`type`), and the same formatter arguments.  
+If two meanings differ in any of these parts, each keeps its own set of distinct fake values.
+
+For example, with `unique: true` and `type: safeEmail`, the original addresses `alice@example.com` and `bob@example.com` become two different fake addresses in the same run, while every further occurrence of `alice@example.com` keeps the same fake address that was chosen for Alice.
+
+In a YAML profile the property looks like this:
+
+```yaml
+property:
+  type: safeEmail
+  unique: true
+```
+
+In the profile UI you can enable the same behaviour with the switch on the meaning property.
+
 #### Empty all column records
 
 If this option is activated, all records in this column are set to the default value of the column during pseudonymization.  
@@ -497,7 +520,7 @@ You can test your pseudonymization without overwriting the data in the database.
 
 ##### Parallel execution
 
-If your database is very large, you can speed up the pseudonymization process by performing it in parallel with the option `--parallel`.
+If your database is very large, you can speed up the pseudonymization process by performing it in parallel with the option `--parallel`.  
 
 ```shell
 $ docker run --rm -it -v "$(pwd)/userdata/":/opt/pseudify/userdata/ \
