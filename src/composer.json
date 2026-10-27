@@ -28,7 +28,11 @@
         "symfony/yaml": "^6.4",
         "symplify/symfony-static-dumper": "^11.1",
         "twig/extra-bundle": "^3.8",
-        "twig/twig": "^3.8"
+        "twig/twig": "^3.8",
+        "symplify/autowire-array-parameter": "*",
+        "symplify/package-builder": "*",
+        "symplify/smart-file-system": "*",
+        "symplify/symplify-kernel": "*"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.41",
@@ -102,5 +106,49 @@
         "stan:gen-baseline": [
             "phpstan analyze --generate-baseline phpstan.baseline.neon"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/autowire-array-parameter",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "packages/easy-testing",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "packages/package-builder",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "packages/smart-file-system",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "packages/symfony-static-dumper",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "packages/symplify-kernel",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
 }
